@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+target 'CCFreshStoreApp' do
+	#Objective-C
+	pod 'AFNetworking', '~> 3.1.0'
+	pod 'FMDB', '~> 2.6.2'
+	pod 'Masonry', '~> 1.0.2'
+	pod 'MBProgressHUD', '~> 1.0.0'
+	pod 'MJRefresh', '~> 3.1.12'
+	pod 'SDWebImage', '~> 4.0.0'
+	pod 'TZImagePickerController', '~> 1.7.8'
+end
