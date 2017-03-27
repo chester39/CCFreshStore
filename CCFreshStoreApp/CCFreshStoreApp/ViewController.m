@@ -5,6 +5,7 @@
 //
 
 #import "ViewController.h"
+#import "Const.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,9 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = [UIColor redColor];
+    printf("%lf\n", kViewEdge);
+
 }
 
 
