@@ -1,9 +1,7 @@
 //
 //  Const.h
-//  CCFreshStoreApp
-//
-//  Created by Chester Chen on 2017/3/27.
-//  Copyright © 2017年 Chen Chen. All rights reserved.
+//      CCFreshStoreApp
+//      Chen Chen @ March 27th, 2017
 //
 
 #import <UIKit/UIKit.h>
