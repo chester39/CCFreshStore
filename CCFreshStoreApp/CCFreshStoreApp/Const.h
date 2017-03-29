@@ -5,6 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+CCTools.h"
 
 #ifndef Const_h
 #define Const_h
@@ -41,5 +42,8 @@ static const CGFloat kTopHeight = 64;
 #define kAvailableHeight = (kScreenHeight - kTopHeight)
 /// 键盘高度: 238
 static const CGFloat kKeyboardHeight = 238;
+
+UIColor *VistorBackgroundColor = [[UIColor alloc] initWithHex:0xE8E8E8 alpha:1.0];
+
 
 #endif /* Const_h */

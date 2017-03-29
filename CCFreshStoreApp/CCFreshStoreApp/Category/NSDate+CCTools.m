@@ -1,12 +1,12 @@
 //
-//  NSDate+CCExtension.m
+//  NSDate+CCTools.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "NSDate+CCExtension.h"
+#import "NSDate+CCTools.h"
 
-@implementation NSDate (CCExtension)
+@implementation NSDate (CCTools)
 
 /**
  *  字符串创建日期方法

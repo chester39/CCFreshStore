@@ -1,12 +1,12 @@
 //
-//  NSString+CCExtension.m
+//  NSString+CCTools.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "NSString+CCExtension.h"
+#import "NSString+CCTools.h"
 
-@implementation NSString (CCExtension)
+@implementation NSString (CCTools)
 
 /**
  *  获取缓存目录方法
@@ -53,9 +53,9 @@
     if (length > 5) {
         float oldNumber = [self floatValue] / 1000;
         float newNumber = lroundf(oldNumber);
-        NSString *newString = [NSString stringWithFormat:@"%lf k", newNumber];
+        NSString *newString = [NSString stringWithFormat:@"%lf", newNumber];
         
-        return newString;
+        return [newString stringByAppendingString:@"k"];
         
     } else {
         return self;

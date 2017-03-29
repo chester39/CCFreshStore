@@ -1,12 +1,12 @@
 //
-//  NSDate+CCExtension.h
+//  NSDate+CCTools.h
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (CCExtension)
+@interface NSDate (CCTools)
 
 /**
  *  字符串创建日期方法

@@ -1,5 +1,5 @@
 //
-//  NSString+CCExtension.h
+//  NSString+CCTools.h
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NSString (CCExtension)
+@interface NSString (CCTools)
 
 /**
  *  获取缓存目录方法

@@ -1,12 +1,12 @@
 //
-//  NSMutableAttributedString+CCExtension.m
+//  NSMutableAttributedString+CCTools.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "NSMutableAttributedString+CCExtension.h"
+#import "NSMutableAttributedString+CCTools.h"
 
-@implementation NSMutableAttributedString (CCExtension)
+@implementation NSMutableAttributedString (CCTools)
 
 /**
  *  改变部分文字颜色方法
