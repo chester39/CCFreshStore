@@ -9,23 +9,55 @@
 @implementation UIColor (CCTools)
 
 /**
- *  十六进制颜色便利初始化方法
+ *  十六进制颜色初始化方法
  */
-- (instancetype)initWithHex:(int)hex {
++ (UIColor *)colorWithHexString:(NSString *)hex {
     
-    self = [[UIColor alloc] initWithHex:hex alpha:1.0];
-    
-    return self;
+    return [UIColor colorWithHexString:hex alpha:1.0];
 }
 
 /**
- *  十六进制透明度颜色便利初始化方法
+ *  十六进制透明度和颜色初始化方法
  */
-- (instancetype)initWithHex:(int)hex alpha:(CGFloat)alpha {
++ (UIColor *)colorWithHexString:(NSString *)hex alpha:(CGFloat)alpha {
     
-    self = [[UIColor alloc] initWithRed:(CGFloat)((hex & 0xFF0000) >> 16) / 255.0 green:(CGFloat)((hex & 0x00FF00) >> 8) / 255.0 blue:(CGFloat)((hex & 0x0000FF) >> 0) / 255.0 alpha:alpha];
+    NSString *colorString = [hex stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]].uppercaseString;
     
-    return self;
+    if (colorString.length < 6) {
+        return [UIColor clearColor];
+    }
+    
+    if ([colorString hasPrefix:@"#"]) {
+        colorString = [colorString substringFromIndex:1];
+        
+    } else if ([colorString hasPrefix:@"0x"]) {
+        colorString = [colorString substringFromIndex:2];
+    }
+    
+    if (colorString.length != 6) {
+        return [UIColor clearColor];
+    }
+    
+    NSRange range = NSMakeRange(0, 2);
+    NSString *redString = [colorString substringWithRange:range];
+    range.location = 2;
+    NSString *greenString = [colorString substringWithRange:range];
+    range.location = 4;
+    NSString *blueString = [colorString substringWithRange:range];
+    
+    NSScanner *scanner = [NSScanner scannerWithString:redString];
+    UInt32 red = 0;
+    UInt32 green = 0;
+    UInt32 blue = 0;
+    
+    [scanner scanHexInt:&red];
+    scanner = [NSScanner scannerWithString:greenString];
+    [scanner scanHexInt:&green];
+    scanner = [NSScanner scannerWithString:blueString];
+    [scanner scanHexInt:&blue];
+    
+    UIColor *color = [UIColor colorWithRed:(CGFloat)(red) / 255.0 green:(CGFloat)(green) / 255.0 blue:(CGFloat)(blue) / 255.0 alpha:alpha];
+    return color;
 }
 
 @end

@@ -30,6 +30,7 @@
     
     if ((red + blue + green) < 382) {
         return false;
+        
     } else {
         return true;
     }

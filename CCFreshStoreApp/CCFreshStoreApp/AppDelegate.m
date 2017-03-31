@@ -5,7 +5,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Const.h"
 #import "ViewController.h"
+#import "WebViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,11 +20,13 @@
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window = [[UIWindow alloc] initWithFrame:kScreenFrame];
+    self.window.backgroundColor = kCommonLightColor;
     
-    ViewController *defaultViewController = [[ViewController alloc] init];
-    self.window.rootViewController = defaultViewController;
+    ViewController *defaultVC = [[ViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:defaultVC];
+    
+    self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -5,7 +5,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Const.h"
 
 @interface WebViewController : UIViewController
+
+/**
+ *  读取URL方法
+ */
+- (void)loadWithURLString:(NSString *)urlString;
 
 @end

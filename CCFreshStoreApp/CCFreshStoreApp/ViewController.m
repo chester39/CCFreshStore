@@ -6,6 +6,8 @@
 
 #import "ViewController.h"
 #import "Const.h"
+#import "WebViewController.h"
+
 
 @interface ViewController ()
 
@@ -17,9 +19,11 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
     printf("%lf\n", kViewEdge);
-
+    WebViewController *webVC = [[WebViewController alloc] init];
+    NSString *urlString = @"https://www.baidu.com/";
+    [webVC loadWithURLString:urlString];
+    [self.navigationController pushViewController:webVC animated:true];
 }
 
 

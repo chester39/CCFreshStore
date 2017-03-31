@@ -9,12 +9,12 @@
 @interface UIColor (CCTools)
 
 /**
- *  十六进制颜色便利初始化方法
+ *  十六进制颜色初始化方法
  */
-- (instancetype)initWithHex:(int)hex;
++ (UIColor *)colorWithHexString:(NSString *)hex;
 /**
- *  十六进制透明度颜色便利初始化方法
+ *  十六进制透明度和颜色初始化方法
  */
-- (instancetype)initWithHex:(int)hex alpha:(CGFloat)alpha;
++ (UIColor *)colorWithHexString:(NSString *)hex alpha:(CGFloat)alpha;
 
 @end

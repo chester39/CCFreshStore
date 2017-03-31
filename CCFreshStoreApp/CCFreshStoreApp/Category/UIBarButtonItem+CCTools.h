@@ -9,8 +9,8 @@
 @interface UIBarButtonItem (CCTools)
 
 /**
- *  指定图片和目标便利初始化方法
+ *  图片和目标和选择器初始化方法
  */
-- (instancetype)initWithImage:(NSString *)imageName target:(nullable id)target action:(nullable SEL)action;
++ (UIBarButtonItem *_Nonnull)barButtonItemWithImage:(NSString *_Nonnull)imageName target:(nullable id)target action:(nullable SEL)action;
 
 @end

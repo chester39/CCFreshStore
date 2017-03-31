@@ -9,9 +9,9 @@
 @interface UIButton (CCTools)
 
 /**
- *  图片和背景图片便利初始化方法
+ *  图片和背景图片初始化方法
  */
-- (instancetype)initWithImage:(NSString *)imageName backgroundImage:(NSString *)backgroundImageName;
++ (UIButton *_Nonnull)buttonWithImage:(NSString *_Nonnull)imageName backgroundImage:(NSString *_Nonnull)backgroundImageName;
 
 @end
 

@@ -29,7 +29,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSDate *nowDate = [NSDate date];
     NSTimeInterval time = [nowDate timeIntervalSinceDate:date];
-    NSString *dateString = [[NSString alloc] init];
+    NSString *dateString = @"";
     
     if (time > 0 && time <= 60) {
         dateString = @"刚刚";
@@ -44,7 +44,7 @@
         NSString *nowDayString = [formatter stringFromDate:nowDate];
         
         formatter.dateFormat = @"HH:mm";
-        if (dateDayString == nowDayString) {
+        if ([dateDayString isEqualToString:nowDayString]) {
             dateString = [NSString stringWithFormat:@"今天%@", [formatter stringFromDate:date]];
             
         } else {
@@ -56,7 +56,7 @@
         NSString *dateYearString = [formatter stringFromDate:date];
         NSString *nowYearString = [formatter stringFromDate:nowDate];
         
-        if (dateYearString == nowYearString) {
+        if ([dateYearString isEqualToString:nowYearString]) {
             formatter.dateFormat = @"MM-dd";
             dateString = [formatter stringFromDate:date];
             

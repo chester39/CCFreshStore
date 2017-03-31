@@ -10,17 +10,16 @@
 @implementation UILabel (CCTools)
 
 /**
- *  文字和字号和行数便利初始化方法
+ *  文字和字号和行数初始化方法
  */
-- (instancetype)initWithText:(NSString *)text fontSize:(CGFloat)fontSize lines:(NSInteger)lines {
++ (UILabel *_Nonnull)labelWithText:(NSString *_Nonnull)text fontSize:(CGFloat)fontSize lines:(NSInteger)lines {
     
-    self = [[UILabel alloc] init];
+    UILabel *label = [[UILabel alloc] init];
+    label.text = text;
+    label.font = [UIFont systemFontOfSize:fontSize];
+    label.numberOfLines = lines;
     
-    self.text = text;
-    self.font = [UIFont systemFontOfSize:fontSize];
-    self.numberOfLines = lines;
-    
-    return self;
+    return label;
 }
 
 @end

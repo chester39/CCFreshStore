@@ -9,27 +9,19 @@
 @implementation UIButton (CCTools)
 
 /**
- *  图片和背景图片便利初始化方法
+ *  图片和背景图片初始化方法
  */
-- (instancetype)initWithImage:(NSString *)imageName backgroundImage:(NSString *)backgroundImageName {
++ (UIButton *_Nonnull)buttonWithImage:(NSString *_Nonnull)imageName backgroundImage:(NSString *_Nonnull)backgroundImageName {
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:[imageName stringByAppendingString:@"_highlighted"]] forState:UIControlStateHighlighted];
     
-    self = [super init];
+    [button setBackgroundImage:[UIImage imageNamed:backgroundImageName] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:[backgroundImageName stringByAppendingString:@"_highlighted"]] forState:UIControlStateHighlighted];
     
-    if (self != nil) {
-        if (imageName != nil) {
-            [self setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-            [self setImage:[UIImage imageNamed:[imageName stringByAppendingString:@"_highlighted"]] forState:UIControlStateHighlighted];
-        }
-        
-        if (backgroundImageName != nil) {
-            [self setBackgroundImage:[UIImage imageNamed:backgroundImageName] forState:UIControlStateNormal];
-            [self setBackgroundImage:[UIImage imageNamed:[backgroundImageName stringByAppendingString:@"_highlighted"]] forState:UIControlStateHighlighted];
-        }
-        
-        [self sizeToFit];
-    }
-    
-    return self;
+    [button sizeToFit];
+    return button;
 }
 
 @end

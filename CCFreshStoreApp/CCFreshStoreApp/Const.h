@@ -43,7 +43,15 @@ static const CGFloat kTopHeight = 64;
 /// 键盘高度: 238
 static const CGFloat kKeyboardHeight = 238;
 
-UIColor *VistorBackgroundColor = [[UIColor alloc] initWithHex:0xE8E8E8 alpha:1.0];
+#pragma mark - 颜色常数
 
+/// App主颜色：0000FF
+#define kMainColor [UIColor colorWithHexString:@"#0000FF"]
+/// 通用浅颜色: White
+#define kCommonLightColor [UIColor whiteColor]
+/// 通用深颜色: Black
+#define kCommonDarkColor [UIColor whiteColor]
+/// 透明背景颜色: Clear
+#define kClearColor [UIColor clearColor]
 
 #endif /* Const_h */

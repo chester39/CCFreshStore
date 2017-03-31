@@ -228,6 +228,7 @@
 					86F5F0471E7E8B6E00069983 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 72SC2S8T6M;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -436,6 +437,7 @@
 			baseConfigurationReference = 6EFE9F1037C261D27434EC01 /* Pods-CCFreshStoreApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCFreshStoreApp/CCFreshStoreApp.entitlements;
 				DEVELOPMENT_TEAM = 72SC2S8T6M;
 				INFOPLIST_FILE = CCFreshStoreApp/Info.plist;
@@ -443,6 +445,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccss.CCFreshStoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -451,6 +455,7 @@
 			baseConfigurationReference = 5BABEC59049935BCE8ED0FD6 /* Pods-CCFreshStoreApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCFreshStoreApp/CCFreshStoreApp.entitlements;
 				DEVELOPMENT_TEAM = 72SC2S8T6M;
 				INFOPLIST_FILE = CCFreshStoreApp/Info.plist;
@@ -458,6 +463,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ccss.CCFreshStoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

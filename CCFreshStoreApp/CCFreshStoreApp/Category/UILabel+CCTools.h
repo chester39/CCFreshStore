@@ -10,8 +10,8 @@
 @interface UILabel (CCTools)
 
 /**
- *  文字和字号和行数便利初始化方法
+ *  文字和字号和行数初始化方法
  */
-- (instancetype)initWithText:(NSString *)text fontSize:(CGFloat)fontSize lines:(NSInteger)lines;
++ (UILabel *_Nonnull)labelWithText:(NSString *_Nonnull)text fontSize:(CGFloat)fontSize lines:(NSInteger)lines;
 
 @end
