@@ -8,6 +8,8 @@
 
 @implementation NSString (CCTools)
 
+#pragma mark - 工具方法
+
 /**
  *  获取缓存目录方法
  */
@@ -60,6 +62,17 @@
     } else {
         return self;
     }
+}
+
+/**
+ *  获取文本尺寸方法
+ */
+- (CGSize)textSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
+    
+    NSDictionary *dict = @{NSFontAttributeName:font};
+    CGSize textSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+    
+    return textSize;
 }
 
 @end
