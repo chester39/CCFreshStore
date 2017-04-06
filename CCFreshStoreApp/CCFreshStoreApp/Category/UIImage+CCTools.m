@@ -97,17 +97,18 @@
     CGFloat originWidth = originImage.size.width + borderWidth * 2;
     CGFloat originHeight = originImage.size.height + borderWidth * 2;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(originWidth, originHeight), NO, 0);
-    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+    CGContextRef context = UIGraphicsGetCurrentContext();
     [borderColor set];
     
     CGFloat bigRadius = originWidth * 0.5;
     CGFloat centerX = bigRadius;
     CGFloat centerY = bigRadius;
-    CGContextAddArc(contextRef, centerX, centerY, bigRadius, 0, M_PI * 2, 0);
-    CGContextFillPath(contextRef);
+    CGContextAddArc(context, centerX, centerY, bigRadius, 0, M_PI * 2, 0);
+    CGContextFillPath(context);
+    
     CGFloat smallRadius = bigRadius - borderWidth;
-    CGContextAddArc(contextRef, centerX, centerY, smallRadius, 0, M_PI * 2, 0);
-    CGContextClip(contextRef);
+    CGContextAddArc(context, centerX, centerY, smallRadius, 0, M_PI * 2, 0);
+    CGContextClip(context);
     [originImage drawInRect:CGRectMake(borderWidth, borderWidth, originImage.size.width, originImage.size.height)];
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -137,18 +138,19 @@
     
     CGFloat rowWidth = view.frame.size.width;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(rowWidth, rowHeight), NO, 0);
-    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+    CGContextRef context = UIGraphicsGetCurrentContext();
     [rowColor set];
     
-    CGContextAddRect(contextRef, CGRectMake(0, 0, rowWidth, rowHeight));
-    CGContextFillPath(contextRef);
+    CGContextAddRect(context, CGRectMake(0, 0, rowWidth, rowHeight));
+    CGContextFillPath(context);
     [lineColor set];
-    CGContextSetLineWidth(contextRef, lineWidth);
+    CGContextSetLineWidth(context, lineWidth);
+    
     CGFloat dividerX = 0;
     CGFloat dividerY = rowHeight - lineWidth;
-    CGContextMoveToPoint(contextRef, dividerX, dividerY);
-    CGContextAddLineToPoint(contextRef, rowWidth - dividerX, dividerY);
-    CGContextStrokePath(contextRef);
+    CGContextMoveToPoint(context, dividerX, dividerY);
+    CGContextAddLineToPoint(context, rowWidth - dividerX, dividerY);
+    CGContextStrokePath(context);
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

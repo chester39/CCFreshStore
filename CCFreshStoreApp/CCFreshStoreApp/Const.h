@@ -46,7 +46,7 @@ static const CGFloat kKeyboardHeight = 238;
 #pragma mark - 颜色常数
 
 /// App主颜色：0000FF
-#define kMainColor [UIColor colorWithHexString:@"#0000FF"]
+#define kMainColor [UIColor colorWithHexString:@"#157EFB"]
 /// 通用浅颜色: White
 #define kCommonLightColor [UIColor whiteColor]
 /// 通用深颜色: Black

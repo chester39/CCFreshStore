@@ -21,7 +21,7 @@
     
     printf("%lf\n", kViewEdge);
     WebViewController *webVC = [[WebViewController alloc] init];
-    NSString *urlString = @"https://www.baidu.com/";
+    NSString *urlString = @"https://chesterhupu.kuaizhan.com/";
     [webVC loadWithURLString:urlString];
     [self.navigationController pushViewController:webVC animated:true];
 }

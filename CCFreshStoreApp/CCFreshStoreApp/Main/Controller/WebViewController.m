@@ -131,6 +131,8 @@ NSString *const estimatedProgress = @"estimatedProgress";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self setupUI];
 }
 
 /**
@@ -138,8 +140,8 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if (object == self.webView && [keyPath isEqualToString:@"estimatedProgress"]) {
-        float new = [change[NSKeyValueChangeNewKey] floatValue];
+    if (object == self.webView && [keyPath isEqualToString:estimatedProgress]) {
+        CGFloat new = [change[NSKeyValueChangeNewKey] floatValue];
         if (new == 1.0) {
             [self.webProgressView setProgress:1.0 animated:false];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC));
@@ -190,7 +192,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
     if (self.webView.canGoBack) {
         [self.webView goBack];
         [self.closeItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} forState:UIControlStateNormal];
-        self.navigationItem .leftBarButtonItems = @[self.backItem, self.closeItem];
+        self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
 
     } else {
         [self closeItemDidClick];
