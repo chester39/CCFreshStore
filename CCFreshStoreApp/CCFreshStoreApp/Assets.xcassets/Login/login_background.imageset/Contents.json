@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "GIF.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "login_background@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "login_background@3x.jpg",
       "scale" : "3x"
     }
   ],

@@ -5,7 +5,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Const.h"
 
 @interface WebViewController : UIViewController
 

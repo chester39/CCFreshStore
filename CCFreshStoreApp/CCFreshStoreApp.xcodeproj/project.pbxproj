@@ -12,6 +12,9 @@
 		2533B76A1E8A407E00E5F20A /* NSDate+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B7691E8A407E00E5F20A /* NSDate+CCTools.m */; };
 		2533B76D1E8A68C900E5F20A /* NSMutableAttributedString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B76C1E8A68C900E5F20A /* NSMutableAttributedString+CCTools.m */; };
 		2533B7701E8A6D4800E5F20A /* NSString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B76F1E8A6D4800E5F20A /* NSString+CCTools.m */; };
+		8635D8671E9A0170005310EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8641E9A0170005310EC /* LoginViewController.m */; };
+		8635D86A1E9A22A0005310EC /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8691E9A22A0005310EC /* UserModel.m */; };
+		8635D86D1E9A2AD4005310EC /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D86C1E9A2AD4005310EC /* LoginView.m */; };
 		863DFDDC1E8AB74300A515F2 /* UIButton+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 863DFDDB1E8AB74300A515F2 /* UIButton+CCTools.m */; };
 		863DFDDF1E8ABAC200A515F2 /* UIBarButtonItem+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 863DFDDE1E8ABAC200A515F2 /* UIBarButtonItem+CCTools.m */; };
 		863DFDE51E8ABE7800A515F2 /* UIColor+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 863DFDE41E8ABE7800A515F2 /* UIColor+CCTools.m */; };
@@ -21,7 +24,7 @@
 		86579BBC1E8C13B000BF4569 /* UIWindow+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 86579BBB1E8C13B000BF4569 /* UIWindow+CCTools.m */; };
 		86F5F04D1E7E8B6E00069983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04C1E7E8B6E00069983 /* main.m */; };
 		86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04F1E7E8B6E00069983 /* AppDelegate.m */; };
-		86F5F0531E7E8B6E00069983 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F0521E7E8B6E00069983 /* ViewController.m */; };
+		86F5F0531E7E8B6E00069983 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F0521E7E8B6E00069983 /* TestViewController.m */; };
 		86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5F0571E7E8B6E00069983 /* Assets.xcassets */; };
 		8E26842C029DDFD6A7B8368E /* libPods-CCFreshStoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,12 @@
 		2533B76F1E8A6D4800E5F20A /* NSString+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTools.m"; sourceTree = "<group>"; };
 		5BABEC59049935BCE8ED0FD6 /* Pods-CCFreshStoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		6EFE9F1037C261D27434EC01 /* Pods-CCFreshStoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8635D8631E9A0170005310EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8635D8641E9A0170005310EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8635D8681E9A22A0005310EC /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		8635D8691E9A22A0005310EC /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		8635D86B1E9A2AD4005310EC /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		8635D86C1E9A2AD4005310EC /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		863DFDD91E895EE200A515F2 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		863DFDDA1E8AB74300A515F2 /* UIButton+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CCTools.h"; sourceTree = "<group>"; };
 		863DFDDB1E8AB74300A515F2 /* UIButton+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CCTools.m"; sourceTree = "<group>"; };
@@ -58,8 +67,8 @@
 		86F5F04C1E7E8B6E00069983 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86F5F04E1E7E8B6E00069983 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86F5F04F1E7E8B6E00069983 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		86F5F0511E7E8B6E00069983 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		86F5F0521E7E8B6E00069983 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		86F5F0511E7E8B6E00069983 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		86F5F0521E7E8B6E00069983 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		86F5F0571E7E8B6E00069983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F5F05C1E7E8B6E00069983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86F5F0621E7E8B7C00069983 /* CCFreshStoreApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCFreshStoreApp.entitlements; sourceTree = "<group>"; };
@@ -149,6 +158,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8635D8611E9A0170005310EC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8635D8621E9A0170005310EC /* Controller */,
+				8635D8651E9A0170005310EC /* Model */,
+				8635D8661E9A0170005310EC /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8635D8621E9A0170005310EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8635D8631E9A0170005310EC /* LoginViewController.h */,
+				8635D8641E9A0170005310EC /* LoginViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8635D8651E9A0170005310EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8635D8681E9A22A0005310EC /* UserModel.h */,
+				8635D8691E9A22A0005310EC /* UserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8635D8661E9A0170005310EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8635D86B1E9A2AD4005310EC /* LoginView.h */,
+				8635D86C1E9A2AD4005310EC /* LoginView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		86F5F03F1E7E8B6E00069983 = {
 			isa = PBXGroup;
 			children = (
@@ -175,9 +221,10 @@
 				86F5F04F1E7E8B6E00069983 /* AppDelegate.m */,
 				863DFDD91E895EE200A515F2 /* Const.h */,
 				2533B75E1E8A3F8D00E5F20A /* Category */,
+				8635D8611E9A0170005310EC /* Login */,
 				2533B75F1E8A3F8D00E5F20A /* Main */,
-				86F5F0511E7E8B6E00069983 /* ViewController.h */,
-				86F5F0521E7E8B6E00069983 /* ViewController.m */,
+				86F5F0511E7E8B6E00069983 /* TestViewController.h */,
+				86F5F0521E7E8B6E00069983 /* TestViewController.m */,
 				86F5F0571E7E8B6E00069983 /* Assets.xcassets */,
 				86F5F05C1E7E8B6E00069983 /* Info.plist */,
 				86F5F04B1E7E8B6E00069983 /* Supporting Files */,
@@ -323,16 +370,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86F5F0531E7E8B6E00069983 /* ViewController.m in Sources */,
+				86F5F0531E7E8B6E00069983 /* TestViewController.m in Sources */,
 				2533B76D1E8A68C900E5F20A /* NSMutableAttributedString+CCTools.m in Sources */,
 				86579BB91E8C0CB700BF4569 /* UIView+CCTools.m in Sources */,
 				863DFDE51E8ABE7800A515F2 /* UIColor+CCTools.m in Sources */,
 				863DFDDF1E8ABAC200A515F2 /* UIBarButtonItem+CCTools.m in Sources */,
+				8635D86A1E9A22A0005310EC /* UserModel.m in Sources */,
 				86579BB61E8C0BE000BF4569 /* UILabel+CCTools.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,
+				8635D8671E9A0170005310EC /* LoginViewController.m in Sources */,
 				86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
 				86579BB31E8C079B00BF4569 /* UIImage+CCTools.m in Sources */,
+				8635D86D1E9A2AD4005310EC /* LoginView.m in Sources */,
 				2533B76A1E8A407E00E5F20A /* NSDate+CCTools.m in Sources */,
 				2533B7671E8A3F8D00E5F20A /* FoodModel.m in Sources */,
 				2533B7701E8A6D4800E5F20A /* NSString+CCTools.m in Sources */,

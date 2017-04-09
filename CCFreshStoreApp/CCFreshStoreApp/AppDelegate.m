@@ -6,7 +6,7 @@
 
 #import "AppDelegate.h"
 #import "Const.h"
-#import "ViewController.h"
+#import "TestViewController.h"
 #import "WebViewController.h"
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:kScreenFrame];
     self.window.backgroundColor = kCommonLightColor;
     
-    ViewController *defaultVC = [[ViewController alloc] init];
+    TestViewController *defaultVC = [[TestViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:defaultVC];
     
     self.window.rootViewController = nc;

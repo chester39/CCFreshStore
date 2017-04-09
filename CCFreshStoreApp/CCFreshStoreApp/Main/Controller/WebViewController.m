@@ -7,6 +7,8 @@
 #import "WebViewController.h"
 #import <WebKit/WebKit.h>
 
+#import "Const.h"
+
 NSString *const estimatedProgress = @"estimatedProgress";
 
 @interface WebViewController () <WKNavigationDelegate>
@@ -40,11 +42,10 @@ NSString *const estimatedProgress = @"estimatedProgress";
         _webView = [[WKWebView alloc] initWithFrame:kScreenFrame configuration:configuration];
         _webView.opaque = false;
         _webView.allowsBackForwardNavigationGestures = true;
-        _webView.scrollView.showsVerticalScrollIndicator = false;
+        _webView.scrollView.showsVerticalScrollIndicator = true;
         _webView.navigationDelegate = self;
         [_webView sizeToFit];
         [_webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
-        [self.view addSubview:_webView];
     }
     
     return _webView;
@@ -60,7 +61,6 @@ NSString *const estimatedProgress = @"estimatedProgress";
         _webProgressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
         _webProgressView.trackTintColor = kClearColor;
         _webProgressView.progressTintColor = kMainColor;
-        [self.view addSubview:_webProgressView];
     }
     
     return _webProgressView;
@@ -74,7 +74,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
     if (_backItem == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [button setImage:[UIImage imageNamed:@"backIcon"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"main_back"] forState:UIControlStateNormal];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:kMainColor forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -121,7 +121,6 @@ NSString *const estimatedProgress = @"estimatedProgress";
     
     [self.webView removeObserver:self forKeyPath:estimatedProgress];
 }
-
 
 #pragma mark - 系统方法
 
@@ -170,6 +169,8 @@ NSString *const estimatedProgress = @"estimatedProgress";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refreshItemDidClick)];
     
     self.view.backgroundColor = kCommonLightColor;
+    [self.view addSubview:self.webView];
+    [self.view addSubview:self.webProgressView];
 }
 
 /**
