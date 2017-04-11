@@ -35,14 +35,14 @@ NSString *const estimatedProgress = @"estimatedProgress";
     
     if (_webView == nil) {
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        configuration.allowsAirPlayForMediaPlayback = true;
-        configuration.allowsInlineMediaPlayback = true;
-        configuration.suppressesIncrementalRendering = true;
+        configuration.allowsAirPlayForMediaPlayback = YES;
+        configuration.allowsInlineMediaPlayback = YES;
+        configuration.suppressesIncrementalRendering = YES;
         
         _webView = [[WKWebView alloc] initWithFrame:kScreenFrame configuration:configuration];
-        _webView.opaque = false;
-        _webView.allowsBackForwardNavigationGestures = true;
-        _webView.scrollView.showsVerticalScrollIndicator = true;
+        _webView.opaque = NO;
+        _webView.allowsBackForwardNavigationGestures = YES;
+        _webView.scrollView.showsVerticalScrollIndicator = YES;
         _webView.navigationDelegate = self;
         [_webView sizeToFit];
         [_webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
@@ -142,16 +142,16 @@ NSString *const estimatedProgress = @"estimatedProgress";
     if (object == self.webView && [keyPath isEqualToString:estimatedProgress]) {
         CGFloat new = [change[NSKeyValueChangeNewKey] floatValue];
         if (new == 1.0) {
-            [self.webProgressView setProgress:1.0 animated:false];
+            [self.webProgressView setProgress:1.0 animated:NO];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                self.webProgressView.hidden = true;
-                [self.webProgressView setProgress:0.0 animated:false];
+                self.webProgressView.hidden = YES;
+                [self.webProgressView setProgress:0.0 animated:NO];
             });
             
         } else {
-            self.webProgressView.hidden = false;
-            [self.webProgressView setProgress:new animated:true];
+            self.webProgressView.hidden = NO;
+            [self.webProgressView setProgress:new animated:YES];
         }
     }
 }
@@ -163,6 +163,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)setupUI {
     
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20], NSForegroundColorAttributeName: kMainColor};
     self.navigationItem.title = @"";
     self.navigationItem.leftBarButtonItem = self.backItem;
@@ -205,7 +206,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)closeItemDidClick {
 
-    [self.navigationController popViewControllerAnimated:true];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
@@ -223,7 +224,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     
-    self.webProgressView.hidden = false;
+    self.webProgressView.hidden = NO;
 }
 
 /**

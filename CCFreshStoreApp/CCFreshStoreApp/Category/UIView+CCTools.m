@@ -13,7 +13,7 @@
  */
 - (CGFloat)acquireCachesSize {
     
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, true) lastObject];
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSArray *fileAttributes = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
     CGFloat size = 0;
     
@@ -32,7 +32,7 @@
  */
 - (void)clearCaches {
     
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, true) lastObject];
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSArray *fileAttributes = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
     for (NSString *fileName in fileAttributes) {
         NSString *path = [cachePath stringByAppendingPathComponent:fileName];
@@ -48,13 +48,13 @@
 - (UIImageView *)snapshotWithView {
     
     CGSize size = CGSizeMake(self.frame.size.width, self.frame.size.height - 1);
-    UIGraphicsBeginImageContextWithOptions(size, false, 0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.layer renderInContext:context];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIImageView *newImageView = [[UIImageView alloc] initWithImage:image];
-    newImageView.layer.masksToBounds = false;
+    newImageView.layer.masksToBounds = NO;
     newImageView.layer.cornerRadius = 0;
     newImageView.layer.shadowOffset = CGSizeMake(0, 0);
     newImageView.layer.shadowRadius = 5.0;

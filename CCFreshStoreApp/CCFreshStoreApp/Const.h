@@ -39,7 +39,7 @@ static const CGFloat kNavigationBarHeight = 44;
 /// 顶端高度: 64
 static const CGFloat kTopHeight = 64;
 /// 可用高度: 64
-#define kAvailableHeight = (kScreenHeight - kTopHeight)
+#define kAvailableHeight (kScreenHeight - kTopHeight)
 /// 键盘高度: 238
 static const CGFloat kKeyboardHeight = 238;
 
@@ -57,5 +57,12 @@ static const CGFloat kKeyboardHeight = 238;
 #define kAuxiliaryColor [UIColor colorWithHexString:@"#A5A5A5"]
 /// 字体灰色707070
 #define kTextGrayColor [UIColor colorWithHexString:@"#707070"]
+
+#pragma mark - Masonry常数
+
+/// 省略mas_前缀
+#define MAS_SHORTHAND
+/// 基础数据类型自动装箱
+#define MAS_SHORTHAND_GLOBALS
 
 #endif /* Const_h */

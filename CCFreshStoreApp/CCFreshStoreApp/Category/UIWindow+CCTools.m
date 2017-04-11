@@ -29,10 +29,10 @@
     [scanner scanHexInt:&blue];
     
     if ((red + blue + green) < 382) {
-        return false;
+        return NO;
         
     } else {
-        return true;
+        return YES;
     }
 }
 

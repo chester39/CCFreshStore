@@ -37,7 +37,7 @@
     
     if (_loginTestButton == nil) {
         _loginTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _loginTestButton.frame = CGRectMake(kViewStandard * 2, kViewStandard * 2, kViewStandard, kViewStandard);
+        _loginTestButton.frame = CGRectMake(kViewStandard, kViewStandard * 2, kViewStandard, kViewStandard);
         [_loginTestButton setTitle:@"登录测试" forState:UIControlStateNormal];
         [_loginTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
         [_loginTestButton setBackgroundColor:kAuxiliaryColor];
@@ -60,13 +60,13 @@
     WebViewController *webVC = [[WebViewController alloc] init];
     NSString *urlString = @"https://chesterhupu.kuaizhan.com/";
     [webVC loadWithURLString:urlString];
-    [self.navigationController pushViewController:webVC animated:true];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)loginButtonDidClick {
     
     LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [self.navigationController pushViewController:loginVC animated:true];
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 
 @end

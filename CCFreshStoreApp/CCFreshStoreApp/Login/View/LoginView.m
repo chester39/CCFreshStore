@@ -11,6 +11,8 @@
 
 @interface LoginView ()
 
+/// 背景图片视图
+@property (strong, nonatomic) UIImageView *backgroundView;
 /// 标志图片视图
 @property (strong, nonatomic) UIImageView *logoView;
 /// 容器视图
@@ -35,6 +37,20 @@
 @implementation LoginView
 
 #pragma mark - 初始化方法
+
+/**
+ *  背景图片视图惰性初始化方法
+ */
+- (UIImageView *)backgroundView {
+    
+    if (_backgroundView == nil) {
+        UIImage *image = [UIImage imageNamed:@"login_background"];
+        _backgroundView = [[UIImageView alloc] initWithImage:image];
+        _backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    
+    return _backgroundView;
+}
 
 /**
  *  标志图片视图惰性初始化方法
@@ -141,7 +157,7 @@
         [_loginButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
         [_loginButton setBackgroundColor:kMainColor];
         [_loginButton.layer setCornerRadius:4.0];
-        _loginButton.layer.masksToBounds = true;
+        _loginButton.layer.masksToBounds = YES;
     }
     
     return _loginButton;
@@ -198,8 +214,7 @@
  */
 - (void)setupUI {
     
-    UIColor *backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"login_background"]];
-    self.backgroundColor = backgroundColor;
+    [self addSubview:self.backgroundView];
     [self addSubview:self.logoView];
     [self addSubview:self.containerView];
     [self addSubview:self.userView];
@@ -216,12 +231,25 @@
  */
 - (void)setupConstraints {
  
-    [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@150);
-        make.height.equalTo(@50);
-        make.centerX.equalTo(self);
-        make.top.equalTo(self).with.offset(200);
+    [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
     }];
+    
+    [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(kViewDistance);
+        make.height.equalTo(kViewAdapter);
+        make.centerX.equalTo(self);
+        make.top.equalTo(self.top).with.offset(kViewMargin);
+    }];
+    
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@300);
+        make.height.equalTo(@300);
+        make.centerX.equalTo(self);
+        make.top.equalTo(self.logoView.bottom).with.offset(kViewMargin);
+    }];
+    
+    
 }
 
 @end

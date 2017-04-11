@@ -5,6 +5,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Const.h"
 #import "LoginView.h"
 
 @interface LoginViewController ()
@@ -17,6 +18,18 @@
 @implementation LoginViewController
 
 #pragma mark - 初始化方法
+
+/**
+ *  登录视图惰性初始化方法
+ */
+- (LoginView *)loginView {
+    
+    if (_loginView == nil) {
+        _loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, kTopHeight, kScreenWidth, kAvailableHeight)];
+    }
+    
+    return _loginView;
+}
 
 /**
  *  空初始化方法
@@ -40,7 +53,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
 }
 
 /**
@@ -48,7 +60,8 @@
  */
 - (void)setupUI {
     
-    self.view = self.loginView;
+    self.navigationController.navigationBar.translucent = NO;
+    [self.view addSubview:self.loginView];
 }
 
 @end

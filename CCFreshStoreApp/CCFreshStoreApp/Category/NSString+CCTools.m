@@ -15,7 +15,7 @@
  */
 - (NSString *)acquireCachesDirectory {
     
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, true) lastObject];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *name = [self lastPathComponent];
     NSString *filePath = [path stringByAppendingPathComponent:name];
     
@@ -27,7 +27,7 @@
  */
 - (NSString *)acquireDocumentDirectory {
     
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true) lastObject];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *name = [self lastPathComponent];
     NSString *filePath = [path stringByAppendingPathComponent:name];
     

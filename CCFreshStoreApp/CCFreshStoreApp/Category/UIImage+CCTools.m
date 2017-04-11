@@ -14,7 +14,7 @@
 - (UIImage *)tintImageWithColor:(UIColor *)color alpha:(CGFloat)alpha {
     
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
-    UIGraphicsBeginImageContextWithOptions(rect.size, true, self.scale);
+    UIGraphicsBeginImageContextWithOptions(rect.size, YES, self.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawInRect:rect];
     
@@ -36,7 +36,7 @@
 - (UIImage *)overlapImageWithColor:(UIColor *)color {
     
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
-    UIGraphicsBeginImageContextWithOptions(rect.size, false, 0);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     [color setFill];
     UIRectFill(rect);
     UIImage *colorImage = UIGraphicsGetImageFromCurrentImageContext();
