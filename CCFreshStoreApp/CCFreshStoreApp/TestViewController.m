@@ -23,7 +23,7 @@
     
     if (_webTestButton == nil) {
         _webTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _webTestButton.frame = CGRectMake(kViewStandard, kViewStandard, kViewStandard, kViewStandard);
+        _webTestButton.frame = CGRectMake(20, 150, 150, 150);
         [_webTestButton setTitle:@"网页测试" forState:UIControlStateNormal];
         [_webTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
         [_webTestButton setBackgroundColor:kAuxiliaryColor];
@@ -37,7 +37,7 @@
     
     if (_loginTestButton == nil) {
         _loginTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _loginTestButton.frame = CGRectMake(kViewStandard, kViewStandard * 2, kViewStandard, kViewStandard);
+        _loginTestButton.frame = CGRectMake(20, 350, 150, 150);
         [_loginTestButton setTitle:@"登录测试" forState:UIControlStateNormal];
         [_loginTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
         [_loginTestButton setBackgroundColor:kAuxiliaryColor];
