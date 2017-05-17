@@ -14,13 +14,13 @@ NSString *const estimatedProgress = @"estimatedProgress";
 @interface WebViewController () <WKNavigationDelegate>
 
 /// 网页视图
-@property (strong, nonatomic) WKWebView *webView;
+@property (nonatomic, strong) WKWebView *webView;
 /// 进度条
-@property (strong, nonatomic) UIProgressView *webProgressView;
+@property (nonatomic, strong) UIProgressView *webProgressView;
 /// 后退按钮
-@property (strong, nonatomic) UIBarButtonItem *backItem;
+@property (nonatomic, strong) UIBarButtonItem *backItem;
 /// 关闭按钮
-@property (strong, nonatomic) UIBarButtonItem *closeItem;
+@property (nonatomic, strong) UIBarButtonItem *closeItem;
 
 @end
 

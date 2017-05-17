@@ -11,7 +11,7 @@
 @interface LoginViewController ()
 
 /// 登录视图
-@property (strong, nonatomic) LoginView *loginView;
+@property (nonatomic, strong) LoginView *loginView;
 
 @end
 

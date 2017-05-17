@@ -9,14 +9,14 @@
 @interface UserModel : NSObject
 
 /// 用户账号
-@property (strong, nonatomic) NSString *userAccount;
+@property (nonatomic, strong) NSString *userAccount;
 /// 用户密码
-@property (strong, nonatomic) NSString *userPassword;
+@property (nonatomic, strong) NSString *userPassword;
 /// 用户ID
-@property (strong, nonatomic) NSString *userID;
+@property (nonatomic, strong) NSString *userID;
 /// 用户头像
-@property (strong, nonatomic) NSString *userAvatar;
+@property (nonatomic, strong) NSString *userAvatar;
 /// 用户昵称
-@property (strong, nonatomic) NSString *screenName;
+@property (nonatomic, strong) NSString *screenName;
 
 @end

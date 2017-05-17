@@ -35,10 +35,10 @@ static const CGFloat kUserViewTop = 30;
 static const CGFloat kUserViewLeft = 20;
 /// 密码图片视图高
 static const CGFloat kPasswordTop = 30;
-/// 用户文本框和密码文本框宽
-static const CGFloat kUserFieldAndPasswordFieldWidth = 200;
 /// 用户文本框和密码文本框高
 static const CGFloat kUserFieldAndPasswordFieldHeight = 40;
+/// 用户文本框右
+static const CGFloat kUserFieldRight = 20;
 /// 用户文本框左
 static const CGFloat kUserFieldLeft = 20;
 /// 用户分割线和密码分割线高
@@ -63,37 +63,37 @@ static const CGFloat kCornerRadius = 5;
 @interface LoginView ()
 
 /// 背景图片视图
-@property (strong, nonatomic) UIImageView *backgroundView;
+@property (nonatomic, strong) UIImageView *backgroundView;
 /// 标志图片视图
-@property (strong, nonatomic) UIImageView *logoView;
+@property (nonatomic, strong) UIImageView *logoView;
 /// 容器视图
-@property (strong, nonatomic) UIView *containerView;
+@property (nonatomic, strong) UIView *containerView;
 /// 标题按钮
-@property (strong, nonatomic) UIButton *titleButton;
+@property (nonatomic, strong) UIButton *titleButton;
 /// 用户图片视图
-@property (strong, nonatomic) UIImageView *userView;
+@property (nonatomic, strong) UIImageView *userView;
 /// 密码图片视图
-@property (strong, nonatomic) UIImageView *passwordView;
+@property (nonatomic, strong) UIImageView *passwordView;
 /// 用户文本框
-@property (strong, nonatomic) UITextField *userField;
+@property (nonatomic, strong) UITextField *userField;
 /// 密码文本框
-@property (strong, nonatomic) UITextField *passwordField;
+@property (nonatomic, strong) UITextField *passwordField;
 /// 用户分割线
-@property (strong, nonatomic) UIView *userLine;
+@property (nonatomic, strong) UIView *userLine;
 /// 密码分割线
-@property (strong, nonatomic) UIView *passwordLine;
+@property (nonatomic, strong) UIView *passwordLine;
 /// 登录按钮
-@property (strong, nonatomic) UIButton *loginButton;
+@property (nonatomic, strong) UIButton *loginButton;
 /// 忘记密码按钮
-@property (strong, nonatomic) UIButton *forgetButton;
+@property (nonatomic, strong) UIButton *forgetButton;
 /// 注册按钮
-@property (strong, nonatomic) UIButton *registerButton;
+@property (nonatomic, strong) UIButton *registerButton;
 
 @end
 
 @implementation LoginView
 
-#pragma mark - 初始化方法
+#pragma mark - 惰性初始化方法
 
 /**
  *  背景图片视图惰性初始化方法
@@ -302,6 +302,8 @@ static const CGFloat kCornerRadius = 5;
     return _registerButton;
 }
 
+#pragma mark - 初始化方法
+
 /**
  *  尺寸初始化方法
  */
@@ -383,17 +385,17 @@ static const CGFloat kCornerRadius = 5;
     }];
     
     [self.userField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(kUserFieldAndPasswordFieldWidth);
         make.height.equalTo(kUserFieldAndPasswordFieldHeight);
         make.centerY.equalTo(self.userView);
         make.left.equalTo(self.userView.right).with.offset(kUserFieldLeft);
+        make.right.equalTo(self.containerView.right).with.offset(-kUserFieldRight);
     }];
     
     [self.passwordField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(kUserFieldAndPasswordFieldWidth);
         make.height.equalTo(kUserFieldAndPasswordFieldHeight);
         make.centerY.equalTo(self.passwordView);
         make.left.equalTo(self.userField.left);
+        make.right.equalTo(self.userField.right);
     }];
     
     [self.userLine mas_makeConstraints:^(MASConstraintMaker *make) {

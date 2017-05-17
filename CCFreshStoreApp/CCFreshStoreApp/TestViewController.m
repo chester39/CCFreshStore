@@ -12,8 +12,8 @@
 
 @interface TestViewController ()
 
-@property (strong, nonatomic) UIButton *webTestButton;
-@property (strong, nonatomic) UIButton *loginTestButton;
+@property (nonatomic, strong) UIButton *webTestButton;
+@property (nonatomic, strong) UIButton *loginTestButton;
 
 @end
 
