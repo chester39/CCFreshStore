@@ -6,6 +6,7 @@
 
 #import "LoginView.h"
 #import "Const.h"
+#import "MessageBoxView.h"
 
 #import "Masonry.h"
 
@@ -88,6 +89,8 @@ static const CGFloat kCornerRadius = 5;
 @property (nonatomic, strong) UIButton *forgetButton;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
+
+@property (nonatomic, strong) MessageBoxView *testView;
 
 @end
 
