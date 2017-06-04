@@ -26,10 +26,14 @@
 /**
  *  调整数字表示方法
  */
-- (NSString *)adjustDigitalRepresentation;
+- (NSString *)adjustDigitalRepresentation:(NSInteger)number;
 /**
  *  获取文本尺寸方法
  */
 - (CGSize)textSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+/**
+ *  获取Unicode长度方法
+ */
+- (NSUInteger)unicodeLength;
 
 @end

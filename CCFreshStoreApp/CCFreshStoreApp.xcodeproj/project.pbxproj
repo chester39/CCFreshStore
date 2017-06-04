@@ -12,6 +12,7 @@
 		2533B76A1E8A407E00E5F20A /* NSDate+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B7691E8A407E00E5F20A /* NSDate+CCTools.m */; };
 		2533B76D1E8A68C900E5F20A /* NSMutableAttributedString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B76C1E8A68C900E5F20A /* NSMutableAttributedString+CCTools.m */; };
 		2533B7701E8A6D4800E5F20A /* NSString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B76F1E8A6D4800E5F20A /* NSString+CCTools.m */; };
+		8628EC501EE4418700E4DB9D /* MessageBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */; };
 		8635D8671E9A0170005310EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8641E9A0170005310EC /* LoginViewController.m */; };
 		8635D86A1E9A22A0005310EC /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8691E9A22A0005310EC /* UserModel.m */; };
 		8635D86D1E9A2AD4005310EC /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D86C1E9A2AD4005310EC /* LoginView.m */; };
@@ -42,6 +43,8 @@
 		2533B76F1E8A6D4800E5F20A /* NSString+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTools.m"; sourceTree = "<group>"; };
 		5BABEC59049935BCE8ED0FD6 /* Pods-CCFreshStoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		6EFE9F1037C261D27434EC01 /* Pods-CCFreshStoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8628EC4E1EE4418700E4DB9D /* MessageBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxView.h; sourceTree = "<group>"; };
+		8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxView.m; sourceTree = "<group>"; };
 		8635D8631E9A0170005310EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8635D8641E9A0170005310EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8635D8681E9A22A0005310EC /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 			children = (
 				8635D86B1E9A2AD4005310EC /* LoginView.h */,
 				8635D86C1E9A2AD4005310EC /* LoginView.m */,
+				8628EC4E1EE4418700E4DB9D /* MessageBoxView.h */,
+				8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				86579BB61E8C0BE000BF4569 /* UILabel+CCTools.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,
 				8635D8671E9A0170005310EC /* LoginViewController.m in Sources */,
+				8628EC501EE4418700E4DB9D /* MessageBoxView.m in Sources */,
 				86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
 				86579BB31E8C079B00BF4569 /* UIImage+CCTools.m in Sources */,

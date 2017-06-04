@@ -17,6 +17,6 @@
 /// 用户头像
 @property (nonatomic, strong) NSString *userAvatar;
 /// 用户昵称
-@property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSString *nickname;
 
 @end

@@ -49,19 +49,33 @@
 /**
  *  调整数字表示方法
  */
-- (NSString *)adjustDigitalRepresentation {
+- (NSString *)adjustDigitalRepresentation:(NSInteger)number {
     
-    NSUInteger length = self.length;
-    if (length > 5) {
-        float oldNumber = [self floatValue] / 1000;
-        float newNumber = lroundf(oldNumber);
-        NSString *newString = [NSString stringWithFormat:@"%lf", newNumber];
-        
-        return [newString stringByAppendingString:@"k"];
+    number = number > 0 ? number : 0;
+    NSString *string;
+    if (number < 10000) {
+        string = [NSString stringWithFormat:@"%ld", (long)number];
         
     } else {
-        return self;
+        NSString *postfix = @"kw";
+        float representation = 10000000;
+        if (number < 10000000) {
+            postfix = @"w";
+            representation = 10000;
+        }
+        
+        float transferNumber = number / representation;
+        float roundNumber = roundf(transferNumber * 10) / 10;
+        
+        int decimal = ((int)(roundNumber * 10)) % 10;
+        if (decimal == 0) {
+            string = [NSString stringWithFormat:@"%ld%@", (long)roundNumber, postfix];
+        } else {
+            string = [NSString stringWithFormat:@"%.1f%@", roundNumber, postfix];
+        }
     }
+    
+    return string;
 }
 
 /**
@@ -73,6 +87,25 @@
     CGSize textSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     
     return textSize;
+}
+
+/**
+ *  获取Unicode长度方法
+ */
+- (NSUInteger)unicodeLength {
+    
+    NSUInteger asciiLength = 0;
+    for (NSUInteger i = 0; i < self.length; ++i) {
+        unichar uniChar = [self characterAtIndex:i];
+        asciiLength += isascii(uniChar) ? 1 : 2;
+    }
+    
+    NSUInteger unicodeLength = asciiLength / 2;
+    if(asciiLength % 2) {
+        ++unicodeLength;
+    }
+    
+    return unicodeLength;
 }
 
 @end
