@@ -14,18 +14,17 @@
 // 图片视图相关常数
 static const CGFloat kImageViewWidth = 30;
 static const CGFloat kImageViewHeight = 30;
-static const CGFloat kImageViewLeftMargin = 20;
+static const CGFloat kImageViewLeftMargin = 10;
 
 // 文本框相关常数
 static const CGFloat kTextFieldHeight = 40;
-static const CGFloat kTextFieldLeftMargin = 20;
-static const CGFloat kTextFieldRightMargin = 20;
+static const CGFloat kTextFieldLeftMargin = 10;
 
 // 分割线相关常数
 static const CGFloat kDivideLineHeight = 1;
-static const CGFloat kDivideLineTopMarin = 5;
-static const CGFloat kDivideLineLeftMarin = 5;
-static const CGFloat kDivideLineRightMarin = 5;
+static const CGFloat kDivideLineTopMarin = 3;
+static const CGFloat kDivideLineLeftMarin = 3;
+static const CGFloat kDivideLineRightMarin = 3;
 
 @interface MessageBoxView ()
 
@@ -101,7 +100,7 @@ static const CGFloat kDivideLineRightMarin = 5;
         make.height.equalTo(kTextFieldHeight);
         make.centerY.equalTo(self);
         make.left.equalTo(self.imageView.right).with.offset(kTextFieldLeftMargin);
-        make.right.equalTo(self.right).with.offset(-kTextFieldRightMargin);
+        make.right.equalTo(self.right);
     }];
     
     [self.divideLine mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,7 +117,7 @@ static const CGFloat kDivideLineRightMarin = 5;
 - (void)layoutUIWithType:(MessageBoxType)type placeholder:(NSString *)text isLine:(BOOL)isLine {
 
     self.textField.placeholder = text;
-    self.divideLine.hidden = isLine ? YES : NO;
+    self.divideLine.hidden = isLine ? NO : YES;
     
     if (type == MessageBoxTypeUserAccount) {
         UIImage *image = [UIImage imageNamed:@"login_user"];
