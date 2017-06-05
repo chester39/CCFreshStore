@@ -19,40 +19,29 @@
 
 @implementation TestViewController
 
-- (UIButton *)webTestButton {
-    
-    if (_webTestButton == nil) {
-        _webTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _webTestButton.frame = CGRectMake(20, 150, 150, 150);
-        [_webTestButton setTitle:@"网页测试" forState:UIControlStateNormal];
-        [_webTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
-        [_webTestButton setBackgroundColor:kAuxiliaryColor];
-        [_webTestButton addTarget:self action:@selector(webButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _webTestButton;
-}
-
-- (UIButton *)loginTestButton {
-    
-    if (_loginTestButton == nil) {
-        _loginTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _loginTestButton.frame = CGRectMake(20, 350, 150, 150);
-        [_loginTestButton setTitle:@"登录测试" forState:UIControlStateNormal];
-        [_loginTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
-        [_loginTestButton setBackgroundColor:kAuxiliaryColor];
-        [_loginTestButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _loginTestButton;
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    [self.view addSubview:self.webTestButton];
-    [self.view addSubview:self.loginTestButton];
+    if (self.webTestButton == nil) {
+        self.webTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.webTestButton.frame = CGRectMake(20, 150, 150, 150);
+        [self.webTestButton setTitle:@"网页测试" forState:UIControlStateNormal];
+        [self.webTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
+        [self.webTestButton setBackgroundColor:kAuxiliaryColor];
+        [self.webTestButton addTarget:self action:@selector(webButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.webTestButton];
+    }
+    
+    if (self.loginTestButton == nil) {
+        self.loginTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.loginTestButton.frame = CGRectMake(20, 350, 150, 150);
+        [self.loginTestButton setTitle:@"登录测试" forState:UIControlStateNormal];
+        [self.loginTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
+        [self.loginTestButton setBackgroundColor:kAuxiliaryColor];
+        [self.loginTestButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.loginTestButton];
+    }
 }
 
 - (void)webButtonDidClick {

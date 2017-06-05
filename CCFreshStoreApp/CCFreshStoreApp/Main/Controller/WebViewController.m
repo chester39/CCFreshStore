@@ -21,98 +21,14 @@ NSString *const estimatedProgress = @"estimatedProgress";
 @property (nonatomic, strong) UIBarButtonItem *backItem;
 /// 关闭按钮
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
+/// 网页URL
+@property (nonatomic, copy) NSString *url;
 
 @end
 
-@implementation WebViewController
+@implementation WebViewController 
 
 #pragma mark - 初始化方法
-
-/**
- *  网页视图惰性初始化方法
- */
-- (WKWebView *)webView {
-    
-    if (_webView == nil) {
-        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        configuration.allowsAirPlayForMediaPlayback = YES;
-        configuration.allowsInlineMediaPlayback = YES;
-        configuration.suppressesIncrementalRendering = YES;
-        
-        _webView = [[WKWebView alloc] initWithFrame:kScreenFrame configuration:configuration];
-        _webView.opaque = NO;
-        _webView.allowsBackForwardNavigationGestures = YES;
-        _webView.scrollView.showsVerticalScrollIndicator = YES;
-        _webView.navigationDelegate = self;
-        [_webView sizeToFit];
-        [_webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
-    }
-    
-    return _webView;
-}
-
-/**
- *  进度条惰性初始化方法
- */
-- (UIProgressView *)webProgressView {
-    
-    if (_webProgressView == nil) {
-        _webProgressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _webProgressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
-        _webProgressView.trackTintColor = kClearColor;
-        _webProgressView.progressTintColor = kMainColor;
-    }
-    
-    return _webProgressView;
-}
-
-/**
- *  后退按钮惰性初始化方法
- */
-- (UIBarButtonItem *)backItem {
-    
-    if (_backItem == nil) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [button setImage:[UIImage imageNamed:@"main_back"] forState:UIControlStateNormal];
-        [button setTitle:@"返回" forState:UIControlStateNormal];
-        [button setTitleColor:kMainColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:17];
-        
-        [button addTarget:self action:@selector(backItemDidClick) forControlEvents:UIControlEventTouchUpInside];
-        [button sizeToFit];
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 0);
-        button.frame = CGRectMake(0, 0, 50, 40);
-        
-        _backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    }
-    
-    return _backItem;
-}
-
-/**
- *  关闭按钮惰性初始化方法
- */
-- (UIBarButtonItem *)closeItem {
-    
-    if (_closeItem == nil) {
-        _closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(closeItemDidClick)];
-    }
-    
-    return _closeItem;
-}
-
-/**
- *  空初始化方法
- */
-- (instancetype)init {
-    
-    if (self == nil) {
-        self = [super initWithNibName:nil bundle:nil];
-    }
-    
-    return self;
-}
 
 /**
  *  反初始化方法
@@ -130,7 +46,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+ 
     [self setupUI];
 }
 
@@ -165,13 +81,60 @@ NSString *const estimatedProgress = @"estimatedProgress";
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20], NSForegroundColorAttributeName: kMainColor};
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.navigationController.navigationBar.tintColor = kMainColor;
     self.navigationItem.title = @"";
-    self.navigationItem.leftBarButtonItem = self.backItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refreshItemDidClick)];
-    
+    self.navigationItem.rightBarButtonItem.tintColor = kMainColor;
     self.view.backgroundColor = kCommonLightColor;
-    [self.view addSubview:self.webView];
-    [self.view addSubview:self.webProgressView];
+    
+    if (self.webView == nil) {
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.allowsAirPlayForMediaPlayback = YES;
+        configuration.allowsInlineMediaPlayback = YES;
+        configuration.suppressesIncrementalRendering = YES;
+        
+        self.webView = [[WKWebView alloc] initWithFrame:kScreenFrame configuration:configuration];
+        self.webView.opaque = NO;
+        self.webView.allowsBackForwardNavigationGestures = YES;
+        self.webView.scrollView.showsVerticalScrollIndicator = YES;
+        self.webView.navigationDelegate = self;
+        [self.webView sizeToFit];
+        [self.webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
+        [self.view addSubview:self.webView];
+    }
+    
+    if (self.webProgressView == nil) {
+        self.webProgressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        self.webProgressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
+        self.webProgressView.trackTintColor = kClearColor;
+        self.webProgressView.progressTintColor = kMainColor;
+        [self.view addSubview:self.webProgressView];
+    }
+    
+    if (self.backItem == nil) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        
+        UIImage *image = [UIImage imageNamed:@"main_back"];
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [button setImage:image forState:UIControlStateNormal];
+        [button setTitle:@"返回" forState:UIControlStateNormal];
+        [button setTitleColor:kMainColor forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:17];
+        
+        [button addTarget:self action:@selector(backItemDidClick) forControlEvents:UIControlEventTouchUpInside];
+        [button sizeToFit];
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 0);
+        button.frame = CGRectMake(0, 0, 50, 40);
+        
+        self.backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItem = self.backItem;
+    }
+    
+    if (self.closeItem == nil) {
+        self.closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(closeItemDidClick)];
+    }
 }
 
 /**
