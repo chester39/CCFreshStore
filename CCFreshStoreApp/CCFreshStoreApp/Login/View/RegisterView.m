@@ -1,10 +1,10 @@
 //
-//  LoginView.m
+//  RegisterView.m
 //      CCFreshStoreApp
-//      Chen Chen @ April 9th, 2017
+//      Chen Chen @ June 6th, 2017
 //
 
-#import "LoginView.h"
+#import "RegisterView.h"
 #import "Const.h"
 #import "MessageBoxView.h"
 
@@ -35,24 +35,16 @@ static const CGFloat kUserViewRightMargin = 20;
 static const CGFloat kPasswordViewHeight = 40;
 static const CGFloat kPasswordViewTopMargin = 30;
 
-// 登录按钮相关常数
-static const CGFloat kLoginButtonHeight = 40;
-static const CGFloat kLoginButtonTopMargin = 40;
-static const CGFloat kLoginButtonLeftMargin = 10;
-static const CGFloat kLoginButtonRightMargin = 10;
-
-// 忘记密码按钮相关常数
-static const CGFloat kForgetButtonHeight = 30;
-static const CGFloat kForgetButtonTopMargin = 20;
-
 // 注册按钮相关常数
-static const CGFloat kRegisterButtonHeight = 30;
-static const CGFloat kRegisterButtonBottomMargin = 40;
+static const CGFloat kRegisterButtonHeight = 40;
+static const CGFloat kRegisterButtonTopMargin = 40;
+static const CGFloat kRegisterButtonLeftMargin = 10;
+static const CGFloat kRegisterButtonRightMargin = 10;
 
 /// 圆角半径
 static const CGFloat kCornerRadius = 5;
 
-@interface LoginView ()
+@interface RegisterView ()
 
 /// 背景图片视图
 @property (nonatomic, strong) UIImageView *backgroundView;
@@ -66,16 +58,16 @@ static const CGFloat kCornerRadius = 5;
 @property (nonatomic, strong) MessageBoxView *userView;
 /// 密码消息框
 @property (nonatomic, strong) MessageBoxView *passwordView;
-/// 登录按钮
-@property (nonatomic, strong) UIButton *loginButton;
-/// 忘记密码按钮
-@property (nonatomic, strong) UIButton *forgetButton;
+/// 手机消息框
+@property (nonatomic, strong) MessageBoxView *phoneView;
+/// 昵称消息框
+@property (nonatomic, strong) MessageBoxView *nicknameView;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
 
 @end
 
-@implementation LoginView
+@implementation RegisterView
 
 #pragma mark - 初始化方法
 
@@ -135,16 +127,7 @@ static const CGFloat kCornerRadius = 5;
         [self.containerView.layer setShadowRadius:kCornerRadius];
         [self addSubview:self.containerView];
     }
-    
-    if (self.registerButton == nil) {
-        self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.registerButton setTitle:@"还没有账号，点击注册" forState:UIControlStateNormal];
-        [self.registerButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
-        self.registerButton.titleLabel.font = kMediumFont;
-        
-        [self.registerButton.layer setBorderWidth:0];
-        [self addSubview:self.registerButton];
-    }
+
 }
 
 /**
@@ -176,26 +159,28 @@ static const CGFloat kCornerRadius = 5;
         [self.passwordView layoutUIWithType:MessageBoxTypePassword placeholder:@"请输入密码" isLine:YES];
         [self.containerView addSubview:self.passwordView];
     }
-    
-    if (self.loginButton == nil) {
-        self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        [self.loginButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
-        [self.loginButton setBackgroundColor:kMainColor];
-        
-        [self.loginButton.layer setCornerRadius:kCornerRadius];
-        self.loginButton.layer.masksToBounds = YES;
-        [self.containerView addSubview:self.loginButton];
+
+    if (self.phoneView == nil) {
+        self.phoneView = [[MessageBoxView alloc] init];
+        [self.phoneView layoutUIWithType:MessageBoxTypePhone placeholder:@"请输入手机号" isLine:YES];
+        [self.containerView addSubview:self.phoneView];
     }
     
-    if (self.forgetButton == nil) {
-        self.forgetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.forgetButton setTitle:@"忘记密码" forState:UIControlStateNormal];
-        [self.forgetButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
-        self.forgetButton.titleLabel.font = kMediumFont;
+    if (self.nicknameView == nil) {
+        self.nicknameView = [[MessageBoxView alloc] init];
+        [self.nicknameView layoutUIWithType:MessageBoxTypeNickname placeholder:@"请输入昵称" isLine:YES];
+        [self.containerView addSubview:self.nicknameView];
+    }
+    
+    if (self.registerButton == nil) {
+        self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
+        [self.registerButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
+        [self.registerButton setBackgroundColor:kMainColor];
         
-        [self.forgetButton.layer setBorderWidth:0];
-        [self.containerView addSubview:self.forgetButton];
+        [self.registerButton.layer setCornerRadius:kCornerRadius];
+        self.registerButton.layer.masksToBounds = YES;
+        [self.containerView addSubview:self.registerButton];
     }
 }
 
@@ -232,13 +217,6 @@ static const CGFloat kCornerRadius = 5;
         make.centerX.equalTo(self);
         make.top.equalTo(self.logoView.bottom).with.offset(kContainerViewTopMargin);
     }];
-    
-    [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self);
-        make.height.equalTo(kRegisterButtonHeight);
-        make.centerX.equalTo(self);
-        make.bottom.equalTo(self.bottom).with.offset(-kRegisterButtonBottomMargin);
-    }];
 }
 
 /**
@@ -251,34 +229,6 @@ static const CGFloat kCornerRadius = 5;
         make.height.equalTo(kTitleButtonHight);
         make.top.equalTo(self.containerView);
         make.left.equalTo(self.containerView);
-    }];
-    
-    [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(kUserViewHeight);
-        make.top.equalTo(self.titleButton.bottom).with.offset(kUserViewTopMargin);
-        make.left.equalTo(self.titleButton.left).with.offset(kUserViewLeftMargin);
-        make.right.equalTo(self.titleButton.right).with.offset(-kUserViewRightMargin);
-    }];
-    
-    [self.passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(kPasswordViewHeight);
-        make.top.equalTo(self.userView.bottom).with.offset(kPasswordViewTopMargin);
-        make.left.equalTo(self.userView.left);
-        make.right.equalTo(self.userView.right);
-    }];
-    
-    [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(kLoginButtonHeight);
-        make.top.equalTo(self.passwordView.bottom).with.offset(kLoginButtonTopMargin);
-        make.left.equalTo(self.containerView.left).with.offset(kLoginButtonLeftMargin);
-        make.right.equalTo(self.containerView.right).with.offset(-kLoginButtonRightMargin);
-    }];
-    
-    [self.forgetButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.containerView);
-        make.height.equalTo(kForgetButtonHeight);
-        make.centerX.equalTo(self.containerView);
-        make.top.equalTo(self.loginButton.bottom).with.offset(kForgetButtonTopMargin);
     }];
 }
 

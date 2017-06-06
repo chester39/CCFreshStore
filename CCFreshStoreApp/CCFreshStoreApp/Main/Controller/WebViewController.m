@@ -16,13 +16,13 @@ NSString *const estimatedProgress = @"estimatedProgress";
 /// 网页视图
 @property (nonatomic, strong) WKWebView *webView;
 /// 进度条
-@property (nonatomic, strong) UIProgressView *webProgressView;
+@property (nonatomic, strong) UIProgressView *progressView;
 /// 后退按钮
 @property (nonatomic, strong) UIBarButtonItem *backItem;
 /// 关闭按钮
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
 /// 网页URL
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 
@@ -46,7 +46,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
- 
+    
     [self setupUI];
 }
 
@@ -58,16 +58,16 @@ NSString *const estimatedProgress = @"estimatedProgress";
     if (object == self.webView && [keyPath isEqualToString:estimatedProgress]) {
         CGFloat new = [change[NSKeyValueChangeNewKey] floatValue];
         if (new == 1.0) {
-            [self.webProgressView setProgress:1.0 animated:NO];
+            [self.progressView setProgress:1.0 animated:NO];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                self.webProgressView.hidden = YES;
-                [self.webProgressView setProgress:0.0 animated:NO];
+                self.progressView.hidden = YES;
+                [self.progressView setProgress:0.0 animated:NO];
             });
             
         } else {
-            self.webProgressView.hidden = NO;
-            [self.webProgressView setProgress:new animated:YES];
+            self.progressView.hidden = NO;
+            [self.progressView setProgress:new animated:YES];
         }
     }
 }
@@ -81,7 +81,6 @@ NSString *const estimatedProgress = @"estimatedProgress";
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20], NSForegroundColorAttributeName: kMainColor};
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.navigationController.navigationBar.tintColor = kMainColor;
     self.navigationItem.title = @"";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refreshItemDidClick)];
@@ -93,6 +92,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
         configuration.allowsAirPlayForMediaPlayback = YES;
         configuration.allowsInlineMediaPlayback = YES;
         configuration.suppressesIncrementalRendering = YES;
+        configuration.selectionGranularity = YES;
         
         self.webView = [[WKWebView alloc] initWithFrame:kScreenFrame configuration:configuration];
         self.webView.opaque = NO;
@@ -101,15 +101,19 @@ NSString *const estimatedProgress = @"estimatedProgress";
         self.webView.navigationDelegate = self;
         [self.webView sizeToFit];
         [self.webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
+        
+        NSURL *url = [NSURL URLWithString:self.urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
         [self.view addSubview:self.webView];
     }
     
-    if (self.webProgressView == nil) {
-        self.webProgressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        self.webProgressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
-        self.webProgressView.trackTintColor = kClearColor;
-        self.webProgressView.progressTintColor = kMainColor;
-        [self.view addSubview:self.webProgressView];
+    if (self.progressView == nil) {
+        self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        self.progressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
+        self.progressView.trackTintColor = kClearColor;
+        self.progressView.progressTintColor = kMainColor;
+        [self.view addSubview:self.progressView];
     }
     
     if (self.backItem == nil) {
@@ -142,9 +146,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)loadWithURLString:(NSString *)urlString {
     
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+    self.urlString = urlString;
 }
 
 #pragma mark - 按钮方法
@@ -187,7 +189,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     
-    self.webProgressView.hidden = NO;
+    self.progressView.hidden = NO;
 }
 
 /**

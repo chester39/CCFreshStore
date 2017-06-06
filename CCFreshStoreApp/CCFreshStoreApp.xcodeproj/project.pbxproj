@@ -28,6 +28,7 @@
 		86F5F0531E7E8B6E00069983 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F0521E7E8B6E00069983 /* TestViewController.m */; };
 		86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5F0571E7E8B6E00069983 /* Assets.xcassets */; };
 		8E26842C029DDFD6A7B8368E /* libPods-CCFreshStoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */; };
+		EE1453221EE6A88A00FFB935 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1453211EE6A88A00FFB935 /* RegisterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		86F5F0571E7E8B6E00069983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F5F05C1E7E8B6E00069983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86F5F0621E7E8B7C00069983 /* CCFreshStoreApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCFreshStoreApp.entitlements; sourceTree = "<group>"; };
+		EE1453201EE6A88A00FFB935 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		EE1453211EE6A88A00FFB935 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCFreshStoreApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +197,8 @@
 			children = (
 				8635D86B1E9A2AD4005310EC /* LoginView.h */,
 				8635D86C1E9A2AD4005310EC /* LoginView.m */,
+				EE1453201EE6A88A00FFB935 /* RegisterView.h */,
+				EE1453211EE6A88A00FFB935 /* RegisterView.m */,
 				8628EC4E1EE4418700E4DB9D /* MessageBoxView.h */,
 				8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */,
 			);
@@ -384,6 +389,7 @@
 				86579BB61E8C0BE000BF4569 /* UILabel+CCTools.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,
 				8635D8671E9A0170005310EC /* LoginViewController.m in Sources */,
+				EE1453221EE6A88A00FFB935 /* RegisterView.m in Sources */,
 				8628EC501EE4418700E4DB9D /* MessageBoxView.m in Sources */,
 				86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
