@@ -14,8 +14,6 @@ typedef NS_ENUM(NSUInteger, MessageBoxType) {
     MessageBoxTypePassword = 1 << 1,
     /// 用户手机消息框
     MessageBoxTypePhone = 1 << 2,
-    /// 用户昵称消息框
-    MessageBoxTypeNickname = 1 << 3
 };
 
 @interface MessageBoxView : UIView

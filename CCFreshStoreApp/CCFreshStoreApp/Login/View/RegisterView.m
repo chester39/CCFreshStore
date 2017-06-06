@@ -15,11 +15,11 @@
 // 标志图片视图相关常数
 static const CGFloat kLogoViewWidth = 150;
 static const CGFloat kLogoViewHeight = 50;
-static const CGFloat kLogoViewTopMargin = 50;
+static const CGFloat kLogoViewTopMargin = 80;
 
 // 容器视图相关常数
 static const CGFloat kContainerViewWidth = 300;
-static const CGFloat kContainerViewHeight = 340;
+static const CGFloat kContainerViewHeight = 380;
 static const CGFloat kContainerViewTopMargin = 30;
 
 // 标题按钮相关常数
@@ -34,6 +34,10 @@ static const CGFloat kUserViewRightMargin = 20;
 // 密码消息框相关常数
 static const CGFloat kPasswordViewHeight = 40;
 static const CGFloat kPasswordViewTopMargin = 30;
+
+// 手机消息框相关常数
+static const CGFloat kPhoneViewHeight = 40;
+static const CGFloat kPhoneViewTopMargin = 30;
 
 // 注册按钮相关常数
 static const CGFloat kRegisterButtonHeight = 40;
@@ -60,8 +64,6 @@ static const CGFloat kCornerRadius = 5;
 @property (nonatomic, strong) MessageBoxView *passwordView;
 /// 手机消息框
 @property (nonatomic, strong) MessageBoxView *phoneView;
-/// 昵称消息框
-@property (nonatomic, strong) MessageBoxView *nicknameView;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
 
@@ -127,7 +129,6 @@ static const CGFloat kCornerRadius = 5;
         [self.containerView.layer setShadowRadius:kCornerRadius];
         [self addSubview:self.containerView];
     }
-
 }
 
 /**
@@ -139,7 +140,7 @@ static const CGFloat kCornerRadius = 5;
         self.titleButton = [[UIButton alloc] init];
         self.titleButton.backgroundColor = kLineGrayColor;
         self.titleButton.userInteractionEnabled = NO;
-        [self.titleButton setTitle:@"账号登录" forState:UIControlStateNormal];
+        [self.titleButton setTitle:@"账号注册" forState:UIControlStateNormal];
         [self.titleButton setTitleColor:kTextBlackColor forState:UIControlStateNormal];
         self.titleButton.titleLabel.font = kHeadFont;
         
@@ -166,17 +167,13 @@ static const CGFloat kCornerRadius = 5;
         [self.containerView addSubview:self.phoneView];
     }
     
-    if (self.nicknameView == nil) {
-        self.nicknameView = [[MessageBoxView alloc] init];
-        [self.nicknameView layoutUIWithType:MessageBoxTypeNickname placeholder:@"请输入昵称" isLine:YES];
-        [self.containerView addSubview:self.nicknameView];
-    }
-    
     if (self.registerButton == nil) {
         self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
         [self.registerButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
         [self.registerButton setBackgroundColor:kMainColor];
+        [self.registerButton addTarget:self action:@selector(registerButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+
         
         [self.registerButton.layer setCornerRadius:kCornerRadius];
         self.registerButton.layer.masksToBounds = YES;
@@ -230,6 +227,47 @@ static const CGFloat kCornerRadius = 5;
         make.top.equalTo(self.containerView);
         make.left.equalTo(self.containerView);
     }];
+    
+    [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(kUserViewHeight);
+        make.top.equalTo(self.titleButton.bottom).with.offset(kUserViewTopMargin);
+        make.left.equalTo(self.titleButton.left).with.offset(kUserViewLeftMargin);
+        make.right.equalTo(self.titleButton.right).with.offset(-kUserViewRightMargin);
+    }];
+    
+    [self.passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(kPasswordViewHeight);
+        make.top.equalTo(self.userView.bottom).with.offset(kPasswordViewTopMargin);
+        make.left.equalTo(self.userView.left);
+        make.right.equalTo(self.userView.right);
+    }];
+    
+    [self.phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(kPhoneViewHeight);
+        make.top.equalTo(self.passwordView.bottom).with.offset(kPhoneViewTopMargin);
+        make.left.equalTo(self.userView.left);
+        make.right.equalTo(self.userView.right);
+    }];
+    
+    [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(kRegisterButtonHeight);
+        make.top.equalTo(self.phoneView.bottom).with.offset(kRegisterButtonTopMargin);
+        make.left.equalTo(self.containerView.left).with.offset(kRegisterButtonLeftMargin);
+        make.right.equalTo(self.containerView.right).with.offset(-kRegisterButtonRightMargin);
+    }];
+}
+
+#pragma mark - 点击方法
+
+/**
+ *  注册按钮点击方法
+ */
+- (void)registerButtonDidClick {
+    
+    NSLog(@"%s", __func__);
+    if ([self.delegate respondsToSelector:@selector(registerViewDidClickRegisterButton:)]) {
+        [self.delegate registerViewDidClickRegisterButton:self];
+    }
 }
 
 @end

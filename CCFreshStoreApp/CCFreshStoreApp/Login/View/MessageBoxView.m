@@ -134,11 +134,6 @@ static const CGFloat kDivideLineRightMarin = 3;
         UIImage *image = [UIImage imageNamed:@"login_phone"];
         self.imageView.image = image;
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
-        
-    } else if (type == MessageBoxTypeNickname) {
-        UIImage *image = [UIImage imageNamed:@"login_nickname"];
-        self.imageView.image = image;
-        self.textField.keyboardType = UIKeyboardTypeDefault;
     }
 }
 

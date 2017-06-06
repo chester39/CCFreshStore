@@ -79,7 +79,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)setupUI {
     
-    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20], NSForegroundColorAttributeName: kMainColor};
     self.navigationController.navigationBar.tintColor = kMainColor;
     self.navigationItem.title = @"";
@@ -110,7 +110,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
     
     if (self.progressView == nil) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        self.progressView.frame = CGRectMake(0, 0, kScreenWidth, 2);
+        self.progressView.frame = CGRectMake(0, kTopHeight, kScreenWidth, 2);
         self.progressView.trackTintColor = kClearColor;
         self.progressView.progressTintColor = kMainColor;
         [self.view addSubview:self.progressView];

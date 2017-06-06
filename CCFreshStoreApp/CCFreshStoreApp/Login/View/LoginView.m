@@ -15,7 +15,7 @@
 // 标志图片视图相关常数
 static const CGFloat kLogoViewWidth = 150;
 static const CGFloat kLogoViewHeight = 50;
-static const CGFloat kLogoViewTopMargin = 50;
+static const CGFloat kLogoViewTopMargin = 80;
 
 // 容器视图相关常数
 static const CGFloat kContainerViewWidth = 300;
@@ -47,7 +47,7 @@ static const CGFloat kForgetButtonTopMargin = 20;
 
 // 注册按钮相关常数
 static const CGFloat kRegisterButtonHeight = 30;
-static const CGFloat kRegisterButtonBottomMargin = 40;
+static const CGFloat kRegisterButtonBottomMargin = 20;
 
 /// 圆角半径
 static const CGFloat kCornerRadius = 5;
@@ -141,6 +141,7 @@ static const CGFloat kCornerRadius = 5;
         [self.registerButton setTitle:@"还没有账号，点击注册" forState:UIControlStateNormal];
         [self.registerButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
         self.registerButton.titleLabel.font = kMediumFont;
+        [self.registerButton addTarget:self action:@selector(registerButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self.registerButton.layer setBorderWidth:0];
         [self addSubview:self.registerButton];
@@ -182,6 +183,7 @@ static const CGFloat kCornerRadius = 5;
         [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
         [self.loginButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
         [self.loginButton setBackgroundColor:kMainColor];
+        [self.loginButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self.loginButton.layer setCornerRadius:kCornerRadius];
         self.loginButton.layer.masksToBounds = YES;
@@ -193,6 +195,7 @@ static const CGFloat kCornerRadius = 5;
         [self.forgetButton setTitle:@"忘记密码" forState:UIControlStateNormal];
         [self.forgetButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
         self.forgetButton.titleLabel.font = kMediumFont;
+        [self.forgetButton addTarget:self action:@selector(forgetButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self.forgetButton.layer setBorderWidth:0];
         [self.containerView addSubview:self.forgetButton];
@@ -280,6 +283,43 @@ static const CGFloat kCornerRadius = 5;
         make.centerX.equalTo(self.containerView);
         make.top.equalTo(self.loginButton.bottom).with.offset(kForgetButtonTopMargin);
     }];
+}
+
+
+#pragma mark - 点击方法
+
+/**
+ *  登录按钮点击方法
+ */
+- (void)loginButtonDidClick
+{
+    NSLog(@"%s", __func__);
+    if ([self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:)]) {
+        [self.delegate loginViewDidClickLoginButton:self];
+    }
+}
+
+/**
+ *  忘记密码按钮点击方法
+ */
+- (void)forgetButtonDidClick {
+    
+    NSLog(@"%s", __func__);
+
+    if ([self.delegate respondsToSelector:@selector(loginViewDidClickForgetButton:)]) {
+        [self.delegate loginViewDidClickForgetButton:self];
+    }
+}
+
+/**
+ *  注册按钮点击方法
+ */
+- (void)registerButtonDidClick {
+    
+    NSLog(@"%s", __func__);
+    if ([self.delegate respondsToSelector:@selector(loginViewDidClickRegisterButton:)]) {
+        [self.delegate loginViewDidClickRegisterButton:self];
+    }
 }
 
 @end

@@ -14,9 +14,9 @@
 @property (nonatomic, strong) NSString *userPassword;
 /// 用户ID
 @property (nonatomic, strong) NSString *userID;
+/// 用户手机
+@property (nonatomic, strong) NSString *userPhone;
 /// 用户头像
 @property (nonatomic, strong) NSString *userAvatar;
-/// 用户昵称
-@property (nonatomic, strong) NSString *nickname;
 
 @end
