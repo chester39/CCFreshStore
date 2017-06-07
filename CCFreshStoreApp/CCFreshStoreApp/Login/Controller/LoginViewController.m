@@ -66,15 +66,15 @@
 #pragma mark - LoginViewDelegate代理方法
 
 /**
- *  LoginView点击登录按钮代理方法
+ *  点击登录按钮方法
  */
-- (void)loginViewDidClickLoginButton:(LoginView *)loginView {
+- (void)loginViewDidClickLoginButton:(LoginView *)loginView context:(NSDictionary *)dict {
     
     NSLog(@"%s", __func__);
 }
 
 /**
- *  LoginView点击忘记密码按钮代理方法
+ *  点击忘记密码按钮方法
  */
 - (void)loginViewDidClickForgetButton:(LoginView *)loginView {
     
@@ -82,7 +82,7 @@
 }
 
 /**
- *  LoginView点击注册按钮代理方法
+ *  点击注册按钮方法
  */
 - (void)loginViewDidClickRegisterButton:(LoginView *)loginView {
     
@@ -94,7 +94,7 @@
 #pragma mark - RegisterViewDelegate代理方法
 
 /**
- *  RegisterView点击注册按钮代理方法
+ *  点击注册按钮方法
  */
 - (void)registerViewDidClickRegisterButton:(RegisterView *)registerView {
     

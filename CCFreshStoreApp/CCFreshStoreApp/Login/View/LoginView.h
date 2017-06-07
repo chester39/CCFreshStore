@@ -15,15 +15,15 @@
 @optional
 
 /**
- *  LoginView点击登录按钮代理方法
+ *  点击登录按钮方法
  */
-- (void)loginViewDidClickLoginButton:(LoginView *)loginView;
+- (void)loginViewDidClickLoginButton:(LoginView *)loginView context:(NSDictionary *)dict;
 /**
- *  LoginView点击忘记密码按钮代理方法
+ *  点击忘记密码按钮方法
  */
 - (void)loginViewDidClickForgetButton:(LoginView *)loginView;
 /**
- *  LoginView点击注册按钮代理方法
+ *  点击注册按钮方法
  */
 - (void)loginViewDidClickRegisterButton:(LoginView *)loginView;
 
@@ -34,6 +34,6 @@
 /**
  *  LoginViewDelegate代理
  */
-@property (weak, nonatomic) id<LoginViewDelegate> delegate;
+@property (nonatomic, weak) id<LoginViewDelegate> delegate;
 
 @end

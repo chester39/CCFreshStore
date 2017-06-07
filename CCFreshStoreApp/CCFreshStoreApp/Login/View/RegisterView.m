@@ -151,7 +151,7 @@ static const CGFloat kCornerRadius = 5;
     
     if (self.userView == nil) {
         self.userView = [[MessageBoxView alloc] init];
-        [self.userView layoutUIWithType:MessageBoxTypeUserAccount placeholder:@"请输入用户名" isLine:YES];
+        [self.userView layoutUIWithType:MessageBoxTypeAccount placeholder:@"请输入用户名" isLine:YES];
         [self.containerView addSubview:self.userView];
     }
     
@@ -264,7 +264,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)registerButtonDidClick {
     
-    NSLog(@"%s", __func__);
+    [self endEditing:YES];
     if ([self.delegate respondsToSelector:@selector(registerViewDidClickRegisterButton:)]) {
         [self.delegate registerViewDidClickRegisterButton:self];
     }

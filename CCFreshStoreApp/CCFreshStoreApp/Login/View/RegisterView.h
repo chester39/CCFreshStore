@@ -15,7 +15,7 @@
 @optional
 
 /**
- *  RegisterView点击注册按钮代理方法
+ *  点击注册按钮方法
  */
 - (void)registerViewDidClickRegisterButton:(RegisterView *)registerView;
 
@@ -26,6 +26,6 @@
 /**
  *  RegisterViewDelegate代理
  */
-@property (weak, nonatomic) id<RegisterViewDelegate> delegate;
+@property (nonatomic, weak) id<RegisterViewDelegate> delegate;
 
 @end

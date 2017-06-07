@@ -26,7 +26,7 @@ static const CGFloat kDivideLineTopMarin = 3;
 static const CGFloat kDivideLineLeftMarin = 3;
 static const CGFloat kDivideLineRightMarin = 3;
 
-@interface MessageBoxView ()
+@interface MessageBoxView () <UITextFieldDelegate>
 
 /// 图片视图
 @property (nonatomic, strong) UIImageView *imageView;
@@ -74,6 +74,7 @@ static const CGFloat kDivideLineRightMarin = 3;
         self.textField.textColor = kTextGrayColor;
         self.textField.borderStyle = UITextBorderStyleNone;
         self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.textField.delegate = self;
         [self addSubview:self.textField];
     }
     
@@ -119,7 +120,7 @@ static const CGFloat kDivideLineRightMarin = 3;
     self.textField.placeholder = text;
     self.divideLine.hidden = isLine ? NO : YES;
     
-    if (type == MessageBoxTypeUserAccount) {
+    if (type == MessageBoxTypeAccount) {
         UIImage *image = [UIImage imageNamed:@"login_user"];
         self.imageView.image = image;
         self.textField.keyboardType = UIKeyboardTypeDefault;
@@ -135,6 +136,16 @@ static const CGFloat kDivideLineRightMarin = 3;
         self.imageView.image = image;
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
     }
+}
+
+#pragma mark - UITextFieldDelegate代理方法
+
+/**
+ *  结束编辑方法
+ */
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    self.text = textField.text;
 }
 
 @end

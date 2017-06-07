@@ -73,6 +73,9 @@ static const CGFloat kCornerRadius = 5;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
 
+/// 信息字典
+@property (nonatomic, strong) NSDictionary *dict;
+
 @end
 
 @implementation LoginView
@@ -168,7 +171,7 @@ static const CGFloat kCornerRadius = 5;
     
     if (self.userView == nil) {
         self.userView = [[MessageBoxView alloc] init];
-        [self.userView layoutUIWithType:MessageBoxTypeUserAccount placeholder:@"请输入用户名" isLine:YES];
+        [self.userView layoutUIWithType:MessageBoxTypeAccount placeholder:@"请输入用户名" isLine:YES];
         [self.containerView addSubview:self.userView];
     }
     
@@ -285,7 +288,6 @@ static const CGFloat kCornerRadius = 5;
     }];
 }
 
-
 #pragma mark - 点击方法
 
 /**
@@ -293,9 +295,12 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)loginButtonDidClick
 {
-    NSLog(@"%s", __func__);
-    if ([self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:)]) {
-        [self.delegate loginViewDidClickLoginButton:self];
+    [self endEditing:YES];
+    NSString *account = self.userView.text;
+    NSString *password = self.passwordView.text;
+    self.dict = @{@"accout":account, @"password":password};
+    if ([self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:context:)]) {
+        [self.delegate loginViewDidClickLoginButton:self context:self.dict];
     }
 }
 
@@ -304,8 +309,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)forgetButtonDidClick {
     
-    NSLog(@"%s", __func__);
-
+    [self endEditing:YES];
     if ([self.delegate respondsToSelector:@selector(loginViewDidClickForgetButton:)]) {
         [self.delegate loginViewDidClickForgetButton:self];
     }
@@ -316,7 +320,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)registerButtonDidClick {
     
-    NSLog(@"%s", __func__);
+    [self endEditing:YES];
     if ([self.delegate respondsToSelector:@selector(loginViewDidClickRegisterButton:)]) {
         [self.delegate loginViewDidClickRegisterButton:self];
     }
