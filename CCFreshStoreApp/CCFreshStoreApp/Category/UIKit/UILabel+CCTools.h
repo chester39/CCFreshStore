@@ -4,7 +4,6 @@
 //      Chen Chen @ March 29th, 2017
 //
 
-
 #import <UIKit/UIKit.h>
 
 @interface UILabel (CCTools)

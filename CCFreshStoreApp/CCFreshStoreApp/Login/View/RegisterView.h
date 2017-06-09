@@ -17,7 +17,7 @@
 /**
  *  点击注册按钮方法
  */
-- (void)registerViewDidClickRegisterButton:(RegisterView *)registerView;
+- (void)registerViewDidClickRegisterButton:(RegisterView *)registerView context:(NSDictionary *)dict;
 
 @end
 

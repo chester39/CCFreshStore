@@ -94,21 +94,21 @@ static const CGFloat kDivideLineRightMarin = 3;
         make.width.equalTo(kImageViewWidth);
         make.height.equalTo(kImageViewHeight);
         make.centerY.equalTo(self);
-        make.left.equalTo(self.left).with.offset(kImageViewLeftMargin);
+        make.left.equalTo(self.left).offset(kImageViewLeftMargin);
     }];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kTextFieldHeight);
         make.centerY.equalTo(self);
-        make.left.equalTo(self.imageView.right).with.offset(kTextFieldLeftMargin);
+        make.left.equalTo(self.imageView.right).offset(kTextFieldLeftMargin);
         make.right.equalTo(self.right);
     }];
     
     [self.divideLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kDivideLineHeight);
-        make.top.equalTo(self.textField.bottom).with.offset(kDivideLineTopMarin);
-        make.left.equalTo(self.left).with.offset(kDivideLineLeftMarin);
-        make.right.equalTo(self.right).with.offset(-kDivideLineRightMarin);
+        make.top.equalTo(self.textField.bottom).offset(kDivideLineTopMarin);
+        make.left.equalTo(self.left).offset(kDivideLineLeftMarin);
+        make.right.equalTo(self.right).offset(-kDivideLineRightMarin);
     }];
 }
 
@@ -141,11 +141,32 @@ static const CGFloat kDivideLineRightMarin = 3;
 #pragma mark - UITextFieldDelegate代理方法
 
 /**
- *  结束编辑方法
+ *  将要开始编辑方法
  */
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
-    self.text = textField.text;
+    return YES;
+}
+
+/**
+ *  改变文本内容方法
+ */
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if ([string isEqualToString:@"\n"]) {
+        return NO;
+    }
+    self.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return YES;
+}
+
+/**d
+ *  点击返回按钮方法
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

@@ -61,6 +61,12 @@
 /// 小号字体：12
 #define kSmallFont [UIFont systemFontOfSize:12]
 
+#pragma mark - 服务器常数
+
+#define kUserAccount @"user_account"
+#define kUserPassword @"user_password"
+#define kUserPhone @"user_phone"
+
 #pragma mark - Masonry常数
 
 /// 省略mas_前缀

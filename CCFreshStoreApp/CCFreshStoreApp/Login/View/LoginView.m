@@ -7,8 +7,10 @@
 #import "LoginView.h"
 #import "Const.h"
 #import "MessageBoxView.h"
+#import "WaveButton.h"
 
 #import "Masonry.h"
+#import "MBProgressHUD+CCTools.h"
 
 #pragma mark - 界面常数
 
@@ -67,13 +69,13 @@ static const CGFloat kCornerRadius = 5;
 /// 密码消息框
 @property (nonatomic, strong) MessageBoxView *passwordView;
 /// 登录按钮
-@property (nonatomic, strong) UIButton *loginButton;
+@property (nonatomic, strong) WaveButton *loginButton;
 /// 忘记密码按钮
 @property (nonatomic, strong) UIButton *forgetButton;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
 
-/// 信息字典
+/// 数据字典
 @property (nonatomic, strong) NSDictionary *dict;
 
 @end
@@ -91,9 +93,28 @@ static const CGFloat kCornerRadius = 5;
     if (self != nil) {
         [self setupUI];
         [self setupConstraints];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageBoxViewValueChanged:) name:UITextFieldTextDidChangeNotification object:nil];
     }
     
     return self;
+}
+
+/**
+ *  释放内存方法
+ */
+- (void)dealloc {
+    
+    self.backgroundView = nil;
+    self.logoView = nil;
+    self.containerView = nil;
+    self.titleButton = nil;
+    self.userView = nil;
+    self.passwordView = nil;
+    self.loginButton = nil;
+    self.forgetButton =nil;
+    self.registerButton = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 界面方法
@@ -182,11 +203,13 @@ static const CGFloat kCornerRadius = 5;
     }
     
     if (self.loginButton == nil) {
-        self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.loginButton = [[WaveButton alloc] init];
+        self.loginButton.waveColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0.5];
         [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
         [self.loginButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];
         [self.loginButton setBackgroundColor:kMainColor];
         [self.loginButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+        self.loginButton.enabled = NO;
         
         [self.loginButton.layer setCornerRadius:kCornerRadius];
         self.loginButton.layer.masksToBounds = YES;
@@ -229,21 +252,21 @@ static const CGFloat kCornerRadius = 5;
         make.width.equalTo(kLogoViewWidth);
         make.height.equalTo(kLogoViewHeight);
         make.centerX.equalTo(self);
-        make.top.equalTo(self.top).with.offset(kLogoViewTopMargin);
+        make.top.equalTo(self.top).offset(kLogoViewTopMargin);
     }];
     
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(kContainerViewWidth);
         make.height.equalTo(kContainerViewHeight);
         make.centerX.equalTo(self);
-        make.top.equalTo(self.logoView.bottom).with.offset(kContainerViewTopMargin);
+        make.top.equalTo(self.logoView.bottom).offset(kContainerViewTopMargin);
     }];
     
     [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self);
         make.height.equalTo(kRegisterButtonHeight);
         make.centerX.equalTo(self);
-        make.bottom.equalTo(self.bottom).with.offset(-kRegisterButtonBottomMargin);
+        make.bottom.equalTo(self.bottom).offset(-kRegisterButtonBottomMargin);
     }];
 }
 
@@ -261,31 +284,46 @@ static const CGFloat kCornerRadius = 5;
     
     [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kUserViewHeight);
-        make.top.equalTo(self.titleButton.bottom).with.offset(kUserViewTopMargin);
-        make.left.equalTo(self.titleButton.left).with.offset(kUserViewLeftMargin);
-        make.right.equalTo(self.titleButton.right).with.offset(-kUserViewRightMargin);
+        make.top.equalTo(self.titleButton.bottom).offset(kUserViewTopMargin);
+        make.left.equalTo(self.titleButton.left).offset(kUserViewLeftMargin);
+        make.right.equalTo(self.titleButton.right).offset(-kUserViewRightMargin);
     }];
     
     [self.passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kPasswordViewHeight);
-        make.top.equalTo(self.userView.bottom).with.offset(kPasswordViewTopMargin);
+        make.top.equalTo(self.userView.bottom).offset(kPasswordViewTopMargin);
         make.left.equalTo(self.userView.left);
         make.right.equalTo(self.userView.right);
     }];
     
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kLoginButtonHeight);
-        make.top.equalTo(self.passwordView.bottom).with.offset(kLoginButtonTopMargin);
-        make.left.equalTo(self.containerView.left).with.offset(kLoginButtonLeftMargin);
-        make.right.equalTo(self.containerView.right).with.offset(-kLoginButtonRightMargin);
+        make.top.equalTo(self.passwordView.bottom).offset(kLoginButtonTopMargin);
+        make.left.equalTo(self.containerView.left).offset(kLoginButtonLeftMargin);
+        make.right.equalTo(self.containerView.right).offset(-kLoginButtonRightMargin);
     }];
     
     [self.forgetButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.containerView);
         make.height.equalTo(kForgetButtonHeight);
         make.centerX.equalTo(self.containerView);
-        make.top.equalTo(self.loginButton.bottom).with.offset(kForgetButtonTopMargin);
+        make.top.equalTo(self.loginButton.bottom).offset(kForgetButtonTopMargin);
     }];
+}
+
+#pragma mark - 控件状态方法
+
+/**
+ *  检查按钮状态方法
+ */
+- (void)checkButtonState {
+    
+    if (self.userView.text.length > 0 && self.passwordView.text.length > 0) {
+        self.loginButton.enabled = YES;
+        
+    } else {
+        self.loginButton.enabled = NO;
+    }
 }
 
 #pragma mark - 点击方法
@@ -296,12 +334,17 @@ static const CGFloat kCornerRadius = 5;
 - (void)loginButtonDidClick
 {
     [self endEditing:YES];
-    NSString *account = self.userView.text;
-    NSString *password = self.passwordView.text;
-    self.dict = @{@"accout":account, @"password":password};
-    if ([self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:context:)]) {
+    NSString *account = [self.userView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [self.passwordView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (account == nil || account.length == 0 || password == nil || password.length == 0) {
+        return;
+    }
+    self.dict = @{kUserAccount:account, kUserPassword:password};
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:context:)]) {
         [self.delegate loginViewDidClickLoginButton:self context:self.dict];
     }
+    [MBProgressHUD showMessageWithText:@"登录成功" time:2.0];
 }
 
 /**
@@ -310,7 +353,7 @@ static const CGFloat kCornerRadius = 5;
 - (void)forgetButtonDidClick {
     
     [self endEditing:YES];
-    if ([self.delegate respondsToSelector:@selector(loginViewDidClickForgetButton:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickForgetButton:)]) {
         [self.delegate loginViewDidClickForgetButton:self];
     }
 }
@@ -321,9 +364,23 @@ static const CGFloat kCornerRadius = 5;
 - (void)registerButtonDidClick {
     
     [self endEditing:YES];
-    if ([self.delegate respondsToSelector:@selector(loginViewDidClickRegisterButton:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickRegisterButton:)]) {
         [self.delegate loginViewDidClickRegisterButton:self];
     }
+}
+
+#pragma mark - 通知方法
+
+/**
+ *  消息框值改变方法
+ */
+- (void)messageBoxViewValueChanged:(NSNotification *)notification {
+    
+    if ([notification.object isKindOfClass:[UITextField class]] == NO) {
+        return;
+    }
+    
+    [self checkButtonState];
 }
 
 @end

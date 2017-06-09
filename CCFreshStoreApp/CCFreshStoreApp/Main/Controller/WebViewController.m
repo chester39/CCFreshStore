@@ -31,7 +31,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
 #pragma mark - 初始化方法
 
 /**
- *  反初始化方法
+ *  释放内存方法
  */
 - (void)dealloc {
     

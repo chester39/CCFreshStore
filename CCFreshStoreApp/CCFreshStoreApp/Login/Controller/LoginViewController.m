@@ -23,7 +23,7 @@
 #pragma mark - 初始化方法
 
 /**
- *  反初始化方法
+ *  释放内存方法
  */
 - (void)dealloc {
     
@@ -96,7 +96,7 @@
 /**
  *  点击注册按钮方法
  */
-- (void)registerViewDidClickRegisterButton:(RegisterView *)registerView {
+- (void)registerViewDidClickRegisterButton:(RegisterView *)registerView context:(NSDictionary *)dict {
     
     NSLog(@"%s", __func__);
     self.registerView.hidden = YES;
