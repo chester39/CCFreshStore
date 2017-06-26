@@ -14,26 +14,38 @@
 /**
  *  获取缓存目录方法
  */
-- (NSString *)acquireCachesDirectory;
+- (NSString *)cachesDirectory;
 /**
  *  获取文档目录方法
  */
-- (NSString *)acquireDocumentDirectory;
+- (NSString *)documentDirectory;
 /**
  *  获取临时目录方法
  */
-- (NSString *)acquireTemporaryDirectory;
+- (NSString *)temporaryDirectory;
 /**
- *  调整数字表示方法
+ *  数字文本表示方法
  */
-- (NSString *)adjustDigitalRepresentation:(NSInteger)number;
+- (NSString *)digitalRepresentation:(NSInteger)number;
 /**
- *  获取文本尺寸方法
+ *  获取单行文本尺寸方法
  */
-- (CGSize)textSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+- (CGSize)singleTextSizeWithFont:(UIFont *)font;
+/**
+ *  获取多行文本尺寸方法
+ */
+- (CGSize)multiTextSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
 /**
  *  获取Unicode长度方法
  */
 - (NSUInteger)unicodeLength;
+/**
+ *  获取当前日期字符串方法
+ */
+- (NSString *)nowDateString;
+/**
+ *  获取UUID字符串方法
+ */
+- (NSString *)uuidString;
 
 @end

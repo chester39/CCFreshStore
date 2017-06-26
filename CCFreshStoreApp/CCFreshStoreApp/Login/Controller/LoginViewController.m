@@ -5,7 +5,14 @@
 //
 
 #import "LoginViewController.h"
+
+// Tool
 #import "Const.h"
+
+// Model
+#import "UserModel.h"
+
+// View
 #import "LoginView.h"
 #import "RegisterView.h"
 
@@ -15,6 +22,8 @@
 @property (nonatomic, strong) LoginView *loginView;
 /// 注册视图
 @property (nonatomic, strong) RegisterView *registerView;
+/// 注册用户模型
+@property (nonatomic, strong) UserModel *registerUser;
 
 @end
 
@@ -49,18 +58,18 @@
 - (void)setupUI {
     
     self.navigationController.navigationBar.translucent = YES;
-    if (self.loginView == nil) {
+    if (!self.loginView) {
         self.loginView = [[LoginView alloc] initWithFrame:kScreenFrame];
         self.loginView.delegate = self;
         [self.view addSubview:self.loginView];
     }
     
-    if (self.registerView == nil) {
+    if (!self.registerView) {
         self.registerView = [[RegisterView alloc] initWithFrame:kScreenFrame];
         self.registerView.delegate = self;
         self.registerView.hidden = YES;
         [self.view addSubview:self.registerView];
-    }
+    }    
 }
 
 #pragma mark - LoginViewDelegate代理方法
@@ -86,7 +95,6 @@
  */
 - (void)loginViewDidClickRegisterButton:(LoginView *)loginView {
     
-    NSLog(@"%s", __func__);
     self.registerView.hidden = NO;
     self.loginView.hidden = YES;
 }
@@ -98,7 +106,11 @@
  */
 - (void)registerViewDidClickRegisterButton:(RegisterView *)registerView context:(NSDictionary *)dict {
     
-    NSLog(@"%s", __func__);
+    self.registerUser = [UserModel userWithDict:dict];
+    NSString *uuid = [[NSString alloc] uuidString];
+    NSString *date = [[NSString alloc] nowDateString];
+    self.registerUser.userID = [NSString stringWithFormat:@"%@%@", uuid, date];
+    
     self.registerView.hidden = YES;
     self.loginView.hidden = NO;
 }

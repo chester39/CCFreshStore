@@ -12,6 +12,10 @@
 /**
  *  改变部分文字颜色方法
  */
-+ (NSMutableAttributedString *)changeColorWithString:(UIColor *)color withString:(NSString *)totalString subString:(NSString *)subString;
+- (NSMutableAttributedString *)changeColor:(UIColor *)color totalString:(NSString *)totalString subString:(NSString *)subString;
+/**
+ *  改变部分文字行间距方法
+ */
+- (NSMutableAttributedString *)changeLineSpacing:(CGFloat)spacing totalString:(NSString *)totalString subString:(NSString *)subString;
 
 @end

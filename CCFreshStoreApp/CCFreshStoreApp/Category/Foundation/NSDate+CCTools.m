@@ -11,7 +11,7 @@
 /**
  *  字符串创建日期方法
  */
-+ (NSDate *)convertStringToDate:(NSString *)timeString withFormatter:(NSString *)formatterString {
+- (NSDate *)convertToDate:(NSString *)timeString formatter:(NSString *)formatterString {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = formatterString;
@@ -24,7 +24,7 @@
 /**
  *  格式化字符串方法
  */
-+ (NSString *)formatDateToString:(NSDate *)date {
+- (NSString *)formatToString:(NSDate *)date {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSDate *nowDate = [NSDate date];
@@ -72,7 +72,7 @@
 /**
  *  获取指定天前字符串方法
  */
-+ (NSString *)acquireAssignedDaysAgo:(NSTimeInterval)number withFormatter:(NSString *)formatterString {
+- (NSString *)assignedDaysAgo:(NSTimeInterval)number formatter:(NSString *)formatterString {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = formatterString;
@@ -88,7 +88,7 @@
 /**
  *  获取今天星期几方法
  */
-- (NSInteger)acquireTodayOfWeek {
+- (NSInteger)todayOfWeek {
     
     NSCalendar *calendar = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
     NSInteger component = [calendar component:NSCalendarUnitWeekday fromDate:self];

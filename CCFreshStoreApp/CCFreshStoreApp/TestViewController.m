@@ -5,10 +5,13 @@
 //
 
 #import "TestViewController.h"
+
+// Tool
 #import "Const.h"
+
+// Controller
 #import "WebViewController.h"
 #import "LoginViewController.h"
-
 
 @interface TestViewController ()
 
@@ -23,7 +26,7 @@
     
     [super viewDidLoad];
     
-    if (self.webTestButton == nil) {
+    if (!self.webTestButton) {
         self.webTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.webTestButton.frame = CGRectMake(20, 150, 150, 150);
         [self.webTestButton setTitle:@"网页测试" forState:UIControlStateNormal];
@@ -33,7 +36,7 @@
         [self.view addSubview:self.webTestButton];
     }
     
-    if (self.loginTestButton == nil) {
+    if (!self.loginTestButton) {
         self.loginTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.loginTestButton.frame = CGRectMake(20, 350, 150, 150);
         [self.loginTestButton setTitle:@"登录测试" forState:UIControlStateNormal];

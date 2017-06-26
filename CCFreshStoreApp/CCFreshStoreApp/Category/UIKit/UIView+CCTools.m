@@ -11,7 +11,7 @@
 /**
  *  获取缓存大小方法
  */
-- (CGFloat)acquireCachesSize {
+- (CGFloat)cachesSize {
     
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSArray *fileAttributes = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
@@ -43,7 +43,7 @@
 }
 
 /**
- *  当前视图绘制图片视图方法
+ *  绘制图片视图方法
  */
 - (UIImageView *)snapshotWithView {
     
@@ -61,6 +61,37 @@
     newImageView.layer.shadowOpacity = 0.4;
     
     return newImageView;
+}
+
+/**
+ *  添加渐变色背景方法
+ */
+- (void)gradientWithCGColors:(NSArray *)colorArray start:(CGPoint)start end:(CGPoint)end {
+    
+    CAGradientLayer *layer = [[CAGradientLayer alloc] init];
+    layer.colors = colorArray;
+    layer.startPoint = start;
+    layer.endPoint = end;
+    layer.frame = self.bounds;
+    
+    [self.layer addSublayer:layer];
+}
+
+/**
+ *  添加弹性动画方法
+ */
+- (void)springAnimationWithStart:(NSNumber *)start end:(NSNumber *)end {
+    
+    CASpringAnimation *spring = [CASpringAnimation animationWithKeyPath:@"position.x"];
+    spring.stiffness = 100;
+    spring.damping = 10;
+    spring.mass = 1;
+    spring.initialVelocity = 0;
+    spring.fromValue = start;
+    spring.toValue = end;
+    spring.duration = spring.settlingDuration;
+    
+    [self.layer addAnimation:spring forKey:spring.keyPath];
 }
 
 @end

@@ -6,6 +6,9 @@
 
 #import "WaveButton.h"
 
+// Tool
+#import "Const.h"
+
 @interface WaveButton ()
 
 /// 波纹半径
@@ -29,7 +32,10 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-    if (self != nil) {
+    if (self) {
+        if (self.state == UIControlStateDisabled) {
+            self.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0.7];
+        }
     }
     
     return self;
@@ -56,6 +62,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     [super touchesBegan:touches withEvent:event];
+    
     NSSet *touchSet = [event touchesForView:self];
     NSArray *touchArray = touchSet.allObjects;
     UITouch *firstTouch = touchArray.firstObject;

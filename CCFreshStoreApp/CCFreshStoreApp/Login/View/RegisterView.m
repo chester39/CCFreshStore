@@ -5,9 +5,14 @@
 //
 
 #import "RegisterView.h"
+
+// Tool
 #import "Const.h"
+
+// View
 #import "MessageBoxView.h"
 
+// Third Party
 #import "Masonry.h"
 #import "MBProgressHUD+CCTools.h"
 
@@ -83,7 +88,7 @@ static const CGFloat kCornerRadius = 5;
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-    if (self != nil) {
+    if (self) {
         [self setupUI];
         [self setupConstraints];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageBoxViewValueChanged:) name:UITextFieldTextDidChangeNotification object:nil];
@@ -125,21 +130,21 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)setupOverallUI {
     
-    if (self.backgroundView == nil) {
+    if (!self.backgroundView) {
         UIImage *image = [UIImage imageNamed:@"login_background"];
         self.backgroundView = [[UIImageView alloc] initWithImage:image];
         self.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:self.backgroundView];
     }
     
-    if (self.logoView == nil) {
+    if (!self.logoView) {
         UIImage *image = [UIImage imageNamed:@"login_logo"];
         self.logoView = [[UIImageView alloc] initWithImage:image];
         self.logoView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.logoView];
     }
     
-    if (self.containerView == nil) {
+    if (!self.containerView) {
         self.containerView = [[UIView alloc] init];
         self.containerView.alpha = 0.9;
         self.containerView.backgroundColor = kCommonLightColor;
@@ -158,7 +163,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)setupContainerUI {
     
-    if (self.titleButton == nil) {
+    if (!self.titleButton) {
         self.titleButton = [[UIButton alloc] init];
         self.titleButton.backgroundColor = kLineGrayColor;
         self.titleButton.userInteractionEnabled = NO;
@@ -171,25 +176,25 @@ static const CGFloat kCornerRadius = 5;
         [self.containerView addSubview:self.titleButton];
     }
     
-    if (self.userView == nil) {
+    if (!self.userView) {
         self.userView = [[MessageBoxView alloc] init];
         [self.userView layoutUIWithType:MessageBoxTypeAccount placeholder:@"请输入用户名" isLine:YES];
         [self.containerView addSubview:self.userView];
     }
     
-    if (self.passwordView == nil) {
+    if (!self.passwordView) {
         self.passwordView = [[MessageBoxView alloc] init];
         [self.passwordView layoutUIWithType:MessageBoxTypePassword placeholder:@"请输入密码" isLine:YES];
         [self.containerView addSubview:self.passwordView];
     }
 
-    if (self.phoneView == nil) {
+    if (!self.phoneView) {
         self.phoneView = [[MessageBoxView alloc] init];
         [self.phoneView layoutUIWithType:MessageBoxTypePhone placeholder:@"请输入手机号" isLine:YES];
         [self.containerView addSubview:self.phoneView];
     }
     
-    if (self.registerButton == nil) {
+    if (!self.registerButton) {
         self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
         [self.registerButton setTitleColor:kCommonLightColor forState:UIControlStateNormal];

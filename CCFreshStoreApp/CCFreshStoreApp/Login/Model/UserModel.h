@@ -19,4 +19,14 @@
 /// 用户头像
 @property (nonatomic, strong) NSString *userAvatar;
 
+/**
+ *  字典初始化方法
+ */
+- (instancetype)initWithDict:(NSDictionary *)dict;
+/**
+ *  类初始化方法
+ */
++ (instancetype)userWithDict:(NSDictionary *)dict;
+
+
 @end

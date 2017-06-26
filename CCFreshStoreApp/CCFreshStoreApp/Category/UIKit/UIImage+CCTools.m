@@ -25,6 +25,7 @@
     
     CGImageRef imageRef = CGBitmapContextCreateImage(context);
     UIImage *newImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imageRef);
     UIGraphicsEndImageContext();
     
     return newImage;

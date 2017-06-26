@@ -5,8 +5,11 @@
 //
 
 #import "WebViewController.h"
+
+// Framework
 #import <WebKit/WebKit.h>
 
+// Tool
 #import "Const.h"
 
 NSString *const estimatedProgress = @"estimatedProgress";
@@ -79,6 +82,15 @@ NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)setupUI {
     
+    [self setupOverallUI];
+    [self setupComponentUI];
+}
+
+/**
+ *  初始化整体界面方法
+ */
+- (void)setupOverallUI {
+    
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20], NSForegroundColorAttributeName: kMainColor};
     self.navigationController.navigationBar.tintColor = kMainColor;
@@ -86,8 +98,14 @@ NSString *const estimatedProgress = @"estimatedProgress";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refreshItemDidClick)];
     self.navigationItem.rightBarButtonItem.tintColor = kMainColor;
     self.view.backgroundColor = kCommonLightColor;
+}
+
+/**
+ *  初始化组件界面方法
+ */
+- (void)setupComponentUI {
     
-    if (self.webView == nil) {
+    if (!self.webView) {
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
         configuration.allowsAirPlayForMediaPlayback = YES;
         configuration.allowsInlineMediaPlayback = YES;
@@ -108,7 +126,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
         [self.view addSubview:self.webView];
     }
     
-    if (self.progressView == nil) {
+    if (!self.progressView) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
         self.progressView.frame = CGRectMake(0, kTopHeight, kScreenWidth, 2);
         self.progressView.trackTintColor = kClearColor;
@@ -116,7 +134,7 @@ NSString *const estimatedProgress = @"estimatedProgress";
         [self.view addSubview:self.progressView];
     }
     
-    if (self.backItem == nil) {
+    if (!self.backItem) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
@@ -136,10 +154,11 @@ NSString *const estimatedProgress = @"estimatedProgress";
         self.navigationItem.leftBarButtonItem = self.backItem;
     }
     
-    if (self.closeItem == nil) {
+    if (!self.closeItem) {
         self.closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(closeItemDidClick)];
     }
 }
+
 
 /**
  *  读取URL方法

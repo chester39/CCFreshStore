@@ -5,8 +5,11 @@
 //
 
 #import "MessageBoxView.h"
+
+// Tool
 #import "Const.h"
 
+// Third Party
 #import "Masonry.h"
 
 #pragma mark - 界面常数
@@ -47,7 +50,7 @@ static const CGFloat kDivideLineRightMarin = 3;
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-    if (self != nil) {
+    if (self) {
         [self setupUI];
         [self setupConstraints];
     }
@@ -62,13 +65,13 @@ static const CGFloat kDivideLineRightMarin = 3;
  */
 - (void)setupUI {
     
-    if (self.imageView == nil) {
+    if (!self.imageView) {
         self.imageView = [[UIImageView alloc] init];
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.imageView];
     }
     
-    if (self.textField == nil) {
+    if (!self.textField) {
         self.textField = [[UITextField alloc] init];
         self.textField.font = kNormalFont;
         self.textField.textColor = kTextGrayColor;
@@ -78,7 +81,7 @@ static const CGFloat kDivideLineRightMarin = 3;
         [self addSubview:self.textField];
     }
     
-    if (self.divideLine == nil) {
+    if (!self.divideLine) {
         self.divideLine = [[UIView alloc] init];
         self.divideLine.backgroundColor = kAuxiliaryColor;
         [self addSubview:self.divideLine];

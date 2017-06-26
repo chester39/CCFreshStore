@@ -5,7 +5,20 @@
 //
 
 #import <UIKit/UIKit.h>
+
+// Foundation Category
+#import "NSDate+CCTools.h"
+#import "NSMutableAttributedString+CCTools.h"
+#import "NSString+CCTools.h"
+
+// UIKit Category
+#import "UIBarButtonItem+CCTools.h"
+#import "UIButton+CCTools.h"
 #import "UIColor+CCTools.h"
+#import "UIImage+CCTools.h"
+#import "UILabel+CCTools.h"
+#import "UIView+CCTools.h"
+#import "UIWindow+CCTools.h"
 
 #ifndef Const_h
 #define Const_h

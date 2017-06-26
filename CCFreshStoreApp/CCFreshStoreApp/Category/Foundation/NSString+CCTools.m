@@ -13,7 +13,7 @@
 /**
  *  获取缓存目录方法
  */
-- (NSString *)acquireCachesDirectory {
+- (NSString *)cachesDirectory {
     
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *name = [self lastPathComponent];
@@ -25,7 +25,7 @@
 /**
  *  获取文档目录方法
  */
-- (NSString *)acquireDocumentDirectory {
+- (NSString *)documentDirectory {
     
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *name = [self lastPathComponent];
@@ -37,7 +37,7 @@
 /**
  *  获取临时目录方法
  */
-- (NSString *)acquireTemporaryDirectory {
+- (NSString *)temporaryDirectory {
     
     NSString *path = NSTemporaryDirectory();
     NSString *name = [self lastPathComponent];
@@ -47,12 +47,12 @@
 }
 
 /**
- *  调整数字表示方法
+ *  数字文本表示方法
  */
-- (NSString *)adjustDigitalRepresentation:(NSInteger)number {
+- (NSString *)digitalRepresentation:(NSInteger)number {
     
     number = number > 0 ? number : 0;
-    NSString *string;
+    NSString *string = @"";
     if (number < 10000) {
         string = [NSString stringWithFormat:@"%ld", (long)number];
         
@@ -70,6 +70,7 @@
         int decimal = ((int)(roundNumber * 10)) % 10;
         if (decimal == 0) {
             string = [NSString stringWithFormat:@"%ld%@", (long)roundNumber, postfix];
+            
         } else {
             string = [NSString stringWithFormat:@"%.1f%@", roundNumber, postfix];
         }
@@ -79,9 +80,20 @@
 }
 
 /**
- *  获取文本尺寸方法
+ *  获取单行文本尺寸方法
  */
-- (CGSize)textSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
+- (CGSize)singleTextSizeWithFont:(UIFont *)font {
+    
+    NSDictionary *dict = @{NSFontAttributeName:font};
+    CGSize textSize = [self sizeWithAttributes:dict];
+    
+    return textSize;
+}
+
+/**
+ *  获取多行文本尺寸方法
+ */
+- (CGSize)multiTextSizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
     
     NSDictionary *dict = @{NSFontAttributeName:font};
     CGSize textSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
@@ -106,6 +118,30 @@
     }
     
     return unicodeLength;
+}
+
+/**
+ *  获取当前日期字符串方法
+ */
+- (NSString *)nowDateString {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSDate *nowDate = [[NSDate alloc] init];
+    NSString *dateString = [formatter stringFromDate:nowDate];
+    
+    return dateString;
+}
+
+/**
+ *  获取UUID字符串方法
+ */
+- (NSString *)uuidString {
+    
+    NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSString *uuidString = [uuid stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
+    return uuidString;
 }
 
 @end
