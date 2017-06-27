@@ -341,7 +341,7 @@ static const CGFloat kCornerRadius = 5;
     [self endEditing:YES];
     NSString *account = [self.userView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [self.passwordView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (account == nil || account.length == 0 || password == nil || password.length == 0) {
+    if (![account checkString] || ![password checkString]) {
         return;
     }
     self.dict = @{kUserAccount:account, kUserPassword:password};

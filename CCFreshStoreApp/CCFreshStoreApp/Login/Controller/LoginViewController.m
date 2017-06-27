@@ -109,7 +109,9 @@
     self.registerUser = [UserModel userWithDict:dict];
     NSString *uuid = [[NSString alloc] uuidString];
     NSString *date = [[NSString alloc] nowDateString];
-    self.registerUser.userID = [NSString stringWithFormat:@"%@%@", uuid, date];
+    NSString *test = [NSString stringWithFormat:@"%@%@", uuid, date];
+    
+    self.registerUser.userID = [test md5String];
     
     self.registerView.hidden = YES;
     self.loginView.hidden = NO;

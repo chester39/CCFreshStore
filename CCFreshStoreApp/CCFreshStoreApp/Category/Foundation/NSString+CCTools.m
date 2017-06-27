@@ -6,6 +6,9 @@
 
 #import "NSString+CCTools.h"
 
+// Framework
+#import <CommonCrypto/CommonCrypto.h>
+
 @implementation NSString (CCTools)
 
 #pragma mark - 工具方法
@@ -142,6 +145,34 @@
     NSString *uuidString = [uuid stringByReplacingOccurrencesOfString:@"-" withString:@""];
     
     return uuidString;
+}
+
+/**
+ *  判断字符串有效方法
+ */
+- (BOOL)checkString {
+    
+    if (self && self.length > 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+/**
+ *  获取MD5加密字符串方法
+ */
+- (NSString *)md5String {
+    
+    const char *original = [self UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(original, (CC_LONG)strlen(original), result);
+    NSMutableString *md5String = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for (NSInteger i = 0; i < CC_MD5_DIGEST_LENGTH; ++i) {
+        [md5String appendFormat:@"%02x", result[i]];
+    }
+    
+    return md5String;
 }
 
 @end

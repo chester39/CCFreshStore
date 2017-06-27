@@ -26,17 +26,17 @@
 #pragma mark - 界面常数
 
 /// 屏幕尺寸: iPhone4/4s: 320-480 iPhone5/5s: 320-568 iPhone6/6s: 375-667 iPhone6/6s Plus: 414-736
-#define kScreenFrame [[UIScreen mainScreen] bounds]
+#define kScreenFrame [UIScreen mainScreen].bounds
 /// 屏幕宽度: 320/375/414
-#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
 /// 屏幕高度: 480/568/667/736
-#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
 /// 状态栏高度: 20
 #define kStatusBarHeight 20
 /// 导航栏高度: 44
-#define kNavigationBarHeight 44;
+#define kNavigationBarHeight 44
 /// 顶端高度: 64
-#define kTopHeight 64
+#define kTopHeight (kStatusBarHeight + kNavigationBarHeight)
 /// 可用高度: 屏幕高度-顶端高度
 #define kAvailableHeight (kScreenHeight - kTopHeight)
 /// 键盘高度: 238

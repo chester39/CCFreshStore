@@ -47,5 +47,13 @@
  *  获取UUID字符串方法
  */
 - (NSString *)uuidString;
+/**
+ *  判断字符串有效方法
+ */
+- (BOOL)checkString;
+/**
+ *  获取MD5加密字符串方法
+ */
+- (NSString *)md5String;
 
 @end
