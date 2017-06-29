@@ -9,8 +9,6 @@
 
 @interface NSString (CCTools)
 
-#pragma mark - 工具方法
-
 /**
  *  获取缓存目录方法
  */

@@ -9,9 +9,9 @@
 /// 消息框类型
 typedef NS_ENUM(NSUInteger, UserSexType) {
     /// 用户性别男
-    UserSexTypeMale = 1 << 0,
+    UserSexTypeMale = 0,
     /// 用户性别女
-    UserSexTypeFemale = 1 << 1,
+    UserSexTypeFemale,
 };
 
 @interface UserModel : NSObject

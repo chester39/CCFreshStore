@@ -9,11 +9,11 @@
 /// 消息框类型
 typedef NS_ENUM(NSUInteger, MessageBoxType) {
     /// 用户账号消息框
-    MessageBoxTypeAccount = 1 << 0,
+    MessageBoxTypeAccount = 0,
     /// 用户密码消息框
-    MessageBoxTypePassword = 1 << 1,
+    MessageBoxTypePassword,
     /// 用户手机消息框
-    MessageBoxTypePhone = 1 << 2,
+    MessageBoxTypePhone,
 };
 
 @interface MessageBoxView : UIView
