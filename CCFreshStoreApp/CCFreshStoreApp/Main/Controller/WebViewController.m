@@ -12,7 +12,7 @@
 // Tool
 #import "Const.h"
 
-NSString *const estimatedProgress = @"estimatedProgress";
+static NSString *const estimatedProgress = @"estimatedProgress";
 
 @interface WebViewController () <WKNavigationDelegate>
 

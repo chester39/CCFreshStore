@@ -10,4 +10,5 @@ target 'CCFreshStoreApp' do
 	pod 'MJRefresh', '~> 3.1.12'
 	pod 'SDWebImage', '~> 4.0.0'
 	pod 'TZImagePickerController', '~> 1.8.1'
+	pod 'YYModel', '~> 1.0.4'
 end

@@ -38,6 +38,7 @@
     
     self.loginView = nil;
     self.registerView = nil;
+    self.registerUser = nil;
 }
 
 #pragma mark - 系统方法

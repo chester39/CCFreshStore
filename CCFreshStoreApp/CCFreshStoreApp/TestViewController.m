@@ -12,11 +12,13 @@
 // Controller
 #import "WebViewController.h"
 #import "LoginViewController.h"
+#import "MainViewController.h"
 
 @interface TestViewController ()
 
 @property (nonatomic, strong) UIButton *webTestButton;
 @property (nonatomic, strong) UIButton *loginTestButton;
+@property (nonatomic, strong) UIButton *mainTestButton;
 
 @end
 
@@ -45,6 +47,16 @@
         [self.loginTestButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:self.loginTestButton];
     }
+    
+    if (!self.mainTestButton) {
+        self.mainTestButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.mainTestButton.frame = CGRectMake(200, 150, 150, 150);
+        [self.mainTestButton setTitle:@"主页测试" forState:UIControlStateNormal];
+        [self.mainTestButton setTitleColor:kMainColor forState:UIControlStateNormal];
+        [self.mainTestButton setBackgroundColor:kAuxiliaryColor];
+        [self.mainTestButton addTarget:self action:@selector(mainButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.mainTestButton];
+    }
 }
 
 - (void)webButtonDidClick {
@@ -59,6 +71,12 @@
     
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     [self.navigationController pushViewController:loginVC animated:YES];
+}
+
+- (void)mainButtonDidClick {
+    
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    [self.navigationController pushViewController:mainVC animated:YES];
 }
 
 @end

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B7621E8A3F8D00E5F20A /* WebViewController.m */; };
 		2533B7671E8A3F8D00E5F20A /* FoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B7651E8A3F8D00E5F20A /* FoodModel.m */; };
+		861F30371F15149700E88EFD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F30361F15149700E88EFD /* MainViewController.m */; };
+		861F303A1F1516B000E88EFD /* TabBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F30391F1516B000E88EFD /* TabBarModel.m */; };
+		861F303D1F151AC600E88EFD /* TabBarSetting.json in Resources */ = {isa = PBXBuildFile; fileRef = 861F303C1F151AC600E88EFD /* TabBarSetting.json */; };
+		861F30401F152AFD00E88EFD /* NullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F303F1F152AFD00E88EFD /* NullViewController.m */; };
 		8628EC501EE4418700E4DB9D /* MessageBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */; };
 		8635D8671E9A0170005310EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8641E9A0170005310EC /* LoginViewController.m */; };
 		8635D86A1E9A22A0005310EC /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8691E9A22A0005310EC /* UserModel.m */; };
@@ -40,6 +44,13 @@
 		2533B7651E8A3F8D00E5F20A /* FoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodModel.m; sourceTree = "<group>"; };
 		5BABEC59049935BCE8ED0FD6 /* Pods-CCFreshStoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		6EFE9F1037C261D27434EC01 /* Pods-CCFreshStoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCFreshStoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCFreshStoreApp/Pods-CCFreshStoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		861F30351F15149700E88EFD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		861F30361F15149700E88EFD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		861F30381F1516B000E88EFD /* TabBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarModel.h; sourceTree = "<group>"; };
+		861F30391F1516B000E88EFD /* TabBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarModel.m; sourceTree = "<group>"; };
+		861F303C1F151AC600E88EFD /* TabBarSetting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TabBarSetting.json; sourceTree = "<group>"; };
+		861F303E1F152AFD00E88EFD /* NullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullViewController.h; sourceTree = "<group>"; };
+		861F303F1F152AFD00E88EFD /* NullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullViewController.m; sourceTree = "<group>"; };
 		8628EC4E1EE4418700E4DB9D /* MessageBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxView.h; sourceTree = "<group>"; };
 		8628EC4F1EE4418700E4DB9D /* MessageBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxView.m; sourceTree = "<group>"; };
 		8635D8631E9A0170005310EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -104,6 +115,7 @@
 			children = (
 				2533B7601E8A3F8D00E5F20A /* Controller */,
 				2533B7631E8A3F8D00E5F20A /* Model */,
+				861F303B1F151AC600E88EFD /* Resource */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -111,8 +123,12 @@
 		2533B7601E8A3F8D00E5F20A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				861F30351F15149700E88EFD /* MainViewController.h */,
+				861F30361F15149700E88EFD /* MainViewController.m */,
 				2533B7611E8A3F8D00E5F20A /* WebViewController.h */,
 				2533B7621E8A3F8D00E5F20A /* WebViewController.m */,
+				861F303E1F152AFD00E88EFD /* NullViewController.h */,
+				861F303F1F152AFD00E88EFD /* NullViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,6 +138,8 @@
 			children = (
 				2533B7641E8A3F8D00E5F20A /* FoodModel.h */,
 				2533B7651E8A3F8D00E5F20A /* FoodModel.m */,
+				861F30381F1516B000E88EFD /* TabBarModel.h */,
+				861F30391F1516B000E88EFD /* TabBarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +159,14 @@
 				5BABEC59049935BCE8ED0FD6 /* Pods-CCFreshStoreApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		861F303B1F151AC600E88EFD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				861F303C1F151AC600E88EFD /* TabBarSetting.json */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		8635D8611E9A0170005310EC /* Login */ = {
@@ -355,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861F303D1F151AC600E88EFD /* TabBarSetting.json in Resources */,
 				86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		621EABAF81FAE0CABA556A7E /* [CP] Copy Pods Resources */ = {
@@ -425,7 +452,9 @@
 				86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */,
 				8636FD7E1EEA9128001A64C0 /* UIImage+CCTools.m in Sources */,
 				8636FD7C1EEA9128001A64C0 /* UIButton+CCTools.m in Sources */,
+				861F30371F15149700E88EFD /* MainViewController.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
+				861F303A1F1516B000E88EFD /* TabBarModel.m in Sources */,
 				8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */,
 				8636FD7F1EEA9128001A64C0 /* UILabel+CCTools.m in Sources */,
 				8636FD7D1EEA9128001A64C0 /* UIColor+CCTools.m in Sources */,
@@ -434,6 +463,7 @@
 				8636FD781EEA9128001A64C0 /* NSDate+CCTools.m in Sources */,
 				2533B7671E8A3F8D00E5F20A /* FoodModel.m in Sources */,
 				8636FD7B1EEA9128001A64C0 /* UIBarButtonItem+CCTools.m in Sources */,
+				861F30401F152AFD00E88EFD /* NullViewController.m in Sources */,
 				8636FD841EEA9150001A64C0 /* MBProgressHUD+CCTools.m in Sources */,
 				8636FD811EEA9128001A64C0 /* UIWindow+CCTools.m in Sources */,
 			);
