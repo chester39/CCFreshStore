@@ -1,0 +1,27 @@
+[
+  {
+    "vcName": "ConcernViewController",
+    "title": "关注",
+    "imageName": "tabbar_home"
+  },
+  {
+    "vcName": "DetailViewController",
+    "title": "明细",
+    "imageName": "tabbar_message_center"
+  },
+  {
+    "vcName": "NullViewController",
+    "title": "",
+    "imageName": ""
+  },
+  {
+    "vcName": "StatViewController",
+    "title": "报表",
+    "imageName": "tabbar_discover"
+  },
+  {
+    "vcName": "MeViewController",
+    "title": "我",
+    "imageName": "tabbar_profile"
+  }
+]
