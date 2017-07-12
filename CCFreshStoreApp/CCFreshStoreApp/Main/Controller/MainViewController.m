@@ -96,6 +96,10 @@
         vc.title = model.title;
         vc.tabBarItem.image = [UIImage imageNamed:model.imageName];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:[model.imageName stringByAppendingString:@"_highlighted"]];
+        if (!model.title.checkString) {
+            vc.tabBarItem.enabled = NO;
+        }
+        
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
         [self addChildViewController:nc];
     }
