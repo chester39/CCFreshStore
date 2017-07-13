@@ -117,12 +117,13 @@
     if (!self.addButton) {
         self.addButton = [UIButton buttonWithImage:@"tabbar_compose_icon_add" backgroundImage:@"tabbar_compose_button"];
         [self.addButton addTarget:self action:@selector(addButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.tabBar addSubview:self.addButton];
-        
         CGRect rect = self.addButton.frame;
-        CGFloat tabWidth = self.tabBar.bounds.size.width / (CGFloat)self.childViewControllers.count;
-        CGRect addButtonFrame = CGRectMake(tabWidth * 2, 0, tabWidth, rect.size.height);
+        CGFloat tabY = self.tabBar.frame.origin.y - 5;
+        CGFloat tabWidth = self.tabBar.frame.size.width / (CGFloat)self.childViewControllers.count;
+        CGRect addButtonFrame = CGRectMake(tabWidth * 2, tabY, tabWidth, rect.size.height);
         self.addButton.frame = addButtonFrame;
+        
+        [self.view addSubview:self.addButton];
     }
 }
 

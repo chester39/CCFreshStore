@@ -1,11 +1,11 @@
 [
   {
-    "vcName": "ConcernViewController",
+    "vcName": "LoginViewController",
     "title": "关注",
     "imageName": "tabbar_home"
   },
   {
-    "vcName": "DetailViewController",
+    "vcName": "LoginViewController",
     "title": "明细",
     "imageName": "tabbar_message_center"
   },
@@ -15,12 +15,12 @@
     "imageName": ""
   },
   {
-    "vcName": "StatViewController",
+    "vcName": "LoginViewController",
     "title": "报表",
     "imageName": "tabbar_discover"
   },
   {
-    "vcName": "MeViewController",
+    "vcName": "LoginViewController",
     "title": "我",
     "imageName": "tabbar_profile"
   }

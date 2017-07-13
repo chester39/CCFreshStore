@@ -25,7 +25,7 @@
 
 #pragma mark - 界面常数
 
-/// 屏幕尺寸: iPhone4/4s: 320-480 iPhone5/5s: 320-568 iPhone6/6s: 375-667 iPhone6/6s Plus: 414-736
+/// 屏幕尺寸: iPhone4/4s: 320-480 iPhone5/5s: 320-568 iPhone6/6s/7: 375-667 iPhone6/6s/7 Plus: 414-736
 #define kScreenFrame [UIScreen mainScreen].bounds
 /// 屏幕宽度: 320/375/414
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width

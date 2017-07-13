@@ -19,7 +19,12 @@
  */
 + (NSDictionary *)modelCustomPropertyMapper {
     
-    return @{@"controllerName": @"vcName", @"title": @"title", @"imageName": @"imageName"};
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:3];
+    [dict setObject:@"vcName" forKey:@"controllerName"];
+    [dict setObject:@"title" forKey:@"title"];
+    [dict setObject:@"imageName" forKey:@"imageName"];
+    
+    return dict;
 }
 
 @end
