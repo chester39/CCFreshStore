@@ -29,9 +29,9 @@
 		8636FD811EEA9128001A64C0 /* UIWindow+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD771EEA9128001A64C0 /* UIWindow+CCTools.m */; };
 		8636FD841EEA9150001A64C0 /* MBProgressHUD+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD831EEA9150001A64C0 /* MBProgressHUD+CCTools.m */; };
 		8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD861EEA9910001A64C0 /* WaveButton.m */; };
+		86BC3F551F4009AA00285375 /* ConcernViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC3F541F4009AA00285375 /* ConcernViewController.m */; };
 		86F5F04D1E7E8B6E00069983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04C1E7E8B6E00069983 /* main.m */; };
 		86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04F1E7E8B6E00069983 /* AppDelegate.m */; };
-		86F5F0531E7E8B6E00069983 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F0521E7E8B6E00069983 /* TestViewController.m */; };
 		86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5F0571E7E8B6E00069983 /* Assets.xcassets */; };
 		8E26842C029DDFD6A7B8368E /* libPods-CCFreshStoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */; };
 		EE1453221EE6A88A00FFB935 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1453211EE6A88A00FFB935 /* RegisterView.m */; };
@@ -84,12 +84,12 @@
 		8636FD851EEA9910001A64C0 /* WaveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveButton.h; sourceTree = "<group>"; };
 		8636FD861EEA9910001A64C0 /* WaveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveButton.m; sourceTree = "<group>"; };
 		863DFDD91E895EE200A515F2 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		86BC3F531F4009AA00285375 /* ConcernViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernViewController.h; sourceTree = "<group>"; };
+		86BC3F541F4009AA00285375 /* ConcernViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernViewController.m; sourceTree = "<group>"; };
 		86F5F0481E7E8B6E00069983 /* CCFreshStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCFreshStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F5F04C1E7E8B6E00069983 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86F5F04E1E7E8B6E00069983 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86F5F04F1E7E8B6E00069983 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		86F5F0511E7E8B6E00069983 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		86F5F0521E7E8B6E00069983 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		86F5F0571E7E8B6E00069983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86F5F05C1E7E8B6E00069983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86F5F0621E7E8B7C00069983 /* CCFreshStoreApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCFreshStoreApp.entitlements; sourceTree = "<group>"; };
@@ -265,6 +265,39 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		86BC3F4F1F40099500285375 /* Concern */ = {
+			isa = PBXGroup;
+			children = (
+				86BC3F501F40099500285375 /* Controller */,
+				86BC3F511F40099500285375 /* Model */,
+				86BC3F521F40099500285375 /* View */,
+			);
+			path = Concern;
+			sourceTree = "<group>";
+		};
+		86BC3F501F40099500285375 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				86BC3F531F4009AA00285375 /* ConcernViewController.h */,
+				86BC3F541F4009AA00285375 /* ConcernViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		86BC3F511F40099500285375 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		86BC3F521F40099500285375 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		86F5F03F1E7E8B6E00069983 = {
 			isa = PBXGroup;
 			children = (
@@ -291,10 +324,9 @@
 				86F5F04F1E7E8B6E00069983 /* AppDelegate.m */,
 				863DFDD91E895EE200A515F2 /* Const.h */,
 				8636FD601EEA9128001A64C0 /* Category */,
+				86BC3F4F1F40099500285375 /* Concern */,
 				8635D8611E9A0170005310EC /* Login */,
 				2533B75F1E8A3F8D00E5F20A /* Main */,
-				86F5F0511E7E8B6E00069983 /* TestViewController.h */,
-				86F5F0521E7E8B6E00069983 /* TestViewController.m */,
 				86F5F0571E7E8B6E00069983 /* Assets.xcassets */,
 				86F5F05C1E7E8B6E00069983 /* Info.plist */,
 				86F5F04B1E7E8B6E00069983 /* Supporting Files */,
@@ -443,7 +475,6 @@
 			files = (
 				8636FD791EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m in Sources */,
 				8636FD801EEA9128001A64C0 /* UIView+CCTools.m in Sources */,
-				86F5F0531E7E8B6E00069983 /* TestViewController.m in Sources */,
 				8635D86A1E9A22A0005310EC /* UserModel.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,
 				8635D8671E9A0170005310EC /* LoginViewController.m in Sources */,
@@ -462,6 +493,7 @@
 				8636FD7A1EEA9128001A64C0 /* NSString+CCTools.m in Sources */,
 				8636FD781EEA9128001A64C0 /* NSDate+CCTools.m in Sources */,
 				2533B7671E8A3F8D00E5F20A /* FoodModel.m in Sources */,
+				86BC3F551F4009AA00285375 /* ConcernViewController.m in Sources */,
 				8636FD7B1EEA9128001A64C0 /* UIBarButtonItem+CCTools.m in Sources */,
 				861F30401F152AFD00E88EFD /* NullViewController.m in Sources */,
 				8636FD841EEA9150001A64C0 /* MBProgressHUD+CCTools.m in Sources */,

@@ -79,7 +79,6 @@ static const CGFloat kCornerRadius = 5;
 @property (nonatomic, strong) UIButton *forgetButton;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
-
 /// 数据字典
 @property (nonatomic, strong) NSDictionary *dict;
 

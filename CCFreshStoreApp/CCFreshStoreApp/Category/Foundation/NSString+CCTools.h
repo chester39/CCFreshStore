@@ -38,6 +38,10 @@
  */
 - (NSUInteger)unicodeLength;
 /**
+ *  截取指定Unicode长度方法
+ */
+- (NSString *)unicodeMaxLength:(NSUInteger)length;
+/**
  *  获取当前日期字符串方法
  */
 - (NSString *)nowDateString;

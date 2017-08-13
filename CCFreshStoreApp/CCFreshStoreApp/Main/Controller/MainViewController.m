@@ -12,8 +12,16 @@
 // Model
 #import "TabBarModel.h"
 
+// Controller
+#import "WebViewController.h"
+
 // Third Party
 #import "YYModel.h"
+
+#pragma mark - 界面常数
+
+// 增加按钮相关常数
+static const CGFloat kAddButtonTopMargin = 10;
 
 @interface MainViewController ()
 
@@ -118,7 +126,7 @@
         self.addButton = [UIButton buttonWithImage:@"tabbar_compose_icon_add" backgroundImage:@"tabbar_compose_button"];
         [self.addButton addTarget:self action:@selector(addButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         CGRect rect = self.addButton.frame;
-        CGFloat tabY = self.tabBar.frame.origin.y - 5;
+        CGFloat tabY = self.tabBar.frame.origin.y - kAddButtonTopMargin;
         CGFloat tabWidth = self.tabBar.frame.size.width / (CGFloat)self.childViewControllers.count;
         CGRect addButtonFrame = CGRectMake(tabWidth * 2, tabY, tabWidth, rect.size.height);
         self.addButton.frame = addButtonFrame;
@@ -134,6 +142,10 @@
  */
 - (void)addButtonDidClick {
     
+    WebViewController *webVC = [[WebViewController alloc] init];
+    NSString *urlString = @"https://chesterhupu.kuaizhan.com/";
+    [webVC loadWithURLString:urlString];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 @end

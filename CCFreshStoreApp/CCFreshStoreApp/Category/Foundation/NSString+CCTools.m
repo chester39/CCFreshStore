@@ -122,6 +122,26 @@
 }
 
 /**
+ *  截取指定Unicode长度方法
+ */
+- (NSString *)unicodeMaxLength:(NSUInteger)length {
+    
+    NSUInteger maxLength = 0;
+    NSInteger asciiRemainLength = length * 2;
+    for (maxLength = 0; maxLength < self.length; ++maxLength) {
+        unichar uniChar = [self characterAtIndex:maxLength];
+        NSUInteger assciiCharLength = isascii(uniChar) ? 1 : 2;
+        asciiRemainLength -= assciiCharLength;
+        if (asciiRemainLength < 0) {
+            break;
+        }
+    }
+ 
+    NSString *newString = [self substringToIndex:maxLength];
+    return newString;
+}
+
+/**
  *  获取当前日期字符串方法
  */
 - (NSString *)nowDateString {

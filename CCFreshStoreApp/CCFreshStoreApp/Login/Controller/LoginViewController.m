@@ -53,6 +53,8 @@
     [self setupUI];
 }
 
+#pragma mark - 界面方法
+
 /**
  *  初始化界面方法
  */

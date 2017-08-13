@@ -10,7 +10,7 @@
 #import "Const.h"
 
 // Controller
-#import "TestViewController.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:kScreenFrame];
     self.window.backgroundColor = kCommonLightColor;
     
-    TestViewController *defaultVC = [[TestViewController alloc] init];
+    MainViewController *defaultVC = [[MainViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:defaultVC];
     
     self.window.rootViewController = nc;

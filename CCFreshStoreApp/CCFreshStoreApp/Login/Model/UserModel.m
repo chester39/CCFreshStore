@@ -23,7 +23,7 @@
         self.phone = dict[kUserPhone];
         self.userID = @"";
         self.avatar = @"";
-        self.sex = 0;
+        self.sex = UserSexTypeMale;
         self.birthday = @"";
     }
     
