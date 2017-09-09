@@ -97,21 +97,21 @@ static const CGFloat kDivideLineRightMarin = 3;
         make.width.equalTo(kImageViewWidth);
         make.height.equalTo(kImageViewHeight);
         make.centerY.equalTo(self);
-        make.left.equalTo(self.left).offset(kImageViewLeftMargin);
+        make.left.equalTo(self).offset(kImageViewLeftMargin);
     }];
     
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kTextFieldHeight);
         make.centerY.equalTo(self);
-        make.left.equalTo(self.imageView.right).offset(kTextFieldLeftMargin);
-        make.right.equalTo(self.right);
+        make.left.equalTo(self.imageView).offset(kTextFieldLeftMargin);
+        make.right.equalTo(self);
     }];
     
     [self.divideLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kDivideLineHeight);
         make.top.equalTo(self.textField.bottom).offset(kDivideLineTopMarin);
-        make.left.equalTo(self.left).offset(kDivideLineLeftMarin);
-        make.right.equalTo(self.right).offset(-kDivideLineRightMarin);
+        make.left.equalTo(self).offset(kDivideLineLeftMarin);
+        make.right.equalTo(self).offset(-kDivideLineRightMarin);
     }];
 }
 

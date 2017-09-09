@@ -18,7 +18,6 @@
 		8635D86A1E9A22A0005310EC /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D8691E9A22A0005310EC /* UserModel.m */; };
 		8635D86D1E9A2AD4005310EC /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8635D86C1E9A2AD4005310EC /* LoginView.m */; };
 		8636FD781EEA9128001A64C0 /* NSDate+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD631EEA9128001A64C0 /* NSDate+CCTools.m */; };
-		8636FD791EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD651EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m */; };
 		8636FD7A1EEA9128001A64C0 /* NSString+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD671EEA9128001A64C0 /* NSString+CCTools.m */; };
 		8636FD7B1EEA9128001A64C0 /* UIBarButtonItem+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD6B1EEA9128001A64C0 /* UIBarButtonItem+CCTools.m */; };
 		8636FD7C1EEA9128001A64C0 /* UIButton+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD6D1EEA9128001A64C0 /* UIButton+CCTools.m */; };
@@ -61,8 +60,6 @@
 		8635D86C1E9A2AD4005310EC /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		8636FD621EEA9128001A64C0 /* NSDate+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CCTools.h"; sourceTree = "<group>"; };
 		8636FD631EEA9128001A64C0 /* NSDate+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CCTools.m"; sourceTree = "<group>"; };
-		8636FD641EEA9128001A64C0 /* NSMutableAttributedString+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+CCTools.h"; sourceTree = "<group>"; };
-		8636FD651EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+CCTools.m"; sourceTree = "<group>"; };
 		8636FD661EEA9128001A64C0 /* NSString+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CCTools.h"; sourceTree = "<group>"; };
 		8636FD671EEA9128001A64C0 /* NSString+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTools.m"; sourceTree = "<group>"; };
 		8636FD6A1EEA9128001A64C0 /* UIBarButtonItem+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CCTools.h"; sourceTree = "<group>"; };
@@ -227,8 +224,6 @@
 			children = (
 				8636FD621EEA9128001A64C0 /* NSDate+CCTools.h */,
 				8636FD631EEA9128001A64C0 /* NSDate+CCTools.m */,
-				8636FD641EEA9128001A64C0 /* NSMutableAttributedString+CCTools.h */,
-				8636FD651EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m */,
 				8636FD661EEA9128001A64C0 /* NSString+CCTools.h */,
 				8636FD671EEA9128001A64C0 /* NSString+CCTools.m */,
 			);
@@ -473,7 +468,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8636FD791EEA9128001A64C0 /* NSMutableAttributedString+CCTools.m in Sources */,
 				8636FD801EEA9128001A64C0 /* UIView+CCTools.m in Sources */,
 				8635D86A1E9A22A0005310EC /* UserModel.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,

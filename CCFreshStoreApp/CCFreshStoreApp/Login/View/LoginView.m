@@ -256,7 +256,7 @@ static const CGFloat kCornerRadius = 5;
         make.width.equalTo(kLogoViewWidth);
         make.height.equalTo(kLogoViewHeight);
         make.centerX.equalTo(self);
-        make.top.equalTo(self.top).offset(kLogoViewTopMargin);
+        make.top.equalTo(self).offset(kLogoViewTopMargin);
     }];
     
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -270,7 +270,7 @@ static const CGFloat kCornerRadius = 5;
         make.width.equalTo(self);
         make.height.equalTo(kRegisterButtonHeight);
         make.centerX.equalTo(self);
-        make.bottom.equalTo(self.bottom).offset(-kRegisterButtonBottomMargin);
+        make.bottom.equalTo(self).offset(-kRegisterButtonBottomMargin);
     }];
 }
 
@@ -289,22 +289,22 @@ static const CGFloat kCornerRadius = 5;
     [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kUserViewHeight);
         make.top.equalTo(self.titleButton.bottom).offset(kUserViewTopMargin);
-        make.left.equalTo(self.titleButton.left).offset(kUserViewLeftMargin);
-        make.right.equalTo(self.titleButton.right).offset(-kUserViewRightMargin);
+        make.left.equalTo(self.titleButton).offset(kUserViewLeftMargin);
+        make.right.equalTo(self.titleButton).offset(-kUserViewRightMargin);
     }];
     
     [self.passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kPasswordViewHeight);
         make.top.equalTo(self.userView.bottom).offset(kPasswordViewTopMargin);
-        make.left.equalTo(self.userView.left);
-        make.right.equalTo(self.userView.right);
+        make.left.equalTo(self.userView);
+        make.right.equalTo(self.userView);
     }];
     
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kLoginButtonHeight);
         make.top.equalTo(self.passwordView.bottom).offset(kLoginButtonTopMargin);
-        make.left.equalTo(self.containerView.left).offset(kLoginButtonLeftMargin);
-        make.right.equalTo(self.containerView.right).offset(-kLoginButtonRightMargin);
+        make.left.equalTo(self.containerView).offset(kLoginButtonLeftMargin);
+        make.right.equalTo(self.containerView).offset(-kLoginButtonRightMargin);
     }];
     
     [self.forgetButton mas_makeConstraints:^(MASConstraintMaker *make) {

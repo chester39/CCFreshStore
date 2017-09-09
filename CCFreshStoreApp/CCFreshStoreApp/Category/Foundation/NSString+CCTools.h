@@ -57,5 +57,13 @@
  *  获取MD5加密字符串方法
  */
 - (NSString *)md5String;
+/**
+ *  改变部分文字颜色方法
+ */
+- (NSMutableAttributedString *)changeColor:(UIColor *)color subString:(NSString *)subString;
+/**
+ *  改变部分文字行间距方法
+ */
+- (NSMutableAttributedString *)changeLineSpacing:(CGFloat)spacing subString:(NSString *)subString;
 
 @end

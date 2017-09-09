@@ -193,4 +193,31 @@
     return md5String;
 }
 
+/**
+ *  改变部分文字颜色方法
+ */
+- (NSMutableAttributedString *)changeColor:(UIColor *)color subString:(NSString *)subString {
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
+    NSRange range = [self rangeOfString:subString options:NSBackwardsSearch];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:color range:range];
+    
+    return attributedString;
+}
+
+/**
+ *  改变部分文字行间距方法
+ */
+- (NSMutableAttributedString *)changeLineSpacing:(CGFloat)spacing subString:(NSString *)subString {
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
+    NSRange range = [self rangeOfString:subString options:NSBackwardsSearch];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = spacing;
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
+    
+    return attributedString;
+}
+
 @end

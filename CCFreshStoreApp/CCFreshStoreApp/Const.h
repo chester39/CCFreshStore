@@ -8,7 +8,6 @@
 
 // Foundation Category
 #import "NSDate+CCTools.h"
-#import "NSMutableAttributedString+CCTools.h"
 #import "NSString+CCTools.h"
 
 // UIKit Category
@@ -49,7 +48,7 @@
 /// 通用浅颜色: White
 #define kCommonLightColor [UIColor whiteColor]
 /// 通用深颜色: Black
-#define kCommonDarkColor [UIColor whiteColor]
+#define kCommonDarkColor [UIColor blackColor]
 /// 透明背景颜色: Clear
 #define kClearColor [UIColor clearColor]
 /// App辅助颜色: A5A5A5
