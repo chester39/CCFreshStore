@@ -26,8 +26,8 @@
 		8636FD7F1EEA9128001A64C0 /* UILabel+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD731EEA9128001A64C0 /* UILabel+CCTools.m */; };
 		8636FD801EEA9128001A64C0 /* UIView+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD751EEA9128001A64C0 /* UIView+CCTools.m */; };
 		8636FD811EEA9128001A64C0 /* UIWindow+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD771EEA9128001A64C0 /* UIWindow+CCTools.m */; };
-		8636FD841EEA9150001A64C0 /* MBProgressHUD+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD831EEA9150001A64C0 /* MBProgressHUD+CCTools.m */; };
 		8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD861EEA9910001A64C0 /* WaveButton.m */; };
+		86B420CA1FF3FE3900807E80 /* MBProgressHUD+CCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B420C81FF3FE3900807E80 /* MBProgressHUD+CCTools.m */; };
 		86BC3F551F4009AA00285375 /* ConcernViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC3F541F4009AA00285375 /* ConcernViewController.m */; };
 		86F5F04D1E7E8B6E00069983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04C1E7E8B6E00069983 /* main.m */; };
 		86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04F1E7E8B6E00069983 /* AppDelegate.m */; };
@@ -76,11 +76,11 @@
 		8636FD751EEA9128001A64C0 /* UIView+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CCTools.m"; sourceTree = "<group>"; };
 		8636FD761EEA9128001A64C0 /* UIWindow+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+CCTools.h"; sourceTree = "<group>"; };
 		8636FD771EEA9128001A64C0 /* UIWindow+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CCTools.m"; sourceTree = "<group>"; };
-		8636FD821EEA9150001A64C0 /* MBProgressHUD+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+CCTools.h"; sourceTree = "<group>"; };
-		8636FD831EEA9150001A64C0 /* MBProgressHUD+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+CCTools.m"; sourceTree = "<group>"; };
 		8636FD851EEA9910001A64C0 /* WaveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveButton.h; sourceTree = "<group>"; };
 		8636FD861EEA9910001A64C0 /* WaveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveButton.m; sourceTree = "<group>"; };
 		863DFDD91E895EE200A515F2 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		86B420C81FF3FE3900807E80 /* MBProgressHUD+CCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+CCTools.m"; sourceTree = "<group>"; };
+		86B420C91FF3FE3900807E80 /* MBProgressHUD+CCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+CCTools.h"; sourceTree = "<group>"; };
 		86BC3F531F4009AA00285375 /* ConcernViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernViewController.h; sourceTree = "<group>"; };
 		86BC3F541F4009AA00285375 /* ConcernViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernViewController.m; sourceTree = "<group>"; };
 		86F5F0481E7E8B6E00069983 /* CCFreshStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCFreshStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				8636FD611EEA9128001A64C0 /* Foundation */,
-				8636FD681EEA9128001A64C0 /* MBProgressHUD */,
+				86B420C71FF3FE3900807E80 /* MBProgressHUD */,
 				8636FD691EEA9128001A64C0 /* UIKit */,
 			);
 			path = Category;
@@ -228,15 +228,6 @@
 				8636FD671EEA9128001A64C0 /* NSString+CCTools.m */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		8636FD681EEA9128001A64C0 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				8636FD821EEA9150001A64C0 /* MBProgressHUD+CCTools.h */,
-				8636FD831EEA9150001A64C0 /* MBProgressHUD+CCTools.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		8636FD691EEA9128001A64C0 /* UIKit */ = {
@@ -258,6 +249,15 @@
 				8636FD771EEA9128001A64C0 /* UIWindow+CCTools.m */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		86B420C71FF3FE3900807E80 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				86B420C91FF3FE3900807E80 /* MBProgressHUD+CCTools.h */,
+				86B420C81FF3FE3900807E80 /* MBProgressHUD+CCTools.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		86BC3F4F1F40099500285375 /* Concern */ = {
@@ -476,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8636FD801EEA9128001A64C0 /* UIView+CCTools.m in Sources */,
+				86B420CA1FF3FE3900807E80 /* MBProgressHUD+CCTools.m in Sources */,
 				8635D86A1E9A22A0005310EC /* UserModel.m in Sources */,
 				2533B7661E8A3F8D00E5F20A /* WebViewController.m in Sources */,
 				8635D8671E9A0170005310EC /* LoginViewController.m in Sources */,
@@ -497,7 +498,6 @@
 				86BC3F551F4009AA00285375 /* ConcernViewController.m in Sources */,
 				8636FD7B1EEA9128001A64C0 /* UIBarButtonItem+CCTools.m in Sources */,
 				861F30401F152AFD00E88EFD /* NullViewController.m in Sources */,
-				8636FD841EEA9150001A64C0 /* MBProgressHUD+CCTools.m in Sources */,
 				8636FD811EEA9128001A64C0 /* UIWindow+CCTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -318,7 +318,7 @@ static const CGFloat kCornerRadius = 5;
     if (self.delegate && [self.delegate respondsToSelector:@selector(registerViewDidClickRegisterButton:context:)]) {
         [self.delegate registerViewDidClickRegisterButton:self context:self.dict];
     }
-    [MBProgressHUD showMessageWithText:@"注册成功" time:1.0];
+    [MBProgressHUD showMessageWithText:@"注册成功" time:1];
 }
 
 #pragma mark - 通知方法
