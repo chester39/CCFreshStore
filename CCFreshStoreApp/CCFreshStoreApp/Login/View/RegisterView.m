@@ -310,7 +310,7 @@ static const CGFloat kCornerRadius = 5;
     NSString *account = [self.userView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [self.passwordView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *phone = [self.phoneView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (![account checkString] || ![password checkString] || ![phone checkString]) {
+    if (!CCTNSStringCheck(account) || !CCTNSStringCheck(password) || !CCTNSStringCheck(phone)) {
         return;
     }
     self.dict = @{kUserAccount:account, kUserPassword:password, kUserPhone:phone};

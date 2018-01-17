@@ -170,7 +170,6 @@ static const CGFloat kCornerRadius = 5;
         [self.registerButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
         self.registerButton.titleLabel.font = kMediumFont;
         [self.registerButton addTarget:self action:@selector(registerButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-        
         [self.registerButton.layer setBorderWidth:0];
         [self addSubview:self.registerButton];
     }
@@ -188,7 +187,6 @@ static const CGFloat kCornerRadius = 5;
         [self.titleButton setTitle:@"账号登录" forState:UIControlStateNormal];
         [self.titleButton setTitleColor:kTextBlackColor forState:UIControlStateNormal];
         self.titleButton.titleLabel.font = kHeadFont;
-        
         [self.titleButton.layer setShadowColor:kCommonDarkColor.CGColor];
         [self.titleButton.layer setCornerRadius:kCornerRadius];
         [self.containerView addSubview:self.titleButton];
@@ -214,7 +212,6 @@ static const CGFloat kCornerRadius = 5;
         [self.loginButton setBackgroundColor:kMainColor];
         [self.loginButton addTarget:self action:@selector(loginButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         self.loginButton.enabled = NO;
-        
         [self.loginButton.layer setCornerRadius:kCornerRadius];
         self.loginButton.layer.masksToBounds = YES;
         [self.containerView addSubview:self.loginButton];
@@ -226,7 +223,6 @@ static const CGFloat kCornerRadius = 5;
         [self.forgetButton setTitleColor:kAuxiliaryColor forState:UIControlStateNormal];
         self.forgetButton.titleLabel.font = kMediumFont;
         [self.forgetButton addTarget:self action:@selector(forgetButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-        
         [self.forgetButton.layer setBorderWidth:0];
         [self.containerView addSubview:self.forgetButton];
     }
@@ -340,12 +336,12 @@ static const CGFloat kCornerRadius = 5;
     [self endEditing:YES];
     NSString *account = [self.userView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [self.passwordView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (![account checkString] || ![password checkString]) {
+    if (!CCTNSStringCheck(account) || !CCTNSStringCheck(password)) {
         return;
     }
-    self.dict = @{kUserAccount:account, kUserPassword:password};
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickLoginButton:context:)]) {
+    self.dict = @{kUserAccount:account, kUserPassword:password};
+    if (CCTDelegateCheckToSelector(self.delegate, @selector(loginViewDidClickLoginButton:context:))) {
         [self.delegate loginViewDidClickLoginButton:self context:self.dict];
     }
     [MBProgressHUD showMessageWithText:@"登录成功" time:1];
@@ -357,7 +353,7 @@ static const CGFloat kCornerRadius = 5;
 - (void)forgetButtonDidClick {
     
     [self endEditing:YES];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickForgetButton:)]) {
+    if (CCTDelegateCheckToSelector(self.delegate, @selector(loginViewDidClickForgetButton:))) {
         [self.delegate loginViewDidClickForgetButton:self];
     }
 }
@@ -368,7 +364,7 @@ static const CGFloat kCornerRadius = 5;
 - (void)registerButtonDidClick {
     
     [self endEditing:YES];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(loginViewDidClickRegisterButton:)]) {
+    if (CCTDelegateCheckToSelector(self.delegate, @selector(loginViewDidClickRegisterButton:))) {
         [self.delegate loginViewDidClickRegisterButton:self];
     }
 }

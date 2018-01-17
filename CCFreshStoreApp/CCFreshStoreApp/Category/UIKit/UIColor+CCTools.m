@@ -9,7 +9,7 @@
 @implementation UIColor (CCTools)
 
 /**
- *  十六进制颜色初始化方法
+ *  十六进制字符串颜色初始化方法
  */
 + (UIColor *)colorWithHexString:(NSString *)hex {
     
@@ -17,7 +17,7 @@
 }
 
 /**
- *  十六进制透明度和颜色初始化方法
+ *  十六进制字符串透明度和颜色初始化方法
  */
 + (UIColor *)colorWithHexString:(NSString *)hex alpha:(CGFloat)alpha {
     
@@ -55,6 +55,27 @@
     [scanner scanHexInt:&green];
     scanner = [NSScanner scannerWithString:blueString];
     [scanner scanHexInt:&blue];
+    
+    UIColor *color = [UIColor colorWithRed:(CGFloat)(red) / 255.0 green:(CGFloat)(green) / 255.0 blue:(CGFloat)(blue) / 255.0 alpha:alpha];
+    return color;
+}
+
+/**
+ *  十六进制颜色初始化方法
+ */
++ (UIColor *)colorWithHexInt:(UInt32)hex {
+    
+    return [UIColor colorWithHexInt:hex alpha:1.0];
+}
+
+/**
+ *  十六进制透明度和颜色初始化方法
+ */
++ (UIColor *)colorWithHexInt:(UInt32)hex alpha:(CGFloat)alpha {
+    
+    int red = (hex >> 16) & 0xFF;
+    int green = (hex >> 8) & 0xFF;
+    int blue = (hex) & 0xFF;
     
     UIColor *color = [UIColor colorWithRed:(CGFloat)(red) / 255.0 green:(CGFloat)(green) / 255.0 blue:(CGFloat)(blue) / 255.0 alpha:alpha];
     return color;

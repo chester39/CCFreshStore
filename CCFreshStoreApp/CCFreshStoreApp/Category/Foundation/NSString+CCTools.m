@@ -103,18 +103,52 @@
 }
 
 /**
+ *  获取文本尺寸方法
+ */
+- (CGSize)sizeWithFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
+    
+    CGSize textSize;
+    if (!font) {
+        font = [UIFont systemFontOfSize:12];
+    }
+    
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        dict[NSFontAttributeName] = font;
+        if (lineBreakMode != NSLineBreakByWordWrapping) {
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineBreakMode = lineBreakMode;
+            dict[NSParagraphStyleAttributeName] = paragraphStyle;
+        }
+        
+        CGRect rect = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
+        textSize = rect.size;
+        
+    } else {
+        textSize = [self sizeWithFont:font constrainedToSize:size lineBreakMode:lineBreakMode];
+    }
+    
+    return textSize;
+}
+
+/**
  *  获取Unicode长度方法
  */
 - (NSUInteger)unicodeLength {
     
-    NSUInteger asciiLength = 0;
-    for (NSUInteger i = 0; i < self.length; ++i) {
-        unichar uniChar = [self characterAtIndex:i];
-        asciiLength += isascii(uniChar) ? 1 : 2;
-    }
-    
+    __block NSUInteger asciiLength = 0;
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+        unichar uniChar = [self characterAtIndex:0];
+        if (substring.length == 1 && isascii(uniChar)) {
+            asciiLength += 1;
+            
+        } else {
+            asciiLength += 2;
+        }
+    }];
+
     NSUInteger unicodeLength = asciiLength / 2;
-    if(asciiLength % 2) {
+    if (asciiLength % 2) {
         ++unicodeLength;
     }
     
@@ -126,16 +160,24 @@
  */
 - (NSString *)unicodeMaxLength:(NSUInteger)length {
     
-    NSUInteger maxLength = 0;
-    NSInteger asciiRemainLength = length * 2;
-    for (maxLength = 0; maxLength < self.length; ++maxLength) {
-        unichar uniChar = [self characterAtIndex:maxLength];
-        NSUInteger assciiCharLength = isascii(uniChar) ? 1 : 2;
-        asciiRemainLength -= assciiCharLength;
-        if (asciiRemainLength < 0) {
-            break;
+    __block NSUInteger maxLength = 0;
+    __block NSInteger asciiRemainLength = length * 2;
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+        unichar uniChar = [self characterAtIndex:0];
+        if (substring.length == 1 && isascii(uniChar)) {
+            asciiRemainLength -= 1;
+            
+        } else {
+            asciiRemainLength -= 2;
         }
-    }
+        
+        if (asciiRemainLength >= 0) {
+            maxLength += substring.length;
+            
+        } else {
+            *stop = YES;
+        }
+    }];
  
     NSString *newString = [self substringToIndex:maxLength];
     return newString;
@@ -166,18 +208,6 @@
 }
 
 /**
- *  判断字符串有效方法
- */
-- (BOOL)checkString {
-    
-    if (self && self.length > 0) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-/**
  *  获取MD5加密字符串方法
  */
 - (NSString *)md5String {
@@ -191,6 +221,92 @@
     }
     
     return md5String;
+}
+
+/**
+ *  是否字母数字中文且没有空格方法
+ */
+- (BOOL)isInputRuleWithoutBlank:(NSString *)string {
+    
+    if (!([string isKindOfClass:[NSString class]] && string.length > 0)) {
+        return NO;
+    }
+    
+    NSString *pattern = @"^[a-zA-Z\u4E00-\u9FA5\\d]*$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    
+    BOOL isMatch = [predicate evaluateWithObject:string];
+    return isMatch;
+}
+
+/**
+ *  是否字母数字中文且有空格方法
+ */
+- (BOOL)isInputRuleWithBlank:(NSString *)string {
+    
+    if (!([string isKindOfClass:[NSString class]] && string.length > 0)) {
+        return NO;
+    }
+    
+    NSString *pattern = @"^[a-zA-Z\u4E00-\u9FA5\\d\\s]*$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    
+    BOOL isMatch = [predicate evaluateWithObject:string];
+    return isMatch;
+}
+
+/**
+ *  查找URL指定值方法
+ */
+- (NSString *)findURLValueForKey:(NSString *)keyString {
+    
+    if (self.length <= 0 || keyString.length <= 0) {
+        return self;
+    }
+    
+    NSString *keyStringForFind = [NSString stringWithFormat:@"%@=", keyString];
+    NSString *value = @"";
+
+    if ([self rangeOfString:keyStringForFind].length <= 0) {
+        return value;
+    }
+    
+    NSString *stringWithKey = self;
+    NSArray *params = [self componentsSeparatedByString:@"?"];
+    if (params.count > 0) {
+        for (NSString *string in params) {
+            if ([string rangeOfString:keyStringForFind].length > 0) {
+                stringWithKey = string;
+                break;
+            }
+        }
+    }
+    
+    NSArray *components = [stringWithKey componentsSeparatedByString:@"&"];
+    if ([components count] <= 0) {
+        return value;
+    }
+    
+    NSString *subStringWithKey = @"";
+    for (NSString *subString in components) {
+        if (subString.length > 0 && [subString rangeOfString:keyStringForFind].length > 0) {
+            subStringWithKey = subString;
+            break;
+        }
+    }
+    
+    if (subStringWithKey.length > 0) {
+        NSArray *subComponents = [subStringWithKey componentsSeparatedByString:@"="];
+        if (subComponents.count >= 2) {
+            NSString *firstString = subComponents[0];
+            if ([firstString isEqualToString:keyString] ||
+                [firstString hasSuffix:keyString]) {
+                value = subComponents[1];
+            }
+        }
+    }
+    
+    return value;
 }
 
 /**

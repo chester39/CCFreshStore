@@ -68,7 +68,7 @@ static const CGFloat kAddButtonTopMargin = 10;
     
     if (!self.tabBarArray) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"TabBarSetting" ofType:@"json"];
-        if (!filePath.checkString) {
+        if (!CCTNSStringCheck(filePath)) {
             return;
         }
 
@@ -104,7 +104,7 @@ static const CGFloat kAddButtonTopMargin = 10;
         vc.title = model.title;
         vc.tabBarItem.image = [UIImage imageNamed:model.imageName];
         vc.tabBarItem.selectedImage = [UIImage imageNamed:[model.imageName stringByAppendingString:@"_highlighted"]];
-        if (!model.title.checkString) {
+        if (!CCTNSStringCheck(model.title)) {
             vc.tabBarItem.enabled = NO;
         }
         
@@ -130,7 +130,6 @@ static const CGFloat kAddButtonTopMargin = 10;
         CGFloat tabWidth = self.tabBar.frame.size.width / (CGFloat)self.childViewControllers.count;
         CGRect addButtonFrame = CGRectMake(tabWidth * 2, tabY, tabWidth, rect.size.height);
         self.addButton.frame = addButtonFrame;
-        
         [self.view addSubview:self.addButton];
     }
 }
