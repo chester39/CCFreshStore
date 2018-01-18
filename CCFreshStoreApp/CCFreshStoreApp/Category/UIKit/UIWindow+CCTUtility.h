@@ -1,12 +1,12 @@
 //
-//  UIWindow+CCTools.h
+//  UIWindow+CCTUtility.h
 //      CCFreshStoreApp
 //      Chen Chen @ March 30th, 2017
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIWindow (CCTools)
+@interface UIWindow (CCTUtility)
 
 /**
  *  判断是否浅色方法

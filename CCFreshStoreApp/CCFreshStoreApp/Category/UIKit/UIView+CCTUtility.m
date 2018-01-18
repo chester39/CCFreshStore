@@ -1,12 +1,12 @@
 //
-//  UIView+CCTools.m
+//  UIView+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 29th, 2017
 //
 
-#import "UIView+CCTools.h"
+#import "UIView+CCTUtility.h"
 
-@implementation UIView (CCTools)
+@implementation UIView (CCTUtility)
 
 /**
  *  获取缓存大小方法

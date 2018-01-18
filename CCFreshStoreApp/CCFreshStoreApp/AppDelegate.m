@@ -7,7 +7,7 @@
 #import "AppDelegate.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 // Controller
 #import "MainViewController.h"

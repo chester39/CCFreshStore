@@ -1,12 +1,12 @@
 //
-//  UILabel+CCTools.m
+//  UILabel+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 29th, 2017
 //
 
-#import "UILabel+CCTools.h"
+#import "UILabel+CCTUtility.h"
 
-@implementation UILabel (CCTools)
+@implementation UILabel (CCTUtility)
 
 /**
  *  文字和字号和行数初始化方法

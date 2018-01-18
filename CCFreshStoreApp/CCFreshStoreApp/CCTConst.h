@@ -1,5 +1,5 @@
 //
-//  Const.h
+//  CCTConst.h
 //      CCFreshStoreApp
 //      Chen Chen @ March 27th, 2017
 //
@@ -7,20 +7,20 @@
 #import <UIKit/UIKit.h>
 
 // Foundation Category
-#import "NSDate+CCTools.h"
-#import "NSString+CCTools.h"
+#import "NSDate+CCTUtility.h"
+#import "NSString+CCTUtility.h"
 
 // UIKit Category
-#import "UIBarButtonItem+CCTools.h"
-#import "UIButton+CCTools.h"
-#import "UIColor+CCTools.h"
-#import "UIImage+CCTools.h"
-#import "UILabel+CCTools.h"
-#import "UIView+CCTools.h"
-#import "UIWindow+CCTools.h"
+#import "UIBarButtonItem+CCTUtility.h"
+#import "UIButton+CCTUtility.h"
+#import "UIColor+CCTUtility.h"
+#import "UIImage+CCTUtility.h"
+#import "UILabel+CCTUtility.h"
+#import "UIView+CCTUtility.h"
+#import "UIWindow+CCTUtility.h"
 
-#ifndef Const_h
-#define Const_h
+#ifndef CCTConst_h
+#define CCTConst_h
 
 #pragma mark - 界面常数
 

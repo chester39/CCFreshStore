@@ -1,12 +1,12 @@
 //
-//  UIColor+CCTools.h
+//  UIColor+CCTUtility.h
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (CCTools)
+@interface UIColor (CCTUtility)
 
 /**
  *  十六进制字符串颜色初始化方法

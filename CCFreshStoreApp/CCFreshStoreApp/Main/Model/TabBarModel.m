@@ -7,7 +7,7 @@
 #import "TabBarModel.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 // Third Party
 #import "YYModel.h"

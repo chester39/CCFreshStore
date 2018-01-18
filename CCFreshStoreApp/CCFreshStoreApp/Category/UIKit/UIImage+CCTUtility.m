@@ -1,12 +1,12 @@
 //
-//  UIImage+CCTools.m
+//  UIImage+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 29th, 2017
 //
 
-#import "UIImage+CCTools.h"
+#import "UIImage+CCTUtility.h"
 
-@implementation UIImage (CCTools)
+@implementation UIImage (CCTUtility)
 
 /**
  *  图片染色方法

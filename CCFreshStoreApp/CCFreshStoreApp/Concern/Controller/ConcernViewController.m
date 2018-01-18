@@ -7,7 +7,7 @@
 #import "ConcernViewController.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 @interface ConcernViewController ()
 

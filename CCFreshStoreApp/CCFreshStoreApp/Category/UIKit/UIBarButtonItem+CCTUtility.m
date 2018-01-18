@@ -1,12 +1,12 @@
 //
-//  UIBarButtonItem+CCTools.m
+//  UIBarButtonItem+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "UIBarButtonItem+CCTools.h"
+#import "UIBarButtonItem+CCTUtility.h"
 
-@implementation UIBarButtonItem (CCTools)
+@implementation UIBarButtonItem (CCTUtility)
 
 /**
  *  图片和目标和选择器初始化方法

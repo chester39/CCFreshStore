@@ -7,7 +7,7 @@
 #import "LoginView.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 // View
 #import "MessageBoxView.h"
@@ -15,7 +15,7 @@
 
 // Third Party
 #import "Masonry.h"
-#import "MBProgressHUD+CCTools.h"
+#import "MBProgressHUD+CCTUtility.h"
 
 #pragma mark - 界面常数
 

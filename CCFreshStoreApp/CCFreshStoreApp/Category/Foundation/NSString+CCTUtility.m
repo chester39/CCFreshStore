@@ -1,15 +1,15 @@
 //
-//  NSString+CCTools.m
+//  NSString+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "NSString+CCTools.h"
+#import "NSString+CCTUtility.h"
 
 // Framework
 #import <CommonCrypto/CommonCrypto.h>
 
-@implementation NSString (CCTools)
+@implementation NSString (CCTUtility)
 
 /**
  *  获取缓存目录方法

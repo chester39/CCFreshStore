@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 static NSString *const estimatedProgress = @"estimatedProgress";
 

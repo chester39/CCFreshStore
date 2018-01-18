@@ -1,12 +1,12 @@
 //
-//  MBProgressHUD+CCTools.m
+//  MBProgressHUD+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ June 9th, 2017
 //
 
-#import "MBProgressHUD+CCTools.h"
+#import "MBProgressHUD+CCTUtility.h"
 
-@implementation MBProgressHUD (CCTools)
+@implementation MBProgressHUD (CCTUtility)
 
 /**
  *  显示消息和持续时间方法

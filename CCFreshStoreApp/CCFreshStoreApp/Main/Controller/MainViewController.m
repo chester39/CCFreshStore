@@ -7,7 +7,7 @@
 #import "MainViewController.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 // Model
 #import "TabBarModel.h"
@@ -21,7 +21,7 @@
 #pragma mark - 界面常数
 
 // 增加按钮相关常数
-static const CGFloat kAddButtonTopMargin = 10;
+static const CGFloat kAddButtonTopMargin = 5;
 
 @interface MainViewController ()
 

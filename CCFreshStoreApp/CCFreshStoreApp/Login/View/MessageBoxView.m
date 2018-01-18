@@ -7,7 +7,7 @@
 #import "MessageBoxView.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 // Third Party
 #import "Masonry.h"

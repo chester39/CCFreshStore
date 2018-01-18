@@ -7,7 +7,7 @@
 #import "UserModel.h"
 
 // Tool
-#import "Const.h"
+#import "CCTConst.h"
 
 @implementation UserModel
 

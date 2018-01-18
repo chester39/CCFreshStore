@@ -1,12 +1,12 @@
 //
-//  UIButton+CCTools.m
+//  UIButton+CCTUtility.m
 //      CCFreshStoreApp
 //      Chen Chen @ March 28th, 2017
 //
 
-#import "UIButton+CCTools.h"
+#import "UIButton+CCTUtility.h"
 
-@implementation UIButton (CCTools)
+@implementation UIButton (CCTUtility)
 
 /**
  *  图片和背景图片初始化方法
