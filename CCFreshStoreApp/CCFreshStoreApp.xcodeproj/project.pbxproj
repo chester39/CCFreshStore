@@ -34,6 +34,7 @@
 		86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5F0571E7E8B6E00069983 /* Assets.xcassets */; };
 		8E26842C029DDFD6A7B8368E /* libPods-CCFreshStoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */; };
 		EE1453221EE6A88A00FFB935 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1453211EE6A88A00FFB935 /* RegisterView.m */; };
+		EEF6E6372011D63D0004FD2D /* UIDevice+CCTUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6E6362011D63D0004FD2D /* UIDevice+CCTUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,8 @@
 		86F5F0621E7E8B7C00069983 /* CCFreshStoreApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCFreshStoreApp.entitlements; sourceTree = "<group>"; };
 		EE1453201EE6A88A00FFB935 /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		EE1453211EE6A88A00FFB935 /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		EEF6E6352011D63D0004FD2D /* UIDevice+CCTUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+CCTUtility.h"; sourceTree = "<group>"; };
+		EEF6E6362011D63D0004FD2D /* UIDevice+CCTUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+CCTUtility.m"; sourceTree = "<group>"; };
 		FC922E578A1EDBA0A37A491B /* libPods-CCFreshStoreApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCFreshStoreApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -239,6 +242,8 @@
 				8636FD6D1EEA9128001A64C0 /* UIButton+CCTUtility.m */,
 				8636FD6E1EEA9128001A64C0 /* UIColor+CCTUtility.h */,
 				8636FD6F1EEA9128001A64C0 /* UIColor+CCTUtility.m */,
+				EEF6E6352011D63D0004FD2D /* UIDevice+CCTUtility.h */,
+				EEF6E6362011D63D0004FD2D /* UIDevice+CCTUtility.m */,
 				8636FD701EEA9128001A64C0 /* UIImage+CCTUtility.h */,
 				8636FD711EEA9128001A64C0 /* UIImage+CCTUtility.m */,
 				8636FD721EEA9128001A64C0 /* UILabel+CCTUtility.h */,
@@ -486,6 +491,7 @@
 				8636FD7E1EEA9128001A64C0 /* UIImage+CCTUtility.m in Sources */,
 				8636FD7C1EEA9128001A64C0 /* UIButton+CCTUtility.m in Sources */,
 				861F30371F15149700E88EFD /* MainViewController.m in Sources */,
+				EEF6E6372011D63D0004FD2D /* UIDevice+CCTUtility.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
 				861F303A1F1516B000E88EFD /* TabBarModel.m in Sources */,
 				8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */,
