@@ -344,7 +344,7 @@ static const CGFloat kCornerRadius = 5;
     if (CCTDelegateCheckToSelector(self.delegate, @selector(loginViewDidClickLoginButton:context:))) {
         [self.delegate loginViewDidClickLoginButton:self context:self.dict];
     }
-    [MBProgressHUD showMessageWithText:@"登录成功" time:1];
+    [MBProgressHUD showMessage:@"登录成功" time:1];
 }
 
 /**

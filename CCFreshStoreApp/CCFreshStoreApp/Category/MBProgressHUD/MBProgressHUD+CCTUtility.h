@@ -11,6 +11,6 @@
 /**
  *  显示消息和持续时间方法
  */
-+ (void)showMessageWithText:(NSString *)text time:(NSTimeInterval)time;
++ (void)showMessage:(NSString *)text time:(NSTimeInterval)time;
 
 @end

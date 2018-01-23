@@ -21,7 +21,7 @@
 #pragma mark - 界面常数
 
 // 增加按钮相关常数
-static const CGFloat kAddButtonTopMargin = 5;
+static const CGFloat kAddButtonTopMargin = 10;
 
 @interface MainViewController ()
 
@@ -126,7 +126,7 @@ static const CGFloat kAddButtonTopMargin = 5;
         self.addButton = [UIButton buttonWithImage:@"tabbar_compose_icon_add" backgroundImage:@"tabbar_compose_button"];
         [self.addButton addTarget:self action:@selector(addButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
         CGRect rect = self.addButton.frame;
-        CGFloat tabY = self.tabBar.frame.origin.y - kAddButtonTopMargin;
+        CGFloat tabY = self.tabBar.frame.origin.y - kBottomHeight - kAddButtonTopMargin;
         CGFloat tabWidth = self.tabBar.frame.size.width / (CGFloat)self.childViewControllers.count;
         CGRect addButtonFrame = CGRectMake(tabWidth * 2, tabY, tabWidth, rect.size.height);
         self.addButton.frame = addButtonFrame;

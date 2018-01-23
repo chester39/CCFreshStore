@@ -11,18 +11,19 @@
 /**
  *  显示消息和持续时间方法
  */
-+ (void)showMessageWithText:(NSString *)text time:(NSTimeInterval)time {
++ (void)showMessage:(NSString *)text time:(NSTimeInterval)time {
     
     UIWindow *mainWindow;
     if ([UIApplication sharedApplication].keyWindow) {
         mainWindow = [UIApplication sharedApplication].keyWindow;
         
     } else if ([UIApplication sharedApplication].windows) {
-        mainWindow = [UIApplication sharedApplication].windows.firstObject;
+        mainWindow = [UIApplication sharedApplication].windows.lastObject;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:mainWindow animated:true];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:mainWindow animated:YES];
     hud.mode = MBProgressHUDModeText;
+    hud.removeFromSuperViewOnHide = YES;
     hud.label.text = text;
     [hud hideAnimated:YES afterDelay:time];
 }

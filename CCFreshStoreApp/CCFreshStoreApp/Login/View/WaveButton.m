@@ -41,6 +41,12 @@
     return self;
 }
 
+- (void)dealloc {
+    
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 #pragma mark - 界面方法
 
 /**
@@ -69,7 +75,7 @@
     CGPoint firstPoint = [firstTouch locationInView:self];
     self.circleCenterX = firstPoint.x;
     self.circleCenterY = firstPoint.y;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(timerAction) userInfo:nil repeats:true];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
@@ -85,6 +91,7 @@
     if (self.waveRadius > self.bounds.size.width * 0.5) {
         self.waveRadius = 0;
         [self.timer invalidate];
+        self.timer = nil;
         [self setNeedsDisplay];
     }
 }
