@@ -9,6 +9,114 @@
 @implementation UIView (CCTUtility)
 
 /**
+ *  获取顶部坐标方法
+ */
+- (CGFloat)top {
+    
+    return self.frame.origin.y;
+}
+
+/**
+ *  设置顶部坐标方法
+ */
+- (void)setTop:(CGFloat)top {
+    
+    CGRect frame = self.frame;
+    frame.origin.y = top;
+    self.frame = frame;
+}
+
+/**
+ *  获取左部坐标方法
+ */
+- (CGFloat)left {
+    
+    return self.frame.origin.x;
+}
+
+/**
+ *  设置左部坐标方法
+ */
+- (void)setLeft:(CGFloat)left {
+    
+    CGRect frame = self.frame;
+    frame.origin.x = left;
+    self.frame = frame;
+}
+
+/**
+ *  获取底部坐标方法
+ */
+- (CGFloat)bottom {
+    
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+/**
+ *  设置底部坐标方法
+ */
+- (void)setBottom:(CGFloat)bottom {
+    
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+
+/**
+ *  获取右部坐标方法
+ */
+- (CGFloat)right {
+    
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+/**
+ *  设置右部坐标方法
+ */
+- (void)setRight:(CGFloat)right {
+    
+    CGRect frame = self.frame;
+    frame.origin.x = right - frame.size.width;
+    self.frame = frame;
+}
+
+/**
+ *  获取宽度值方法
+ */
+- (CGFloat)width {
+    
+    return self.frame.size.width;
+}
+
+/**
+ *  设置宽度值方法
+ */
+- (void)setWidth:(CGFloat)width {
+    
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+
+/**
+ *  获取高度值方法
+ */
+- (CGFloat)height {
+    
+    return self.frame.size.height;
+}
+
+/**
+ *  设置高度值方法
+ */
+- (void)setHeight:(CGFloat)height {
+    
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+
+/**
  *  获取缓存大小方法
  */
 - (CGFloat)cachesSize {
@@ -61,6 +169,37 @@
     newImageView.layer.shadowOpacity = 0.4;
     
     return newImageView;
+}
+
+/**
+ *  判断是否视图显示在屏幕上方法
+ */
+- (BOOL)isDisplayInScreen {
+    
+    if (self.hidden || self.alpha == 0) {
+        return NO;
+    }
+    
+    if (!self.superview) {
+        return NO;
+    }
+    
+    CGRect rect = [self convertRect:self.bounds toView:[[[UIApplication sharedApplication] delegate] window]];
+    if (CGRectIsEmpty(rect) || CGRectIsNull(rect)) {
+        return NO;
+    }
+    
+    if (CGSizeEqualToSize(rect.size, CGSizeZero)) {
+        return NO;
+    }
+    
+    CGRect screenRect = [UIScreen mainScreen].bounds;
+    CGRect intersectionRect = CGRectIntersection(rect, screenRect);
+    if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 /**

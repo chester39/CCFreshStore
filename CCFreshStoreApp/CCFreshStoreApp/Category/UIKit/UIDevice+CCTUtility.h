@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, UIDeviceType) {
  */
 - (UIDeviceType)platformDeviceType;
 /**
- *  是否至少iOS多少版本方法
+ *  判断是否至少iOS多少版本方法
  */
 - (BOOL)isiOSVersion:(NSInteger)version;
 

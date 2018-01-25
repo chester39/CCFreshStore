@@ -107,7 +107,7 @@
  */
 - (CGSize)sizeWithFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     
-    CGSize textSize;
+    CGSize textSize = CGSizeZero;
     if (!font) {
         font = [UIFont systemFontOfSize:12];
     }
@@ -124,8 +124,6 @@
         CGRect rect = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dict context:nil];
         textSize = rect.size;
         
-    } else {
-        textSize = [self sizeWithFont:font constrainedToSize:size lineBreakMode:lineBreakMode];
     }
     
     return textSize;
@@ -197,6 +195,20 @@
 }
 
 /**
+ *  秒数格式化方法
+ */
+- (NSString *)totalSecondsFormatter {
+    
+    NSInteger timeInterval = self.integerValue;
+    NSInteger second = timeInterval % 60;
+    NSInteger minute = (timeInterval / 60) % 60;
+    NSInteger hour = timeInterval / 3600;
+    
+    NSString *timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second];
+    return timeString;
+}
+
+/**
  *  获取UUID字符串方法
  */
 - (NSString *)uuidString {
@@ -221,6 +233,28 @@
     }
     
     return md5String;
+}
+
+/**
+ *  获取base64加密字符串方法
+ */
+- (NSString *)base64String {
+    
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64String = [data base64EncodedStringWithOptions:0];
+    
+    return base64String;
+}
+
+/**
+ *  获取base64解密字符串方法
+ */
+- (NSString *)decodeBase64String {
+    
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:self options:0];
+    NSString *decodeBase64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    return decodeBase64String;
 }
 
 /**

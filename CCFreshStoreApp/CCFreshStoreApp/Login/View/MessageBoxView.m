@@ -103,7 +103,7 @@ static const CGFloat kDivideLineRightMarin = 3;
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(kTextFieldHeight);
         make.centerY.equalTo(self);
-        make.left.equalTo(self.imageView).offset(kTextFieldLeftMargin);
+        make.left.equalTo(self.imageView.right).offset(kTextFieldLeftMargin);
         make.right.equalTo(self);
     }];
     

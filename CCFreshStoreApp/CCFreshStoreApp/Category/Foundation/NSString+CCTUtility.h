@@ -50,6 +50,10 @@
  */
 - (NSString *)nowDateString;
 /**
+ *  秒数格式化方法
+ */
+- (NSString *)totalSecondsFormatter;
+/**
  *  获取UUID字符串方法
  */
 - (NSString *)uuidString;
@@ -58,11 +62,19 @@
  */
 - (NSString *)md5String;
 /**
- *  是否字母数字中文且没有空格方法
+ *  获取base64加密字符串方法
+ */
+- (NSString *)base64String;
+/**
+ *  获取base64解密字符串方法
+ */
+- (NSString *)decodeBase64String;
+/**
+ *  判断是否字母数字中文且没有空格方法
  */
 - (BOOL)isInputRuleWithoutBlank:(NSString *)string;
 /**
- *  是否字母数字中文且有空格方法
+ *  判断是否字母数字中文且有空格方法
  */
 - (BOOL)isInputRuleWithBlank:(NSString *)string;
 /**
