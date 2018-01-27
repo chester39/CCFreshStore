@@ -5,6 +5,8 @@
 //
 
 #import "UIDevice+CCTUtility.h"
+
+// Framework
 #include <sys/socket.h>
 #include <sys/sysctl.h>
 #include <net/if.h>
@@ -351,7 +353,7 @@
 }
 
 /**
- *  是否至少iOS多少版本方法
+ *  判断是否至少iOS多少版本方法
  */
 - (BOOL)isiOSVersion:(NSInteger)version {
     

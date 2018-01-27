@@ -258,7 +258,7 @@
 }
 
 /**
- *  是否字母数字中文且没有空格方法
+ *  判断是否字母数字中文且没有空格方法
  */
 - (BOOL)isInputRuleWithoutBlank:(NSString *)string {
     
@@ -274,7 +274,7 @@
 }
 
 /**
- *  是否字母数字中文且有空格方法
+ *  判断是否字母数字中文且有空格方法
  */
 - (BOOL)isInputRuleWithBlank:(NSString *)string {
     

@@ -14,6 +14,7 @@
 #import "UIBarButtonItem+CCTUtility.h"
 #import "UIButton+CCTUtility.h"
 #import "UIColor+CCTUtility.h"
+#import "UIDevice+CCTUtility.h"
 #import "UIImage+CCTUtility.h"
 #import "UILabel+CCTUtility.h"
 #import "UIView+CCTUtility.h"
