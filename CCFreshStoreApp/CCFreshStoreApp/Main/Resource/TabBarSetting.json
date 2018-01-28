@@ -20,7 +20,7 @@
     "imageName": "tabbar_discover"
   },
   {
-    "vcName": "LoginViewController",
+    "vcName": "MineViewController",
     "title": "我",
     "imageName": "tabbar_profile"
   }

@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, MessageBoxType) {
     /// 用户密码消息框
     MessageBoxTypePassword,
     /// 用户手机消息框
-    MessageBoxTypePhone,
+    MessageBoxTypePhone
 };
 
 @interface MessageBoxView : UIView

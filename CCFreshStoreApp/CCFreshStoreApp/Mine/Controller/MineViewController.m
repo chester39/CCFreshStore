@@ -1,19 +1,19 @@
 //
-//  ConcernViewController.m
+//  MineViewController.h
 //      CCFreshStoreApp
-//      Chen Chen @ August 13th, 2017
+//      Chen Chen @ January 28th, 2018
 //
 
-#import "ConcernViewController.h"
+#import "MineViewController.h"
 
 // Tool
 #import "CCTConst.h"
 
-@interface ConcernViewController ()
+@interface MineViewController ()
 
 @end
 
-@implementation ConcernViewController
+@implementation MineViewController
 
 #pragma mark - 初始化方法
 
@@ -43,7 +43,7 @@
  */
 - (void)setupUI {
     
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 @end

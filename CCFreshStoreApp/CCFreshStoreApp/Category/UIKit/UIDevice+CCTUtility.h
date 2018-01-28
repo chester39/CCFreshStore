@@ -115,7 +115,7 @@ typedef NS_ENUM(NSUInteger, UIDeviceType) {
     /// iPod未知设备
     UIDeviceTypeUnknowniPod,
     /// Apple TV未知设备
-    UIDeviceTypeUnknownAppleTV,
+    UIDeviceTypeUnknownAppleTV
 };
 
 @interface UIDevice (CCTUtility)

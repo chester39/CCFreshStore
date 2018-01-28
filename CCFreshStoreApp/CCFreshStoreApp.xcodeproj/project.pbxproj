@@ -29,6 +29,9 @@
 		8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636FD861EEA9910001A64C0 /* WaveButton.m */; };
 		86B420CA1FF3FE3900807E80 /* MBProgressHUD+CCTUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B420C81FF3FE3900807E80 /* MBProgressHUD+CCTUtility.m */; };
 		86BC3F551F4009AA00285375 /* ConcernViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BC3F541F4009AA00285375 /* ConcernViewController.m */; };
+		86EFF2BB201E0EF4007F3B97 /* MineMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EFF2BA201E0EF4007F3B97 /* MineMainCell.m */; };
+		86EFF2BE201E0F67007F3B97 /* MineMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EFF2BD201E0F67007F3B97 /* MineMainModel.m */; };
+		86EFF2C1201E12BC007F3B97 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EFF2C0201E12BC007F3B97 /* MineViewController.m */; };
 		86F5F04D1E7E8B6E00069983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04C1E7E8B6E00069983 /* main.m */; };
 		86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F5F04F1E7E8B6E00069983 /* AppDelegate.m */; };
 		86F5F0581E7E8B6E00069983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86F5F0571E7E8B6E00069983 /* Assets.xcassets */; };
@@ -84,6 +87,12 @@
 		86B420C91FF3FE3900807E80 /* MBProgressHUD+CCTUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+CCTUtility.h"; sourceTree = "<group>"; };
 		86BC3F531F4009AA00285375 /* ConcernViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcernViewController.h; sourceTree = "<group>"; };
 		86BC3F541F4009AA00285375 /* ConcernViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcernViewController.m; sourceTree = "<group>"; };
+		86EFF2B9201E0EF4007F3B97 /* MineMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineMainCell.h; sourceTree = "<group>"; };
+		86EFF2BA201E0EF4007F3B97 /* MineMainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineMainCell.m; sourceTree = "<group>"; };
+		86EFF2BC201E0F67007F3B97 /* MineMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineMainModel.h; sourceTree = "<group>"; };
+		86EFF2BD201E0F67007F3B97 /* MineMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineMainModel.m; sourceTree = "<group>"; };
+		86EFF2BF201E12BC007F3B97 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		86EFF2C0201E12BC007F3B97 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		86F5F0481E7E8B6E00069983 /* CCFreshStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCFreshStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F5F04C1E7E8B6E00069983 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86F5F04E1E7E8B6E00069983 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -298,6 +307,43 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		86EFF2B5201E0E48007F3B97 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				86EFF2B6201E0E48007F3B97 /* Controller */,
+				86EFF2B7201E0E48007F3B97 /* Model */,
+				86EFF2B8201E0E48007F3B97 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		86EFF2B6201E0E48007F3B97 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				86EFF2BF201E12BC007F3B97 /* MineViewController.h */,
+				86EFF2C0201E12BC007F3B97 /* MineViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		86EFF2B7201E0E48007F3B97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86EFF2BC201E0F67007F3B97 /* MineMainModel.h */,
+				86EFF2BD201E0F67007F3B97 /* MineMainModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		86EFF2B8201E0E48007F3B97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86EFF2B9201E0EF4007F3B97 /* MineMainCell.h */,
+				86EFF2BA201E0EF4007F3B97 /* MineMainCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		86F5F03F1E7E8B6E00069983 = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +373,7 @@
 				86BC3F4F1F40099500285375 /* Concern */,
 				8635D8611E9A0170005310EC /* Login */,
 				2533B75F1E8A3F8D00E5F20A /* Main */,
+				86EFF2B5201E0E48007F3B97 /* Mine */,
 				86F5F0571E7E8B6E00069983 /* Assets.xcassets */,
 				86F5F05C1E7E8B6E00069983 /* Info.plist */,
 				86F5F04B1E7E8B6E00069983 /* Supporting Files */,
@@ -489,10 +536,13 @@
 				8628EC501EE4418700E4DB9D /* MessageBoxView.m in Sources */,
 				86F5F0501E7E8B6E00069983 /* AppDelegate.m in Sources */,
 				8636FD7E1EEA9128001A64C0 /* UIImage+CCTUtility.m in Sources */,
+				86EFF2BE201E0F67007F3B97 /* MineMainModel.m in Sources */,
 				8636FD7C1EEA9128001A64C0 /* UIButton+CCTUtility.m in Sources */,
 				861F30371F15149700E88EFD /* MainViewController.m in Sources */,
 				EEF6E6372011D63D0004FD2D /* UIDevice+CCTUtility.m in Sources */,
 				86F5F04D1E7E8B6E00069983 /* main.m in Sources */,
+				86EFF2BB201E0EF4007F3B97 /* MineMainCell.m in Sources */,
+				86EFF2C1201E12BC007F3B97 /* MineViewController.m in Sources */,
 				861F303A1F1516B000E88EFD /* TabBarModel.m in Sources */,
 				8636FD871EEA9910001A64C0 /* WaveButton.m in Sources */,
 				8636FD7F1EEA9128001A64C0 /* UILabel+CCTUtility.m in Sources */,

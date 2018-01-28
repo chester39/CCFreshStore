@@ -257,7 +257,7 @@ static const CGFloat kCornerRadius = 5;
         make.width.equalTo(self);
         make.height.equalTo(kRegisterButtonHeight);
         make.centerX.equalTo(self);
-        make.bottom.equalTo(self).offset(-kRegisterButtonBottomMargin);
+        make.bottom.equalTo(self).offset(-(kRegisterButtonBottomMargin + kTabBarHeight));
     }];
 }
 

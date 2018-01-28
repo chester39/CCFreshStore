@@ -6,12 +6,12 @@
 
 #import <Foundation/Foundation.h>
 
-/// 消息框类型
+/// 用户性别类型
 typedef NS_ENUM(NSUInteger, UserSexType) {
-    /// 用户性别男
+    /// 男性别
     UserSexTypeMale = 0,
-    /// 用户性别女
-    UserSexTypeFemale,
+    /// 女性别
+    UserSexTypeFemale
 };
 
 @interface UserModel : NSObject

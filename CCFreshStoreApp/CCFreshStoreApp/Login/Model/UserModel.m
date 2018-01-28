@@ -38,17 +38,4 @@
     return [[self alloc] initWithDict:dict];
 }
 
-/**
- *  释放内存方法
- */
-- (void)dealloc {
-    
-    self.account = nil;
-    self.password = nil;
-    self.phone = nil;
-    self.userID = nil;
-    self.avatar = nil;
-    self.birthday = nil;
-}
-
 @end

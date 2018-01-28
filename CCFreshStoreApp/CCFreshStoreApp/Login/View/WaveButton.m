@@ -41,6 +41,9 @@
     return self;
 }
 
+/**
+ *  释放内存方法
+ */
 - (void)dealloc {
     
     [self stopTimer];

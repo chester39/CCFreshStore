@@ -37,6 +37,8 @@
 #define kNavigationBarHeight 44
 // 顶端高度: 64/88
 #define kTopHeight (kStatusBarHeight + kNavigationBarHeight)
+// 底部栏高度: 49/83
+#define kTabBarHeight (kScreenHeight == 812.0 ? 83 : 49)
 // 底部高度: 0/34
 #define kBottomHeight (kScreenHeight == 812.0 ? 34 : 0)
 // 可用高度: 屏幕高度-顶端高度-底部高度

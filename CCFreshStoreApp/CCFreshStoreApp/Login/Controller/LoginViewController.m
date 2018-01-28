@@ -48,7 +48,7 @@
  */
 - (void)setupUI {
     
-    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.translucent = YES;
     if (!self.loginView) {
         self.loginView = [[LoginView alloc] initWithFrame:kScreenFrame];
         self.loginView.delegate = self;
@@ -60,7 +60,7 @@
         self.registerView.delegate = self;
         self.registerView.hidden = YES;
         [self.view addSubview:self.registerView];
-    }    
+    }
 }
 
 #pragma mark - LoginViewDelegate代理方法
