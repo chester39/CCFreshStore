@@ -29,18 +29,6 @@
 
 @implementation LoginViewController
 
-#pragma mark - 初始化方法
-
-/**
- *  释放内存方法
- */
-- (void)dealloc {
-    
-    self.loginView = nil;
-    self.registerView = nil;
-    self.registerUser = nil;
-}
-
 #pragma mark - 系统方法
 
 /**
@@ -60,7 +48,7 @@
  */
 - (void)setupUI {
     
-    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.translucent = NO;
     if (!self.loginView) {
         self.loginView = [[LoginView alloc] initWithFrame:kScreenFrame];
         self.loginView.delegate = self;

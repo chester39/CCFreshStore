@@ -43,8 +43,7 @@
 
 - (void)dealloc {
     
-    [self.timer invalidate];
-    self.timer = nil;
+    [self stopTimer];
 }
 
 #pragma mark - 界面方法
@@ -75,11 +74,32 @@
     CGPoint firstPoint = [firstTouch locationInView:self];
     self.circleCenterX = firstPoint.x;
     self.circleCenterY = firstPoint.y;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [self startTimer];
 }
 
 #pragma mark - 定时器方法
+
+/**
+ *  开始定时器方法
+ */
+- (void)startTimer {
+    
+    if (!self.timer) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    }
+}
+
+/**
+ *  停止定时器方法
+ */
+- (void)stopTimer {
+    
+    if (self.timer) {
+        [self.timer invalidate];
+    }
+    self.timer = nil;
+}
 
 /**
  *  定时器动作方法

@@ -102,15 +102,6 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)dealloc {
     
-    self.backgroundView = nil;
-    self.logoView = nil;
-    self.containerView = nil;
-    self.titleButton = nil;
-    self.userView = nil;
-    self.passwordView = nil;
-    self.phoneView = nil;
-    self.registerButton = nil;
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -318,7 +309,7 @@ static const CGFloat kCornerRadius = 5;
     if (self.delegate && [self.delegate respondsToSelector:@selector(registerViewDidClickRegisterButton:context:)]) {
         [self.delegate registerViewDidClickRegisterButton:self context:self.dict];
     }
-    [MBProgressHUD showMessage:@"注册成功" time:1];
+    [MBProgressHUD showMessage:@"注册成功" time:2];
 }
 
 #pragma mark - 通知方法
@@ -328,7 +319,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)messageBoxViewValueChanged:(NSNotification *)notification {
     
-    if ([notification.object isKindOfClass:[UITextField class]] == NO) {
+    if (!CCTClassCheck(notification.object, UITextField)) {
         return;
     }
     

@@ -2,6 +2,6 @@
 
 ## By Chester Chen
 
-## March 19th, 2017 - January 27th, 2018
+## March 19th, 2017 - January 28th, 2018
 
 A personal App for home grocery management.

@@ -22,6 +22,8 @@
 
 // 增加按钮相关常数
 static const CGFloat kAddButtonTopMargin = 10;
+// 网页控制器相关常数
+static NSString *const kWebControllerHomeURL = @"https://chesterhupu.kuaizhan.com/";
 
 @interface MainViewController ()
 
@@ -41,8 +43,6 @@ static const CGFloat kAddButtonTopMargin = 10;
  */
 - (void)dealloc {
     
-    self.addButton = nil;
-    self.tabBarArray = nil;
 }
 
 #pragma mark - 系统方法
@@ -54,7 +54,7 @@ static const CGFloat kAddButtonTopMargin = 10;
     
     [super viewDidLoad];
     
-    [self setupModel];
+    [self loadModel];
     [self setupChildController];
     [self setupUI];
 }
@@ -62,9 +62,9 @@ static const CGFloat kAddButtonTopMargin = 10;
 #pragma mark - 数据方法
 
 /**
- *  初始化模型方法
+ *  读取模型方法
  */
-- (void)setupModel {
+- (void)loadModel {
     
     if (!self.tabBarArray) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"TabBarSetting" ofType:@"json"];
@@ -142,7 +142,7 @@ static const CGFloat kAddButtonTopMargin = 10;
 - (void)addButtonDidClick {
     
     WebViewController *webVC = [[WebViewController alloc] init];
-    NSString *urlString = @"https://chesterhupu.kuaizhan.com/";
+    NSString *urlString = kWebControllerHomeURL;
     [webVC loadWithURLString:urlString];
     [self.navigationController pushViewController:webVC animated:YES];
 }

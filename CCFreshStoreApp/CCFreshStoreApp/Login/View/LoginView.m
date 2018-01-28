@@ -79,6 +79,7 @@ static const CGFloat kCornerRadius = 5;
 @property (nonatomic, strong) UIButton *forgetButton;
 /// 注册按钮
 @property (nonatomic, strong) UIButton *registerButton;
+
 /// 数据字典
 @property (nonatomic, strong) NSDictionary *dict;
 
@@ -107,16 +108,6 @@ static const CGFloat kCornerRadius = 5;
  *  释放内存方法
  */
 - (void)dealloc {
-    
-    self.backgroundView = nil;
-    self.logoView = nil;
-    self.containerView = nil;
-    self.titleButton = nil;
-    self.userView = nil;
-    self.passwordView = nil;
-    self.loginButton = nil;
-    self.forgetButton =nil;
-    self.registerButton = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -344,7 +335,7 @@ static const CGFloat kCornerRadius = 5;
     if (CCTDelegateCheckToSelector(self.delegate, @selector(loginViewDidClickLoginButton:context:))) {
         [self.delegate loginViewDidClickLoginButton:self context:self.dict];
     }
-    [MBProgressHUD showMessage:@"登录成功" time:1];
+    [MBProgressHUD showMessage:@"登录成功" time:2];
 }
 
 /**
@@ -376,7 +367,7 @@ static const CGFloat kCornerRadius = 5;
  */
 - (void)messageBoxViewValueChanged:(NSNotification *)notification {
     
-    if ([notification.object isKindOfClass:[UITextField class]] == NO) {
+    if (!CCTClassCheck(notification.object, UITextField)) {
         return;
     }
     

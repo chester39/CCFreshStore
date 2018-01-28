@@ -9,9 +9,6 @@
 // Tool
 #import "CCTConst.h"
 
-// Controller
-#import "MainViewController.h"
-
 @interface AppDelegate ()
 
 @end
@@ -26,7 +23,8 @@
     self.window = [[UIWindow alloc] initWithFrame:kScreenFrame];
     self.window.backgroundColor = kCommonLightColor;
     
-    MainViewController *defaultVC = [[MainViewController alloc] init];
+    Class mainClass = NSClassFromString(@"MainViewController");
+    UIViewController *defaultVC = [[mainClass alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:defaultVC];
     
     self.window.rootViewController = nc;

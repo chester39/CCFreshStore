@@ -159,6 +159,7 @@ static const CGFloat kDivideLineRightMarin = 3;
     if ([string isEqualToString:@"\n"]) {
         return NO;
     }
+    
     self.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return YES;
 }
