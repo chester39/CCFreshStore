@@ -38,6 +38,10 @@
  */
 - (BOOL)isDisplayInScreen;
 /**
+ *  找到1单位宽图片视图方法
+ */
+- (UIImageView *)findOneWidthBottomLineWithView:(UIView *)view;
+/**
  *  添加渐变色背景方法
  */
 - (void)gradientWithCGColors:(NSArray *)colorArray start:(CGPoint)start end:(CGPoint)end;

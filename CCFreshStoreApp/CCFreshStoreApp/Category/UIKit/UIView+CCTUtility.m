@@ -203,6 +203,25 @@
 }
 
 /**
+ *  找到1单位宽图片视图方法
+ */
+- (UIImageView *)findOneWidthBottomLineWithView:(UIView *)view {
+    
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self findOneWidthBottomLineWithView:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    
+    return nil;
+}
+
+/**
  *  添加渐变色背景方法
  */
 - (void)gradientWithCGColors:(NSArray *)colorArray start:(CGPoint)start end:(CGPoint)end {

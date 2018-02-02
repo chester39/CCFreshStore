@@ -13,4 +13,9 @@
 /// 我的主页模型
 @property (nonatomic, strong) MineMainModel *mineModel;
 
+/**
+ *  绑定数据方法
+ */
+- (void)bindMineModel:(MineMainModel *)mineModel;
+
 @end
