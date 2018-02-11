@@ -23,7 +23,7 @@
 /// 注册视图
 @property (nonatomic, strong) RegisterView *registerView;
 /// 注册用户模型
-@property (nonatomic, strong) UserModel *userModel;
+@property (nonatomic, strong) UserModel *registerUser;
 
 @end
 
@@ -97,12 +97,12 @@
  */
 - (void)registerViewDidClickRegisterButton:(RegisterView *)registerView context:(NSDictionary *)dict {
     
-    self.userModel = [UserModel userWithDict:dict];
+    self.registerUser = [UserModel userWithDict:dict];
     NSString *uuid = [[NSString alloc] uuidString];
     NSString *date = [[NSString alloc] nowDateString];
     NSString *test = [NSString stringWithFormat:@"%@%@", uuid, date];
     
-    self.userModel.userID = [test md5String];
+    self.registerUser.userID = [test md5String];
     
     self.registerView.hidden = YES;
     self.loginView.hidden = NO;

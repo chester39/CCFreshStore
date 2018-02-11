@@ -9,6 +9,9 @@
 // Tool
 #import "CCTConst.h"
 
+// Third Party
+#import "IQKeyboardManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -29,6 +32,8 @@
     
     self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
+    
+    [IQKeyboardManager sharedManager].enable = YES;
     
     return YES;
 }

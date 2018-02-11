@@ -133,13 +133,12 @@ static const CGFloat kSwitchViewHeight = 20;
 /**
  *  绑定数据方法
  */
-- (void)bindMineModel:(MineMainModel *)mineModel {
+- (void)setMineModel:(MineMainModel *)mineModel {
     
     if (CCTClassCheck(mineModel, MineMainModel)) {
         return;
     }
-    
-    self.mineModel = mineModel;
+        
     if (CCTNSStringCheck(mineModel.icon)) {
         self.iconView.image = [UIImage imageNamed:mineModel.icon];
         
