@@ -11,16 +11,24 @@
 /**
  *  图片和目标和选择器初始化方法
  */
-+ (UIBarButtonItem *_Nonnull)barButtonItemWithImage:(NSString *_Nonnull)imageName target:(nullable id)target action:(nullable SEL)action {
++ (UIBarButtonItem *_Nonnull)barButtonItemWithFrame:(CGRect)frame image:(NSString *_Nonnull)imageName target:(nullable id)target action:(nullable SEL)action {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:[imageName stringByAppendingString:@"_highlighted"]] forState:UIControlStateHighlighted];
+    UIImage *image = [UIImage imageNamed:imageName];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:image forState:UIControlStateNormal];
+    
+    UIImage *highlightImage = [UIImage imageNamed:[imageName stringByAppendingString:@"_highlighted"]];
+    highlightImage = [highlightImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:highlightImage forState:UIControlStateHighlighted];
 
-    [button sizeToFit];
+    button.frame = frame;
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIView *view = [[UIView alloc] initWithFrame:button.bounds];
+    [view addSubview:button];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:view];
     return item;
 }
 

@@ -12,7 +12,15 @@
 // Tool
 #import "CCTConst.h"
 
-static NSString *const estimatedProgress = @"estimatedProgress";
+// 进度条相关常数
+static const CGFloat kProgressViewHeight = 2;
+static NSString *const kEstimatedProgress = @"estimatedProgress";
+// 后退导航按钮相关常数
+static const CGFloat kBackItemWidth = 30;
+static const CGFloat kBackItemHeight = 30;
+// 关闭导航按钮相关常数
+static const CGFloat kCloseItemWidth = 25;
+static const CGFloat kCloseItemHeight = 25;
 
 @interface WebViewController () <WKNavigationDelegate>
 
@@ -20,9 +28,9 @@ static NSString *const estimatedProgress = @"estimatedProgress";
 @property (nonatomic, strong) WKWebView *webView;
 /// 进度条
 @property (nonatomic, strong) UIProgressView *progressView;
-/// 后退按钮
+/// 后退导航按钮
 @property (nonatomic, strong) UIBarButtonItem *backItem;
-/// 关闭按钮
+/// 关闭导航按钮
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
 /// 网页URL
 @property (nonatomic, copy) NSString *urlString;
@@ -38,7 +46,7 @@ static NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)dealloc {
     
-    [self.webView removeObserver:self forKeyPath:estimatedProgress];
+    [self.webView removeObserver:self forKeyPath:kEstimatedProgress];
 }
 
 #pragma mark - 系统方法
@@ -58,7 +66,7 @@ static NSString *const estimatedProgress = @"estimatedProgress";
  */
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if (object == self.webView && [keyPath isEqualToString:estimatedProgress]) {
+    if (object == self.webView && [keyPath isEqualToString:kEstimatedProgress]) {
         CGFloat new = [change[NSKeyValueChangeNewKey] floatValue];
         if (new == 1.0) {
             [self.progressView setProgress:1.0 animated:NO];
@@ -118,7 +126,7 @@ static NSString *const estimatedProgress = @"estimatedProgress";
         self.webView.scrollView.showsVerticalScrollIndicator = YES;
         self.webView.navigationDelegate = self;
         [self.webView sizeToFit];
-        [self.webView addObserver:self forKeyPath:estimatedProgress options:NSKeyValueObservingOptionNew context:nil];
+        [self.webView addObserver:self forKeyPath:kEstimatedProgress options:NSKeyValueObservingOptionNew context:nil];
         
         NSURL *url = [NSURL URLWithString:self.urlString];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -128,37 +136,23 @@ static NSString *const estimatedProgress = @"estimatedProgress";
     
     if (!self.progressView) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        self.progressView.frame = CGRectMake(0, kTopHeight, kScreenWidth, 2);
+        self.progressView.frame = CGRectMake(0, kTopHeight, kScreenWidth, kProgressViewHeight);
         self.progressView.trackTintColor = kClearColor;
         self.progressView.progressTintColor = kMainColor;
         [self.view addSubview:self.progressView];
     }
     
     if (!self.backItem) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        
-        UIImage *image = [UIImage imageNamed:@"main_back"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [button setImage:image forState:UIControlStateNormal];
-        [button setTitle:@"返回" forState:UIControlStateNormal];
-        [button setTitleColor:kMainColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:17];
-        
-        [button addTarget:self action:@selector(backItemDidClick) forControlEvents:UIControlEventTouchUpInside];
-        [button sizeToFit];
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, -3, 0, 0);
-        button.frame = CGRectMake(0, 0, 50, 40);
-        
-        self.backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        CGRect rect = CGRectMake(0, 0, kBackItemWidth, kBackItemHeight);
+        self.backItem = [UIBarButtonItem barButtonItemWithFrame:rect image:@"main_back" target:self action:@selector(backItemDidClick)];
         self.navigationItem.leftBarButtonItem = self.backItem;
     }
     
     if (!self.closeItem) {
-        self.closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(closeItemDidClick)];
+        CGRect rect = CGRectMake(0, 0, kCloseItemWidth, kCloseItemHeight);
+        self.closeItem = [UIBarButtonItem barButtonItemWithFrame:rect image:@"main_close" target:self action:@selector(closeItemDidClick)];
     }
 }
-
 
 /**
  *  读取URL方法
@@ -177,7 +171,6 @@ static NSString *const estimatedProgress = @"estimatedProgress";
     
     if (self.webView.canGoBack) {
         [self.webView goBack];
-        [self.closeItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} forState:UIControlStateNormal];
         self.navigationItem.leftBarButtonItems = @[self.backItem, self.closeItem];
 
     } else {
